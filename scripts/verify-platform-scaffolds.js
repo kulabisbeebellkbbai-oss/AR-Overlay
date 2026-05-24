@@ -6,8 +6,9 @@ const checks = [];
 
 checkAndroidScaffold();
 checkIosScaffold();
-checkCmakeScaffold("linux", "platforms/linux", "build/platforms/linux", "ar-overlay-linux-smoke");
-checkCmakeScaffold("windows", "platforms/windows", "build/platforms/windows-host-check", "ar-overlay-windows-smoke");
+checkCmakeScaffold("linux", "linux", "platforms/linux", "build/platforms/linux", "ar-overlay-linux-smoke");
+checkCmakeScaffold("windows smoke", "windows", "platforms/windows", "build/platforms/windows-host-check", "ar-overlay-windows-smoke");
+checkCmakeScaffold("windows preview", "windows", "platforms/windows", "build/platforms/windows-host-check", "ar-overlay-windows-preview");
 
 for (const check of checks) {
   console.log(`${check.name}: ${check.ok ? "ok" : "failed"}${check.detail ? ` - ${check.detail}` : ""}`);
@@ -43,7 +44,7 @@ function checkIosScaffold() {
   });
 }
 
-function checkCmakeScaffold(name, sourceDir, buildDir, binaryName) {
+function checkCmakeScaffold(name, expectedOutput, sourceDir, buildDir, binaryName) {
   const configure = run("cmake", ["-S", sourceDir, "-B", buildDir]);
   if (configure.status !== 0) {
     checks.push({ name: `${name} cmake configure`, ok: false, detail: configure.stderr || configure.stdout });
@@ -60,7 +61,7 @@ function checkCmakeScaffold(name, sourceDir, buildDir, binaryName) {
   const smoke = run(binaryPath, []);
   checks.push({
     name: `${name} native smoke`,
-    ok: smoke.status === 0 && smoke.stdout.includes(`"platform"`) && smoke.stdout.includes(name),
+    ok: smoke.status === 0 && smoke.stdout.includes(`"platform"`) && smoke.stdout.includes(expectedOutput),
     detail: smoke.status === 0 ? "native no-hardware binary executed" : smoke.stderr
   });
 }

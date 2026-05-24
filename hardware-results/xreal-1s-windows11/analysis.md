@@ -32,6 +32,14 @@ The next useful artifact should create a borderless preview window or equivalent
 targeted presentation surface, render the shared fixture, and capture manual
 confirmation of placement on the glasses.
 
+Implemented next artifact:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview.ps1
+```
+
+This builds and runs `ar-overlay-windows-preview.exe`.
+
 Expected result:
 
 - XReal display is selected as the presentation target.

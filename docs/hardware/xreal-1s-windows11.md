@@ -102,6 +102,16 @@ Detailed analysis is tracked in
 Next hardware step: build a real Windows preview/presentation path that targets
 the XReal display and confirms the shared fixture appears on the glasses.
 
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview.ps1
+```
+
+This builds `ar-overlay-windows-preview.exe`, opens a borderless preview window
+on the XReal/non-primary display for 20 seconds, and writes preview evidence to
+`hardware-results\xreal-1s-windows11\`.
+
 ## Remaining Physical-Hardware Work
 
 - Measure real presentation timing.
