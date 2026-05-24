@@ -65,9 +65,17 @@ Ready without hardware:
 - Local host-check build and smoke execution through
   `npm run verify:platform-scaffolds`.
 
-Blocked next by runtime/hardware:
+Hardware bring-up target:
 
-- Windows 11 native runtime validation requires a Windows host or configured VM
-  image.
-- Win32/WinUI graphics, drivers, camera/sensors, glasses bridge, and physical
-  input require a Windows runtime and/or physical hardware.
+- First connected test hardware is XReal 1S on Windows 11.
+- User-reported state: XReal 1S glasses are connected to the Windows computer
+  and working properly.
+- Bring-up procedure is documented in `docs/hardware/xreal-1s-windows11.md`.
+
+Blocked next by hands-on Windows hardware testing:
+
+- Run `scripts/windows-xreal-smoke.ps1` on the Windows 11 host.
+- Validate overlay placement on the glasses display.
+- Measure real presentation timing and record any display mode/scaling issues.
+- Validate physical input, sensors, vendor tooling, or driver behavior if
+  exposed by the XReal 1S path.

@@ -1,0 +1,75 @@
+# XReal 1S Windows 11 Bring-Up
+
+Checked into the project on 2026-05-24.
+
+## Hardware State
+
+- First AR/XR hardware target: XReal 1S glasses.
+- Host OS: Windows 11.
+- Current user-reported state: glasses are connected to the Windows computer and
+  working properly.
+
+This moves the Windows branch from no-hardware readiness into hardware bring-up.
+
+## Test Goals
+
+1. Confirm Windows enumerates the glasses as an active display.
+2. Confirm the AR Overlay Windows smoke scaffold can run on the Windows host.
+3. Confirm a native preview can present the shared no-hardware scene on the
+   glasses display.
+4. Capture capability, display, transcript, and visual evidence.
+5. Record any XReal-specific constraints as Windows adapter facts, not shared
+   cross-platform behavior.
+
+## Windows Host Procedure
+
+Run these steps on the Windows 11 computer with the XReal 1S connected.
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/windows-xreal-smoke.ps1
+```
+
+The script writes results under `build\hardware\xreal-1s-windows11\`.
+
+Expected evidence:
+
+- `display-info.json`
+- `pnp-display-devices.json`
+- `dxdiag.txt`
+- `ar-overlay-windows-smoke.txt`, if the native smoke binary exists
+- `summary.md`
+
+## Build Step On Windows
+
+If the native smoke binary does not exist yet, configure and build it on the
+Windows host:
+
+```powershell
+cmake -S platforms/windows -B build/platforms/windows
+cmake --build build/platforms/windows --config Debug
+```
+
+Then rerun:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts/windows-xreal-smoke.ps1
+```
+
+## Pass Criteria
+
+- Windows reports at least one active display corresponding to the connected
+  glasses path.
+- The smoke script completes and writes `summary.md`.
+- The Windows native smoke binary runs and emits `platform: windows` capability
+  output.
+- Any unsupported XReal-specific behavior is documented as a capability or
+  adapter limitation.
+
+## Remaining Physical-Hardware Work
+
+- Measure real presentation timing.
+- Confirm overlay placement on the glasses display.
+- Validate physical input path, if any.
+- Identify whether the first real integration path should use a borderless
+  window, Win32 display targeting, DirectX, vendor tooling, or another Windows
+  presentation path.
