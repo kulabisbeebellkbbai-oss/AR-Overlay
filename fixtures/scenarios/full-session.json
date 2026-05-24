@@ -1,0 +1,102 @@
+{
+  "version": "0.1",
+  "id": "full-session",
+  "steps": [
+    {
+      "id": "create-session",
+      "timestamp": "2026-05-24T12:00:00.000Z",
+      "payload": {
+        "command": "createSession"
+      }
+    },
+    {
+      "id": "load-scene",
+      "timestamp": "2026-05-24T12:00:01.000Z",
+      "payload": {
+        "command": "loadScene",
+        "scene": {
+          "version": "0.1",
+          "id": "emulator-scene",
+          "viewport": {
+            "width": 960,
+            "height": 540
+          },
+          "elements": [
+            {
+              "id": "background",
+              "type": "rect",
+              "x": 160,
+              "y": 110,
+              "width": 640,
+              "height": 280,
+              "z": 0,
+              "fill": "#101820",
+              "opacity": 0.82
+            },
+            {
+              "id": "headline",
+              "type": "text",
+              "x": 220,
+              "y": 178,
+              "width": 520,
+              "height": 80,
+              "z": 10,
+              "text": "Overlay Emulator",
+              "fill": "#ffffff",
+              "fontSize": 44,
+              "align": "center"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "update-element",
+      "timestamp": "2026-05-24T12:00:02.000Z",
+      "payload": {
+        "command": "updateElement",
+        "element": {
+          "id": "status",
+          "type": "text",
+          "x": 220,
+          "y": 276,
+          "width": 520,
+          "height": 52,
+          "z": 20,
+          "text": "No hardware required",
+          "fill": "#ffcc00",
+          "fontSize": 26,
+          "align": "center"
+        }
+      }
+    },
+    {
+      "id": "select",
+      "timestamp": "2026-05-24T12:00:03.000Z",
+      "payload": {
+        "command": "input",
+        "action": {
+          "type": "select",
+          "targetId": "status"
+        }
+      }
+    },
+    {
+      "id": "dismiss",
+      "timestamp": "2026-05-24T12:00:04.000Z",
+      "payload": {
+        "command": "input",
+        "action": {
+          "type": "dismiss"
+        }
+      }
+    },
+    {
+      "id": "close-session",
+      "timestamp": "2026-05-24T12:00:05.000Z",
+      "payload": {
+        "command": "closeSession"
+      }
+    }
+  ]
+}

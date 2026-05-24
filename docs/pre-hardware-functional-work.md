@@ -15,6 +15,7 @@ display bridges are required.
 - Implemented shared scene validation and normalization.
 - Implemented overlay session state transitions.
 - Implemented transport-independent command processing.
+- Implemented an HTTP API transport for no-hardware command testing.
 - Implemented no-hardware platform adapters for Linux, Android, iOS, and
   Windows.
 - Implemented simulated adapter lifecycle methods for display session creation,
@@ -23,13 +24,17 @@ display bridges are required.
 - Implemented deterministic SVG frame rendering.
 - Added frame hash manifest generation and checked-in expected frame hashes.
 - Added tests for schemas, input replay, command processing, state transitions,
-  simulator output, and adapter capabilities.
+  HTTP transport, platform emulators, simulator output, and adapter
+  capabilities.
+- Added platform emulator transcripts and diagnostics for Linux, Android, iOS,
+  and Windows.
+- Added native host runtime blocker reporting for Android, iOS, and Windows.
 - Added a GitHub Actions no-hardware verification workflow.
 
 ## Additional Non-Blocking Pre-Hardware Enhancements
 
 - Add a real transport layer around the existing command processor, such as
-  local stdio, HTTP, WebSocket, or platform-native IPC.
+  WebSocket or platform-native IPC.
 - Add more complex layout primitives, including groups, anchors, clipping,
   opacity inheritance, and text wrapping rules.
 - Add a shared logical font map and fallback tests.
