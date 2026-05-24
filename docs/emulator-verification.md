@@ -12,6 +12,9 @@ generation without physical AR/XR hardware.
   blockers.
 - `npm run verify:platform-scaffolds` - validate native/no-hardware platform
   scaffolds without launching Android runtime resources.
+- `npm run android:emulator-smoke` - build the Android APK and, only when an
+  ADB device is already visible, install and launch it for emulator smoke
+  evidence.
 - `npm run verify` - run validation, tests, frame comparison, frame rendering,
   all platform emulators, and host emulator checks.
 - `npm run serve:api` - start the local HTTP API transport for manual command
@@ -34,9 +37,9 @@ git:
 Current host checks show:
 
 - Linux: repo-native emulator runs locally.
-- Android: Android SDK tooling and Waydroid exist. Waydroid is running and
-  boot-complete. Android SDK AVD acceleration is blocked until `/dev/kvm` is
-  available.
+- Android: Android SDK tooling, ADB, Android Emulator, the `codex_api36` AVD,
+  and `/dev/kvm` are available. Runtime launch validation still requires an ADB
+  device to be visible to this shell.
 - iOS: Apple iOS Simulator is not available on this Debian host.
 - Windows: Wine and QEMU are installed, but no Windows 11 VM image is configured
   in this repo. The Windows branch uses the repo-native emulator until a VM or

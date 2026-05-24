@@ -7,18 +7,23 @@ native OS runtime validation only.
 
 ## Android
 
-Status: partially available.
+Status: available for guarded emulator build/install validation when an ADB
+device is visible.
 
 - Android SDK tooling is installed.
-- Waydroid is running and boot-complete.
-- Android SDK AVD acceleration is blocked because `/dev/kvm` is missing.
-- Android app build/install/runtime validation is currently held to avoid
-  interfering with another Android app test running on this machine.
+- Android Emulator, ADB, Gradle, API 36.1 platform/image, and the `codex_api36`
+  AVD are installed.
+- `/dev/kvm` is present, so Android SDK emulator acceleration is available.
+- Waydroid is also installed and has a running session on this host.
+- Android build/install/runtime validation is guarded by
+  `npm run android:emulator-smoke`, which does not start, stop, or reset
+  emulator state.
 
-Required external action:
+Current blocker:
 
-- Enable Intel VT-x/virtualization in firmware/BIOS, reboot, and recheck
-  `/dev/kvm` before treating Android SDK AVD runs as reliable.
+- A visible ADB device is required for install/launch validation. If `adb
+  devices -l` is empty, build validation can still complete but runtime launch
+  evidence cannot be collected from this shell.
 
 ## iOS
 

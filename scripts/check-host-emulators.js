@@ -93,9 +93,28 @@ function windowsCheck() {
 }
 
 function commandExists(command) {
-  return spawnSync("bash", ["-lc", `command -v ${command}`], { encoding: "utf8" }).status === 0;
+  return spawnSync("bash", ["-c", `command -v ${command}`], { encoding: "utf8", env: toolEnv() }).status === 0;
 }
 
 function commandOutput(command, args) {
-  return spawnSync(command, args, { encoding: "utf8" }).stdout ?? "";
+  return spawnSync(command, args, { encoding: "utf8", env: toolEnv() }).stdout ?? "";
+}
+
+function toolEnv() {
+  const home = process.env.HOME;
+  const androidHome = process.env.ANDROID_HOME ?? `${home}/Android/Sdk`;
+  const gradleHome = process.env.GRADLE_HOME ?? `${home}/.local/opt/gradle-9.5.1`;
+  const pathEntries = [
+    `${androidHome}/cmdline-tools/latest/bin`,
+    `${androidHome}/platform-tools`,
+    `${androidHome}/emulator`,
+    `${gradleHome}/bin`,
+    process.env.PATH
+  ].filter(Boolean);
+  return {
+    ...process.env,
+    ANDROID_HOME: androidHome,
+    ANDROID_SDK_ROOT: process.env.ANDROID_SDK_ROOT ?? androidHome,
+    PATH: pathEntries.join(":")
+  };
 }

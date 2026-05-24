@@ -1,4 +1,9 @@
 build/
+android/build/
 node_modules/
 npm-debug.log*
 .DS_Store
+.gradle/
+hardware-results/android-emulator/*.log
+hardware-results/android-emulator/*.txt
+hardware-results/android-emulator/summary.md

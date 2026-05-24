@@ -31,14 +31,15 @@ display bridges are required.
 - Added native host runtime blocker reporting for Android, iOS, and Windows.
 - Added native/no-hardware platform scaffolds for Linux, Android, iOS, and
   Windows.
-- Added scaffold verification that avoids Android runtime operations while
-  another Android project is testing on this machine.
+- Added scaffold verification and a guarded Android emulator smoke path that
+  builds the APK and only installs/launches when an ADB device is already
+  visible.
 
 ## Completion State
 
 The project is now at the no-hardware boundary for all four hardware branches.
-Remaining work requires native runtime access that is unavailable or reserved on
-this host, or physical AR/XR hardware.
+Remaining work requires native runtime access that is unavailable on this host,
+a visible emulator/device runtime target, or physical AR/XR hardware.
 - Added a GitHub Actions no-hardware verification workflow.
 
 ## Additional Non-Blocking Pre-Hardware Enhancements
