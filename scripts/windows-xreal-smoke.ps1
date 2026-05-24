@@ -1,5 +1,6 @@
 param(
-    [string]$OutDir = "build\hardware\xreal-1s-windows11"
+    [string]$OutDir = "build\hardware\xreal-1s-windows11",
+    [string]$SyncDir = "hardware-results\xreal-1s-windows11"
 )
 
 $ErrorActionPreference = "Stop"
@@ -55,4 +56,7 @@ Manual confirmation required:
 "@
 
 $summary | Set-Content -Path $summaryPath -Encoding UTF8
+New-Item -ItemType Directory -Force -Path $SyncDir | Out-Null
+Copy-Item -Force -Path $displayInfoPath, $pnpPath, $dxdiagPath, $smokePath, $summaryPath -Destination $SyncDir
 Write-Host "Wrote $summaryPath"
+Write-Host "Copied evidence to $SyncDir"
