@@ -1,0 +1,32 @@
+{
+  "version": "0.1",
+  "id": "z-order",
+  "viewport": {
+    "width": 640,
+    "height": 360
+  },
+  "elements": [
+    {
+      "id": "foreground",
+      "type": "rect",
+      "x": 220,
+      "y": 100,
+      "width": 200,
+      "height": 120,
+      "z": 20,
+      "fill": "#00a3ff",
+      "opacity": 0.85
+    },
+    {
+      "id": "background",
+      "type": "rect",
+      "x": 160,
+      "y": 70,
+      "width": 320,
+      "height": 190,
+      "z": 0,
+      "fill": "#222222",
+      "opacity": 0.75
+    }
+  ]
+}
