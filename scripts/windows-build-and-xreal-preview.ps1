@@ -28,7 +28,13 @@ if (-not $preview) {
 }
 
 $previewOut = Join-Path $OutDir "ar-overlay-windows-preview.txt"
-& $preview --target=$Target --duration=$DurationSeconds | Tee-Object -FilePath $previewOut
+$previewErr = Join-Path $OutDir "ar-overlay-windows-preview.err.txt"
+& $preview --target=$Target --duration=$DurationSeconds --require-target > $previewOut 2> $previewErr
+$previewExit = $LASTEXITCODE
+Get-Content $previewOut
+if ($previewExit -ne 0) {
+    Get-Content $previewErr
+}
 
 $manual = @"
 # XReal 1S Preview Manual Result
@@ -37,6 +43,8 @@ $manual = @"
 - Target selector: $Target
 - Duration seconds: $DurationSeconds
 - Preview output: $previewOut
+- Preview error output: $previewErr
+- Preview exit code: $previewExit
 
 Manual observations to fill in:
 
@@ -49,5 +57,9 @@ Manual observations to fill in:
 $manualPath = Join-Path $OutDir "preview-manual-result.md"
 $manual | Set-Content -Path $manualPath -Encoding UTF8
 
-Copy-Item -Force -Path $previewOut, $manualPath -Destination $SyncDir
+Copy-Item -Force -Path $previewOut, $previewErr, $manualPath -Destination $SyncDir
 Write-Host "Copied preview evidence to $SyncDir"
+
+if ($previewExit -ne 0) {
+    throw "Preview did not find the requested target display. Confirm Windows is in Extend mode and rerun."
+}

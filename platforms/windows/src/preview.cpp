@@ -21,6 +21,10 @@ struct MonitorInfo {
 static std::vector<MonitorInfo> monitors;
 static std::wstring targetName = L"XREAL";
 static int durationSeconds = 20;
+static bool listOnly = false;
+static bool requireTarget = false;
+
+std::string narrow(const std::wstring& value);
 
 BOOL CALLBACK collectMonitor(HMONITOR monitor, HDC, LPRECT, LPARAM) {
     MONITORINFOEX info{};
@@ -49,7 +53,12 @@ std::wstring lower(std::wstring value) {
     return value;
 }
 
-MonitorInfo chooseTargetMonitor() {
+struct TargetChoice {
+    MonitorInfo monitor;
+    bool matched;
+};
+
+TargetChoice chooseTargetMonitor() {
     EnumDisplayMonitors(nullptr, nullptr, collectMonitor, 0);
     if (monitors.empty()) {
         throw std::runtime_error("No monitors found");
@@ -59,15 +68,34 @@ MonitorInfo chooseTargetMonitor() {
     for (const auto& monitor : monitors) {
         if (lower(monitor.label).find(wanted) != std::wstring::npos ||
             lower(monitor.device).find(wanted) != std::wstring::npos) {
-            return monitor;
+            return {monitor, true};
         }
     }
 
     for (const auto& monitor : monitors) {
-        if (!monitor.primary) return monitor;
+        if (!monitor.primary) return {monitor, false};
     }
 
-    return monitors.front();
+    return {monitors.front(), false};
+}
+
+void printMonitorList() {
+    std::cout << "{\"monitors\":[";
+    for (std::size_t index = 0; index < monitors.size(); ++index) {
+        const auto& monitor = monitors[index];
+        if (index > 0) std::cout << ",";
+        std::cout
+            << "{"
+            << "\"device\":\"" << narrow(monitor.device) << "\","
+            << "\"label\":\"" << narrow(monitor.label) << "\","
+            << "\"primary\":" << (monitor.primary ? "true" : "false") << ","
+            << "\"x\":" << monitor.rect.left << ","
+            << "\"y\":" << monitor.rect.top << ","
+            << "\"width\":" << (monitor.rect.right - monitor.rect.left) << ","
+            << "\"height\":" << (monitor.rect.bottom - monitor.rect.top)
+            << "}";
+    }
+    std::cout << "]}" << std::endl;
 }
 
 void paintOverlay(HWND window) {
@@ -135,10 +163,20 @@ int wmain(int argc, wchar_t** argv) {
         std::wstring arg = argv[index];
         if (arg.rfind(L"--target=", 0) == 0) targetName = arg.substr(9);
         if (arg.rfind(L"--duration=", 0) == 0) durationSeconds = std::stoi(arg.substr(11));
+        if (arg == L"--list") listOnly = true;
+        if (arg == L"--require-target") requireTarget = true;
     }
 
     SetProcessDpiAwareness(PROCESS_PER_MONITOR_DPI_AWARE);
-    MonitorInfo target = chooseTargetMonitor();
+    TargetChoice choice = chooseTargetMonitor();
+    printMonitorList();
+    if (listOnly) return 0;
+    if (requireTarget && !choice.matched) {
+        std::cerr << "target monitor not found: " << narrow(targetName) << "\n";
+        return 2;
+    }
+
+    MonitorInfo target = choice.monitor;
     int width = target.rect.right - target.rect.left;
     int height = target.rect.bottom - target.rect.top;
 
@@ -176,6 +214,7 @@ int wmain(int argc, wchar_t** argv) {
         << "\"platform\":\"windows\","
         << "\"mode\":\"xreal-preview\","
         << "\"target\":\"" << narrow(targetName) << "\","
+        << "\"targetMatched\":" << (choice.matched ? "true" : "false") << ","
         << "\"monitorDevice\":\"" << narrow(target.device) << "\","
         << "\"monitorLabel\":\"" << narrow(target.label) << "\","
         << "\"primary\":" << (target.primary ? "true" : "false") << ","

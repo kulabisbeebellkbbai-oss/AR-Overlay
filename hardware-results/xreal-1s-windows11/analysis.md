@@ -19,6 +19,9 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 
 - The evidence does not yet prove an overlay window or rendered preview appeared
   on the XReal display.
+- The first preview run selected `\\.\DISPLAY1`, `Generic PnP Monitor`,
+  primary `true`, at `2560 x 1600`, so it did not prove direct targeting of the
+  XReal `1920 x 1200` display path.
 - Real presentation timing has not been measured.
 - Display targeting, scaling, and placement behavior still need hands-on
   validation on the Windows host.
@@ -39,6 +42,9 @@ powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview
 ```
 
 This builds and runs `ar-overlay-windows-preview.exe`.
+The preview runner now requires a monitor matching `XREAL`; if Windows is in
+duplicate/mirror mode or does not expose the glasses as a separate enumerated
+monitor, the script fails and captures the enumerated monitor list.
 
 Expected result:
 
