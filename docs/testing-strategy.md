@@ -18,6 +18,9 @@ Current no-hardware command:
 
 - `npm run verify`
 
+The verify command includes deterministic frame-hash comparison through
+`npm run compare:frames`.
+
 ## Branch Gate
 
 Before merging platform work:

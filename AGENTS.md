@@ -11,6 +11,7 @@ The first functional slice uses dependency-free Node.js ES modules.
 - `npm run validate:fixtures` - validate shared scene fixtures.
 - `npm test` - run schema, state-machine, simulator, and adapter tests.
 - `npm run render:fixtures` - render deterministic no-hardware SVG frames into `build/frames/`.
+- `npm run compare:frames` - compare generated frame hashes with checked-in expected hashes.
 - `npm run verify` - run fixture validation, tests, and frame rendering.
 
 - `git status --short --branch` - confirm the active branch and clean working tree.
