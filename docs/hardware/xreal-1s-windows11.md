@@ -83,6 +83,25 @@ powershell -ExecutionPolicy Bypass -File scripts/windows-xreal-smoke.ps1
 - Any unsupported XReal-specific behavior is documented as a capability or
   adapter limitation.
 
+## First Evidence Result
+
+Evidence synced to the `windows` branch confirms Windows enumerates the XReal
+display path:
+
+- DxDiag monitor model: `XREAL 1S`
+- Native mode: `1920 x 1200` at `89.999Hz`
+- Audio endpoint: `Speakers (2- XREAL 1S)`
+
+The AR Overlay smoke binary was not present during the first run. Build and rerun
+the smoke with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-smoke.ps1
+```
+
+Detailed analysis is tracked in
+`hardware-results/xreal-1s-windows11/analysis.md`.
+
 ## Remaining Physical-Hardware Work
 
 - Measure real presentation timing.
