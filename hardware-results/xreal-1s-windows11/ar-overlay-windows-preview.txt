@@ -1,1 +1,2 @@
 {"monitors":[{"device":"\\.\DISPLAY1","label":"Generic PnP Monitor","primary":true,"x":0,"y":0,"width":2560,"height":1600},{"device":"\\.\DISPLAY5","label":"","primary":false,"x":2560,"y":0,"width":1920,"height":1200}]}
+{"platform":"windows","mode":"xreal-preview","target":"XREAL","targetDevice":"\\.\DISPLAY2","targetMatched":true,"fallbackAllowed":true,"monitorDevice":"\\.\DISPLAY5","monitorLabel":"","primary":false,"x":2560,"y":0,"width":1920,"height":1200,"durationSeconds":20}

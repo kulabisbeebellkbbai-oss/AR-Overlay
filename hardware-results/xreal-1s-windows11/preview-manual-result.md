@@ -1,12 +1,12 @@
 ﻿# XReal 1S Preview Manual Result
 
-- Date: 2026-05-24T16:09:45.0915677-04:00
+- Date: 2026-05-24T16:13:18.1571643-04:00
 - Target selector: XREAL
 - Windows display number: 2
 - Duration seconds: 20
 - Preview output: build\hardware\xreal-1s-windows11\ar-overlay-windows-preview.txt
 - Preview error output: build\hardware\xreal-1s-windows11\ar-overlay-windows-preview.err.txt
-- Preview exit code: 2
+- Preview exit code: 0
 
 Manual observations to fill in:
 
