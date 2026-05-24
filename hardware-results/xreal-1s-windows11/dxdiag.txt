@@ -1,7 +1,7 @@
 ------------------
 System Information
 ------------------
-      Time of this report: 5/24/2026, 13:34:50
+      Time of this report: 5/24/2026, 15:19:11
              Machine name: MSI
                Machine Id: {52FD4723-A5B7-44D4-9509-6E539F1A5FFF}
          Operating System: Windows 11 Home 64-bit (10.0, Build 26200) (26100.ge_release.240331-1435)
@@ -12,7 +12,7 @@ System Information
                 Processor: Intel(R) Core(TM) Ultra 9 275HX (24 CPUs), ~2.7GHz
                    Memory: 32768MB RAM
       Available OS Memory: 32176MB RAM
-                Page File: 37151MB used, 10896MB available
+                Page File: 38214MB used, 9832MB available
               Windows Dir: C:\Windows
           DirectX Version: DirectX 12
       DX Setup Parameters: Not found
@@ -387,7 +387,7 @@ Static/Strm HW Mix Bufs: 1, 0
    I3DL2(tm) Listen/Src: No, No
 Sensaura(tm) ZoomFX(tm): No
 
-            Description: Speakers (2- XREAL 1S)
+            Description: Speakers (XREAL 1S)
  Default Sound Playback: Yes
  Default Voice Playback: Yes
             Hardware ID: USB\VID_3318&PID_043E&REV_0409&MI_05
@@ -415,7 +415,7 @@ Sensaura(tm) ZoomFX(tm): No
 ---------------------
 Sound Capture Devices
 ---------------------
-            Description: Capture Input terminal (2- XREAL 1S)
+            Description: Capture Input terminal (XREAL 1S)
   Default Sound Capture: Yes
   Default Voice Capture: Yes
             Driver Name: USBAUDIO.sys
@@ -806,7 +806,7 @@ PS/2 Devices
 Disk & DVD/CD-ROM Drives
 ------------------------
       Drive: C:
- Free Space: 394.6 GB
+ Free Space: 394.7 GB
 Total Space: 948.7 GB
 File System: NTFS
       Model: NVMe SAMSUNG MZVL81T0HELB-00BTW
@@ -1661,7 +1661,7 @@ CCITT u-Law,0x00200000,1,1,quartz.dll,10.00.26100.8328
 MPEG Layer-3,0x00200000,1,1,quartz.dll,10.00.26100.8328
 
 Audio Capture Sources:
-Capture Input terminal (2- XREAL 1S),0x00200000,0,0,qcap.dll,10.00.26100.5074
+Capture Input terminal (XREAL 1S),0x00200000,0,0,qcap.dll,10.00.26100.5074
 Microphone Array (3- Intel® Smart Sound Technology for Digital Microphones),0x00200000,0,0,qcap.dll,10.00.26100.5074
 
 PBDA CP Filters:
@@ -1712,11 +1712,11 @@ WDM Streaming Communication Transforms:
 Tee/Sink-to-Sink Converter,0x00200000,1,1,ksproxy.ax,10.00.26100.8115
 
 Audio Renderers:
-Speakers (2- XREAL 1S),0x00200000,1,0,quartz.dll,10.00.26100.8328
+Speakers (XREAL 1S),0x00200000,1,0,quartz.dll,10.00.26100.8328
 Default DirectSound Device,0x00800000,1,0,quartz.dll,10.00.26100.8328
 Default WaveOut Device,0x00200000,1,0,quartz.dll,10.00.26100.8328
+DirectSound: Speakers (XREAL 1S),0x00200000,1,0,quartz.dll,10.00.26100.8328
 DirectSound: Speakers (2- Realtek(R) Audio),0x00200000,1,0,quartz.dll,10.00.26100.8328
-DirectSound: Speakers (2- XREAL 1S),0x00200000,1,0,quartz.dll,10.00.26100.8328
 Speakers (2- Realtek(R) Audio),0x00200000,1,0,quartz.dll,10.00.26100.8328
 
 
