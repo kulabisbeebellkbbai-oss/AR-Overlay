@@ -11,8 +11,9 @@
     "compare:frames": "node scripts/compare-frames.js",
     "emulate": "node scripts/run-emulators.js --all",
     "check:host-emulators": "node scripts/check-host-emulators.js",
+    "verify:platform-scaffolds": "node scripts/verify-platform-scaffolds.js",
     "serve:api": "node scripts/serve-api.js",
-    "verify": "npm run validate:fixtures && npm test && npm run compare:frames && npm run render:fixtures && npm run emulate && npm run check:host-emulators"
+    "verify": "npm run validate:fixtures && npm test && npm run compare:frames && npm run render:fixtures && npm run emulate && npm run check:host-emulators && npm run verify:platform-scaffolds"
   },
   "engines": {
     "node": ">=20"
