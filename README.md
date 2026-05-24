@@ -51,7 +51,13 @@ The first functional slice uses dependency-free Node.js ES modules.
   `build/frames/`.
 - `npm run compare:frames` - compare generated frame hashes with checked-in
   expected hashes.
-- `npm run verify` - run fixture validation, tests, and frame rendering.
+- `npm run emulate` - run Linux, Android, iOS, and Windows no-hardware platform
+  emulators and write transcripts into `build/emulators/`.
+- `npm run check:host-emulators` - report native host emulator availability and
+  blockers.
+- `npm run serve:api` - start the local HTTP API transport.
+- `npm run verify` - run fixture validation, tests, frame comparison, frame
+  rendering, platform emulators, and host emulator checks.
 
 ## Functional Baseline
 
@@ -60,7 +66,10 @@ The current implementation supports:
 - shared API message helpers and validation
 - shared scene validation and normalization
 - overlay session state transitions
+- transport-independent command processing
+- HTTP API transport for no-hardware clients
 - no-hardware platform capability adapters
 - deterministic SVG rendering for visual fixtures
 - expected frame-hash comparison for deterministic visual parity
+- Linux, Android, iOS, and Windows platform emulator transcripts
 - input and scene fixtures for branch parity testing
