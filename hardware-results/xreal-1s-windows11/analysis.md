@@ -14,14 +14,15 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 - The smoke binary exercises the no-hardware lifecycle:
   `createDisplaySession`, `presentScene:windows-no-hardware`,
   `translateInput:select`, `translateInput:dismiss`, and `shutdown`.
+- The Windows preview runner now resolves the target to `\\.\DISPLAY5`, the
+  non-primary `1920 x 1200` monitor at desktop position `x=2560, y=0`.
+- Preview run exit code is `0`, with no stderr output.
 
 ## Not Yet Completed
 
-- The evidence does not yet prove an overlay window or rendered preview appeared
-  on the XReal display.
-- The first preview run selected `\\.\DISPLAY1`, `Generic PnP Monitor`,
-  primary `true`, at `2560 x 1600`, so it did not prove direct targeting of the
-  XReal `1920 x 1200` display path.
+- Manual evidence still has TODO values for whether the preview was visible on
+  the XReal display and whether placement/scaling was correct.
+- No photo/screenshot from the glasses view has been synced yet.
 - The Windows Settings screenshot identifies the glasses as `Display 2: XREAL
   1S`, connected to the NVIDIA GeForce RTX 5080 Laptop GPU, with desktop and
   active signal mode `1920 x 1200, 90 Hz`.
@@ -62,4 +63,5 @@ Expected result:
 ## Hardware Bring-Up Status
 
 Status: display enumeration confirmed, AR Overlay Windows scaffold runtime
-confirmed, real overlay presentation pending.
+confirmed, preview targeted to the XReal display geometry, manual visibility
+confirmation pending.

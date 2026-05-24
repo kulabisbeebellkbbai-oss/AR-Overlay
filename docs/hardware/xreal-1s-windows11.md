@@ -124,6 +124,10 @@ If Windows changes the display number, rerun with:
 powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview.ps1 -DisplayNumber <number>
 ```
 
+Current synced preview evidence shows successful targeting of `\\.\DISPLAY5`,
+the non-primary `1920 x 1200` display corresponding to the XReal path. Manual
+confirmation of visibility on the glasses is still required.
+
 ## Remaining Physical-Hardware Work
 
 - Measure real presentation timing.
