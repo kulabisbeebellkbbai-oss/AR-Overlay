@@ -1,0 +1,17 @@
+{
+  "version": "0.1",
+  "id": "basic-actions",
+  "actions": [
+    {
+      "type": "select",
+      "targetId": "title"
+    },
+    {
+      "type": "scroll",
+      "deltaY": 1
+    },
+    {
+      "type": "dismiss"
+    }
+  ]
+}

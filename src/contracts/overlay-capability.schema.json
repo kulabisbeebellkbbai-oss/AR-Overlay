@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kulabisbeebellkbbai-oss/AR-Overlay/schemas/overlay-capability.schema.json",
+  "title": "AR Overlay Capability Payload",
+  "type": "object",
+  "required": ["platform", "display", "input", "permissions", "unsupported"],
+  "additionalProperties": false,
+  "properties": {
+    "platform": {
+      "type": "string",
+      "minLength": 1
+    },
+    "display": {
+      "type": "object"
+    },
+    "input": {
+      "type": "array"
+    },
+    "permissions": {
+      "type": "object"
+    },
+    "sensors": {
+      "type": "array"
+    },
+    "hardwareId": {
+      "type": ["string", "null"]
+    },
+    "unsupported": {
+      "type": "array"
+    }
+  }
+}

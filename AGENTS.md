@@ -6,9 +6,12 @@ Keep source code in `src/`, tests in `tests/`, assets in `assets/`, and contribu
 
 ## Build, Test, and Development Commands
 
-Document project-specific commands here when a build system is added. Include install, run, test, and lint commands with one-line explanations.
+The first functional slice uses dependency-free Node.js ES modules.
 
-Current documentation-only setup checks:
+- `npm run validate:fixtures` - validate shared scene fixtures.
+- `npm test` - run schema, state-machine, simulator, and adapter tests.
+- `npm run render:fixtures` - render deterministic no-hardware SVG frames into `build/frames/`.
+- `npm run verify` - run fixture validation, tests, and frame rendering.
 
 - `git status --short --branch` - confirm the active branch and clean working tree.
 - `find . -path './.git' -prune -o -path './.agents' -prune -o -path './.codex' -prune -o -type f -print` - list public project files.

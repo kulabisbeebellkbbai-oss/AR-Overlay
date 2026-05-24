@@ -43,5 +43,21 @@ excluded from git in this checkout.
 
 ## Development
 
-No build system is selected yet. Add install, run, test, and lint commands to
-`AGENTS.md` and this README when the first implementation stack is chosen.
+The first functional slice uses dependency-free Node.js ES modules.
+
+- `npm run validate:fixtures` - validate shared scene fixtures.
+- `npm test` - run schema, state-machine, simulator, and adapter tests.
+- `npm run render:fixtures` - render deterministic no-hardware SVG frames into
+  `build/frames/`.
+- `npm run verify` - run fixture validation, tests, and frame rendering.
+
+## Functional Baseline
+
+The current implementation supports:
+
+- shared API message helpers and validation
+- shared scene validation and normalization
+- overlay session state transitions
+- no-hardware platform capability adapters
+- deterministic SVG rendering for visual fixtures
+- input and scene fixtures for branch parity testing
