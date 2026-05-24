@@ -28,14 +28,14 @@ Status: started.
 
 ## Phase 1: Shared Functional Core
 
-Status: queued.
+Status: started.
 
-- Choose the first implementation language and build tooling.
-- Implement a platform-neutral overlay scene model.
-- Add serialization/deserialization for shared API messages.
-- Add a no-hardware renderer or simulator that can validate layout, ordering,
-  color, sizing, and state transitions.
-- Add contract tests that every platform branch must run.
+- Chosen initial stack: dependency-free Node.js ES modules.
+- Implemented a platform-neutral overlay scene model.
+- Added shared API message helpers and validation.
+- Added a no-hardware SVG renderer that validates layout, ordering, color,
+  sizing, and state transitions through fixtures.
+- Added contract tests that every platform branch must run.
 
 ## Phase 2: Platform Adapters
 
@@ -69,9 +69,8 @@ Status: queued.
 
 ## Near-Term Manager Queue
 
-1. Select the shared implementation stack.
-2. Add the first shared scene model and API message types.
-3. Add a no-hardware visual simulator.
-4. Add branch CI or local scripts for contract verification.
-5. Start Linux adapter implementation first because this Debian host can verify
+1. Add branch CI or local scripts for contract verification.
+2. Expand the command processor around real transport options.
+3. Add richer visual comparison evidence from generated frames.
+4. Start Linux adapter implementation first because this Debian host can verify
    it locally.

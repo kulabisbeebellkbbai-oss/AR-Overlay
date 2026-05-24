@@ -1,0 +1,25 @@
+{
+  "version": "0.1",
+  "id": "motion-placeholder",
+  "viewport": {
+    "width": 640,
+    "height": 360
+  },
+  "elements": [
+    {
+      "id": "motion-card",
+      "type": "rect",
+      "x": 220,
+      "y": 130,
+      "width": 200,
+      "height": 100,
+      "z": 1,
+      "fill": "#15c47e",
+      "opacity": 0.9,
+      "motion": {
+        "durationMs": 250,
+        "easing": "standard"
+      }
+    }
+  ]
+}

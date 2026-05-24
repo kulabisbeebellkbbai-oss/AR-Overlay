@@ -1,0 +1,28 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kulabisbeebellkbbai-oss/AR-Overlay/schemas/overlay-error.schema.json",
+  "title": "AR Overlay Error Payload",
+  "type": "object",
+  "required": ["code", "message"],
+  "additionalProperties": false,
+  "properties": {
+    "code": {
+      "type": "string",
+      "enum": [
+        "invalid_message",
+        "invalid_scene",
+        "unsupported_capability",
+        "permission_required",
+        "session_not_ready",
+        "element_not_found",
+        "adapter_failure"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "detail": {
+      "type": "object"
+    }
+  }
+}

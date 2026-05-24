@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kulabisbeebellkbbai-oss/AR-Overlay/schemas/overlay-event.schema.json",
+  "title": "AR Overlay Event Payload",
+  "type": "object",
+  "required": ["event"],
+  "additionalProperties": true,
+  "properties": {
+    "event": {
+      "type": "string",
+      "enum": ["sessionCreated", "sceneLoaded", "elementUpdated", "elementRemoved", "inputAccepted", "sessionClosed"]
+    }
+  }
+}
