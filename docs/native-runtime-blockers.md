@@ -33,12 +33,15 @@ Required external action:
 
 ## Windows
 
-Status: partially available.
+Status: ready for first hardware bring-up on a Windows 11 host.
 
-- QEMU and Wine are available on this host.
-- No Windows 11 VM image or packaged Windows build is configured in this repo.
+- XReal 1S is the first connected AR glasses target.
+- The glasses are connected to the Windows 11 computer and working properly,
+  according to user report.
+- QEMU and Wine remain available on the Debian host for limited local checks,
+  but the meaningful next validation is on the real Windows 11 hardware host.
 
-Required external action:
+Required next action:
 
-- Add a Windows 11 VM image and install/run instructions, or validate on a
-  Windows 11 host once the native Windows package exists.
+- Run the Windows hardware smoke procedure in
+  `docs/hardware/xreal-1s-windows11.md`.
