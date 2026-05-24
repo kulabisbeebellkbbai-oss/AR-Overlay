@@ -21,6 +21,7 @@ struct MonitorInfo {
 static std::vector<MonitorInfo> monitors;
 static std::wstring targetName = L"XREAL";
 static std::wstring targetDevice;
+static bool allowFallback = false;
 static int durationSeconds = 20;
 static bool listOnly = false;
 static bool requireTarget = false;
@@ -101,7 +102,15 @@ TargetChoice chooseTargetMonitor() {
     }
 
     for (const auto& monitor : monitors) {
-        if (!monitor.primary) return {monitor, false};
+        if (!monitor.primary) {
+            const int width = monitor.rect.right - monitor.rect.left;
+            const int height = monitor.rect.bottom - monitor.rect.top;
+            if (width == 1920 && height == 1200) return {monitor, allowFallback};
+        }
+    }
+
+    for (const auto& monitor : monitors) {
+        if (!monitor.primary) return {monitor, allowFallback};
     }
 
     return {monitors.front(), false};
@@ -193,6 +202,7 @@ int wmain(int argc, wchar_t** argv) {
         if (arg.rfind(L"--device=", 0) == 0) targetDevice = arg.substr(9);
         if (arg.rfind(L"--display-number=", 0) == 0) targetDevice = L"\\\\.\\DISPLAY" + arg.substr(17);
         if (arg.rfind(L"--duration=", 0) == 0) durationSeconds = std::stoi(arg.substr(11));
+        if (arg == L"--allow-fallback") allowFallback = true;
         if (arg == L"--list") listOnly = true;
         if (arg == L"--require-target") requireTarget = true;
     }
@@ -246,6 +256,7 @@ int wmain(int argc, wchar_t** argv) {
         << "\"target\":\"" << narrow(targetName) << "\","
         << "\"targetDevice\":\"" << narrow(targetDevice) << "\","
         << "\"targetMatched\":" << (choice.matched ? "true" : "false") << ","
+        << "\"fallbackAllowed\":" << (allowFallback ? "true" : "false") << ","
         << "\"monitorDevice\":\"" << narrow(target.device) << "\","
         << "\"monitorLabel\":\"" << narrow(target.label) << "\","
         << "\"primary\":" << (target.primary ? "true" : "false") << ","

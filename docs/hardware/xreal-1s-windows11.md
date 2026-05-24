@@ -114,6 +114,9 @@ on the XReal/non-primary display for 20 seconds, and writes preview evidence to
 
 The script defaults to Windows display number 2, matching the Windows Settings
 screenshot that identifies `Display 2: XREAL 1S`.
+On this host, Win32 monitor enumeration exposes that same display as
+`\\.\DISPLAY5`, so the preview runner allows fallback to the non-primary
+`1920 x 1200` monitor when the Windows Settings number does not map directly.
 
 If Windows changes the display number, rerun with:
 

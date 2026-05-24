@@ -37,7 +37,8 @@ $previewArgs = @(
     "--target=$Target",
     "--display-number=$DisplayNumber",
     "--duration=$DurationSeconds",
-    "--require-target"
+    "--require-target",
+    "--allow-fallback"
 )
 
 $process = Start-Process -FilePath $preview -ArgumentList $previewArgs -Wait -PassThru -NoNewWindow -RedirectStandardOutput $previewOut -RedirectStandardError $previewErr

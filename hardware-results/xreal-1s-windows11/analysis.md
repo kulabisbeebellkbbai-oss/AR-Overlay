@@ -25,6 +25,9 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 - The Windows Settings screenshot identifies the glasses as `Display 2: XREAL
   1S`, connected to the NVIDIA GeForce RTX 5080 Laptop GPU, with desktop and
   active signal mode `1920 x 1200, 90 Hz`.
+- The preview runner later enumerated `\\.\DISPLAY5` as the non-primary
+  `1920 x 1200` monitor. That is the Win32 display device corresponding to the
+  Windows Settings `Display 2: XREAL 1S` path on this host.
 - Real presentation timing has not been measured.
 - Display targeting, scaling, and placement behavior still need hands-on
   validation on the Windows host.
@@ -45,9 +48,10 @@ powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview
 ```
 
 This builds and runs `ar-overlay-windows-preview.exe`.
-The preview runner now targets Windows display number 2 by default, mapping to
-`\\.\DISPLAY2`, and still records the enumerated monitor list. This is based on
-the Windows Settings screenshot showing `Display 2: XREAL 1S`.
+The preview runner now targets Windows display number 2 by default, and if that
+Windows Settings number does not map directly to a Win32 `\\.\DISPLAY<n>` device,
+it allows fallback to the non-primary `1920 x 1200` monitor. On this host the
+fallback target is `\\.\DISPLAY5`.
 
 Expected result:
 
