@@ -49,6 +49,8 @@ The first functional slice uses dependency-free Node.js ES modules.
 - `npm test` - run schema, state-machine, simulator, and adapter tests.
 - `npm run render:fixtures` - render deterministic no-hardware SVG frames into
   `build/frames/`.
+- `npm run compare:frames` - compare generated frame hashes with checked-in
+  expected hashes.
 - `npm run verify` - run fixture validation, tests, and frame rendering.
 
 ## Functional Baseline
@@ -60,4 +62,5 @@ The current implementation supports:
 - overlay session state transitions
 - no-hardware platform capability adapters
 - deterministic SVG rendering for visual fixtures
+- expected frame-hash comparison for deterministic visual parity
 - input and scene fixtures for branch parity testing
