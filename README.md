@@ -55,6 +55,8 @@ The first functional slice uses dependency-free Node.js ES modules.
   emulators and write transcripts into `build/emulators/`.
 - `npm run check:host-emulators` - report native host emulator availability and
   blockers.
+- `npm run verify:platform-scaffolds` - validate platform scaffolds without
+  touching Android runtime state.
 - `npm run serve:api` - start the local HTTP API transport.
 - `npm run verify` - run fixture validation, tests, frame comparison, frame
   rendering, platform emulators, and host emulator checks.
@@ -72,4 +74,5 @@ The current implementation supports:
 - deterministic SVG rendering for visual fixtures
 - expected frame-hash comparison for deterministic visual parity
 - Linux, Android, iOS, and Windows platform emulator transcripts
+- native/no-hardware platform scaffolds for all four hardware branches
 - input and scene fixtures for branch parity testing

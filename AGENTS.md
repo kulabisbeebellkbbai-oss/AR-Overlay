@@ -14,8 +14,9 @@ The first functional slice uses dependency-free Node.js ES modules.
 - `npm run compare:frames` - compare generated frame hashes with checked-in expected hashes.
 - `npm run emulate` - run Linux, Android, iOS, and Windows no-hardware platform emulators and write transcripts into `build/emulators/`.
 - `npm run check:host-emulators` - report native host emulator availability and blockers.
+- `npm run verify:platform-scaffolds` - validate platform scaffolds without touching Android runtime state.
 - `npm run serve:api` - start the local HTTP API transport.
-- `npm run verify` - run fixture validation, tests, frame comparison, frame rendering, platform emulators, and host emulator checks.
+- `npm run verify` - run fixture validation, tests, frame comparison, frame rendering, platform emulators, host emulator checks, and platform scaffold checks.
 
 - `git status --short --branch` - confirm the active branch and clean working tree.
 - `find . -path './.git' -prune -o -path './.agents' -prune -o -path './.codex' -prune -o -type f -print` - list public project files.
