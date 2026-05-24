@@ -29,6 +29,16 @@ display bridges are required.
 - Added platform emulator transcripts and diagnostics for Linux, Android, iOS,
   and Windows.
 - Added native host runtime blocker reporting for Android, iOS, and Windows.
+- Added native/no-hardware platform scaffolds for Linux, Android, iOS, and
+  Windows.
+- Added scaffold verification that avoids Android runtime operations while
+  another Android project is testing on this machine.
+
+## Completion State
+
+The project is now at the no-hardware boundary for all four hardware branches.
+Remaining work requires native runtime access that is unavailable or reserved on
+this host, or physical AR/XR hardware.
 - Added a GitHub Actions no-hardware verification workflow.
 
 ## Additional Non-Blocking Pre-Hardware Enhancements
