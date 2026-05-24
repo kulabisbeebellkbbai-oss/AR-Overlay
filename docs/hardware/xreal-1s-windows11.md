@@ -112,8 +112,14 @@ This builds `ar-overlay-windows-preview.exe`, opens a borderless preview window
 on the XReal/non-primary display for 20 seconds, and writes preview evidence to
 `hardware-results\xreal-1s-windows11\`.
 
-If the script reports that the XReal target display was not found, set Windows
-display mode to Extend instead of Duplicate/Mirror and rerun the command.
+The script defaults to Windows display number 2, matching the Windows Settings
+screenshot that identifies `Display 2: XREAL 1S`.
+
+If Windows changes the display number, rerun with:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview.ps1 -DisplayNumber <number>
+```
 
 ## Remaining Physical-Hardware Work
 

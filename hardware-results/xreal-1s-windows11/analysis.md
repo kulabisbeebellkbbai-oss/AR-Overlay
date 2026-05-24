@@ -22,6 +22,9 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 - The first preview run selected `\\.\DISPLAY1`, `Generic PnP Monitor`,
   primary `true`, at `2560 x 1600`, so it did not prove direct targeting of the
   XReal `1920 x 1200` display path.
+- The Windows Settings screenshot identifies the glasses as `Display 2: XREAL
+  1S`, connected to the NVIDIA GeForce RTX 5080 Laptop GPU, with desktop and
+  active signal mode `1920 x 1200, 90 Hz`.
 - Real presentation timing has not been measured.
 - Display targeting, scaling, and placement behavior still need hands-on
   validation on the Windows host.
@@ -42,9 +45,9 @@ powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview
 ```
 
 This builds and runs `ar-overlay-windows-preview.exe`.
-The preview runner now requires a monitor matching `XREAL`; if Windows is in
-duplicate/mirror mode or does not expose the glasses as a separate enumerated
-monitor, the script fails and captures the enumerated monitor list.
+The preview runner now targets Windows display number 2 by default, mapping to
+`\\.\DISPLAY2`, and still records the enumerated monitor list. This is based on
+the Windows Settings screenshot showing `Display 2: XREAL 1S`.
 
 Expected result:
 

@@ -20,6 +20,7 @@ struct MonitorInfo {
 
 static std::vector<MonitorInfo> monitors;
 static std::wstring targetName = L"XREAL";
+static std::wstring targetDevice;
 static int durationSeconds = 20;
 static bool listOnly = false;
 static bool requireTarget = false;
@@ -65,6 +66,15 @@ TargetChoice chooseTargetMonitor() {
     }
 
     const auto wanted = lower(targetName);
+    if (!targetDevice.empty()) {
+        const auto wantedDevice = lower(targetDevice);
+        for (const auto& monitor : monitors) {
+            if (lower(monitor.device) == wantedDevice) {
+                return {monitor, true};
+            }
+        }
+    }
+
     for (const auto& monitor : monitors) {
         if (lower(monitor.label).find(wanted) != std::wstring::npos ||
             lower(monitor.device).find(wanted) != std::wstring::npos) {
@@ -162,6 +172,8 @@ int wmain(int argc, wchar_t** argv) {
     for (int index = 1; index < argc; ++index) {
         std::wstring arg = argv[index];
         if (arg.rfind(L"--target=", 0) == 0) targetName = arg.substr(9);
+        if (arg.rfind(L"--device=", 0) == 0) targetDevice = arg.substr(9);
+        if (arg.rfind(L"--display-number=", 0) == 0) targetDevice = L"\\\\.\\DISPLAY" + arg.substr(17);
         if (arg.rfind(L"--duration=", 0) == 0) durationSeconds = std::stoi(arg.substr(11));
         if (arg == L"--list") listOnly = true;
         if (arg == L"--require-target") requireTarget = true;
@@ -214,6 +226,7 @@ int wmain(int argc, wchar_t** argv) {
         << "\"platform\":\"windows\","
         << "\"mode\":\"xreal-preview\","
         << "\"target\":\"" << narrow(targetName) << "\","
+        << "\"targetDevice\":\"" << narrow(targetDevice) << "\","
         << "\"targetMatched\":" << (choice.matched ? "true" : "false") << ","
         << "\"monitorDevice\":\"" << narrow(target.device) << "\","
         << "\"monitorLabel\":\"" << narrow(target.label) << "\","

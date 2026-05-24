@@ -1,6 +1,7 @@
 param(
     [int]$DurationSeconds = 20,
     [string]$Target = "XREAL",
+    [int]$DisplayNumber = 2,
     [string]$OutDir = "build\hardware\xreal-1s-windows11",
     [string]$SyncDir = "hardware-results\xreal-1s-windows11"
 )
@@ -29,7 +30,7 @@ if (-not $preview) {
 
 $previewOut = Join-Path $OutDir "ar-overlay-windows-preview.txt"
 $previewErr = Join-Path $OutDir "ar-overlay-windows-preview.err.txt"
-& $preview --target=$Target --duration=$DurationSeconds --require-target > $previewOut 2> $previewErr
+& $preview --target=$Target --display-number=$DisplayNumber --duration=$DurationSeconds --require-target > $previewOut 2> $previewErr
 $previewExit = $LASTEXITCODE
 Get-Content $previewOut
 if ($previewExit -ne 0) {
@@ -41,6 +42,7 @@ $manual = @"
 
 - Date: $(Get-Date -Format o)
 - Target selector: $Target
+- Windows display number: $DisplayNumber
 - Duration seconds: $DurationSeconds
 - Preview output: $previewOut
 - Preview error output: $previewErr
@@ -58,6 +60,7 @@ $manualPath = Join-Path $OutDir "preview-manual-result.md"
 $manual | Set-Content -Path $manualPath -Encoding UTF8
 
 Copy-Item -Force -Path $previewOut, $previewErr, $manualPath -Destination $SyncDir
+Get-ChildItem -Path $SyncDir -Filter "Screenshot*.png" -ErrorAction SilentlyContinue | Out-Null
 Write-Host "Copied preview evidence to $SyncDir"
 
 if ($previewExit -ne 0) {
