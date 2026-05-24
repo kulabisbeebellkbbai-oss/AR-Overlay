@@ -7,35 +7,38 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 - Windows reports two active monitor paths.
 - DxDiag identifies the external monitor model as `XREAL 1S`.
 - The XReal display native mode is reported as `1920 x 1200` at `89.999Hz`.
-- XReal audio is present as `Speakers (2- XREAL 1S)`.
+- XReal audio is present as `Speakers (XREAL 1S)`.
 - XReal capture/input terminal entries are present.
+- The AR Overlay Windows smoke binary runs on the Windows host.
+- The smoke binary emits Windows capability JSON.
+- The smoke binary exercises the no-hardware lifecycle:
+  `createDisplaySession`, `presentScene:windows-no-hardware`,
+  `translateInput:select`, `translateInput:dismiss`, and `shutdown`.
 
-## Not Completed
+## Not Yet Completed
 
-- `ar-overlay-windows-smoke.txt` reports that the AR Overlay native smoke binary
-  was not found.
-- That means the Windows host evidence confirms the glasses/display path, but
-  does not yet confirm the AR Overlay Windows scaffold running on the Windows
-  machine.
+- The evidence does not yet prove an overlay window or rendered preview appeared
+  on the XReal display.
+- Real presentation timing has not been measured.
+- Display targeting, scaling, and placement behavior still need hands-on
+  validation on the Windows host.
 
 ## Next Required Windows Step
 
-Run the Windows build-and-smoke helper from the repo root on the Windows 11
-machine:
+Build the first real Windows preview/presentation path and run it on the Windows
+11 machine with the XReal 1S as the target display.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-smoke.ps1
-```
+The next useful artifact should create a borderless preview window or equivalent
+targeted presentation surface, render the shared fixture, and capture manual
+confirmation of placement on the glasses.
 
 Expected result:
 
-- CMake configures `platforms/windows`.
-- The Windows smoke binary is built.
-- `scripts/windows-xreal-smoke.ps1` reruns and captures smoke output.
-- `hardware-results\xreal-1s-windows11\ar-overlay-windows-smoke.txt` contains
-  Windows capability JSON instead of the missing-binary message.
+- XReal display is selected as the presentation target.
+- The shared scene is visible on the XReal display.
+- Scaling, refresh mode, and placement observations are captured.
 
 ## Hardware Bring-Up Status
 
 Status: display enumeration confirmed, AR Overlay Windows scaffold runtime
-pending.
+confirmed, real overlay presentation pending.

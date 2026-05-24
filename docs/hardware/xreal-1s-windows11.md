@@ -92,15 +92,15 @@ display path:
 - Native mode: `1920 x 1200` at `89.999Hz`
 - Audio endpoint: `Speakers (2- XREAL 1S)`
 
-The AR Overlay smoke binary was not present during the first run. Build and rerun
-the smoke with:
-
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-smoke.ps1
-```
+The AR Overlay smoke binary was missing during the first run, then successfully
+ran during the second synced evidence pass. It emitted Windows capability JSON
+and no-hardware lifecycle output.
 
 Detailed analysis is tracked in
 `hardware-results/xreal-1s-windows11/analysis.md`.
+
+Next hardware step: build a real Windows preview/presentation path that targets
+the XReal display and confirms the shared fixture appears on the glasses.
 
 ## Remaining Physical-Hardware Work
 
