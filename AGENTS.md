@@ -2,11 +2,16 @@
 
 ## Project Structure & Module Organization
 
-Keep source code in `src/`, tests in `tests/`, assets in `assets/`, and contributor notes in `docs/` as the project grows. Keep `.agents/` and `.codex/` for local agent metadata.
+Keep source code in `src/`, tests in `tests/`, assets in `assets/`, and contributor notes in `docs/` as the project grows. Keep `.agents/` and `.codex/` for local agent metadata. Shared contracts belong on `main`; platform-specific adapter work belongs on `linux`, `android`, `ios`, or `windows`.
 
 ## Build, Test, and Development Commands
 
 Document project-specific commands here when a build system is added. Include install, run, test, and lint commands with one-line explanations.
+
+Current documentation-only setup checks:
+
+- `git status --short --branch` - confirm the active branch and clean working tree.
+- `find . -path './.git' -prune -o -path './.agents' -prune -o -path './.codex' -prune -o -type f -print` - list public project files.
 
 ## Coding Style & Naming Conventions
 
@@ -14,7 +19,7 @@ Follow the conventions of the language and framework used in this project. Prefe
 
 ## Testing Guidelines
 
-Add tests with new behavior and mirror the source layout where practical. Name tests after the behavior they verify.
+Add tests with new behavior and mirror the source layout where practical. Name tests after the behavior they verify. Every platform branch must keep a no-hardware test path and must preserve the shared UI, API, visualization, input, and capability contract documented in `docs/shared-experience-contract.md`.
 
 ## Commit & Pull Request Guidelines
 

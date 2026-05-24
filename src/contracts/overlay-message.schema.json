@@ -1,0 +1,33 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kulabisbeebellkbbai-oss/AR-Overlay/schemas/overlay-message.schema.json",
+  "title": "AR Overlay Message",
+  "type": "object",
+  "required": ["version", "kind", "id", "timestamp", "payload"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "type": "string",
+      "const": "0.1"
+    },
+    "kind": {
+      "type": "string",
+      "enum": ["command", "event", "response", "capability", "error"]
+    },
+    "id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "correlationId": {
+      "type": "string",
+      "minLength": 1
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "payload": {
+      "type": "object"
+    }
+  }
+}
