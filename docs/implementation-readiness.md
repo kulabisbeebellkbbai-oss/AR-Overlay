@@ -1,16 +1,17 @@
 # Implementation Readiness
 
-This repository is ready for functional code after the shared stack is selected.
-The following boundaries should be created first.
+This repository now has a dependency-free Node.js ES module baseline for the
+first no-hardware functional slice.
 
 ## Shared Packages
 
-- `core`: overlay scene model, state machine, validation, and shared errors.
-- `api`: command envelope, transport-independent request/response contracts, and
-  event stream contracts.
-- `visual-fixtures`: canonical scenes for screenshot and frame comparison.
-- `input-fixtures`: canonical input event replay files.
-- `adapter-kit`: interfaces that platform branches implement.
+- `src/core`: overlay scene model, state machine, validation, and shared errors.
+- `src/api`: command envelope and transport-independent message helpers.
+- `fixtures/scenes`: canonical scenes for screenshot and frame comparison.
+- `fixtures/inputs`: canonical input event replay files.
+- `src/adapter-kit`: interfaces and no-hardware adapters that platform branches
+  implement.
+- `src/simulator`: deterministic no-hardware SVG renderer.
 
 ## Adapter Responsibilities
 
@@ -26,7 +27,7 @@ Each platform adapter must implement:
 
 ## First Functional Slice
 
-The first useful vertical slice should be:
+The first useful vertical slice is implemented:
 
 1. Load a shared scene fixture.
 2. Validate the fixture against the shared schema.
@@ -34,6 +35,8 @@ The first useful vertical slice should be:
 4. Emit a capability report.
 5. Accept a shared `dismiss` or `select` input action.
 6. Produce a deterministic screenshot or frame output.
+
+Run it with `npm run verify`.
 
 ## Done Criteria For Platform Parity
 

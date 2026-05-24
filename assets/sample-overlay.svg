@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" role="img" aria-label="Sample overlay target">
+  <rect x="20" y="20" width="160" height="160" rx="8" fill="#111111"/>
+  <path d="M100 34 L164 166 H36 Z" fill="#ffcc00"/>
+  <circle cx="100" cy="108" r="34" fill="#0057ff"/>
+</svg>

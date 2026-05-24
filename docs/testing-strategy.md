@@ -14,6 +14,10 @@
 Every branch must keep a no-hardware path. Hardware access can add confidence,
 but it must not be required to run the core contract tests.
 
+Current no-hardware command:
+
+- `npm run verify`
+
 ## Branch Gate
 
 Before merging platform work:

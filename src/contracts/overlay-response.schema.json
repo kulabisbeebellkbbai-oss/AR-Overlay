@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kulabisbeebellkbbai-oss/AR-Overlay/schemas/overlay-response.schema.json",
+  "title": "AR Overlay Response Payload",
+  "type": "object",
+  "required": ["ok"],
+  "additionalProperties": true,
+  "properties": {
+    "ok": {
+      "type": "boolean"
+    },
+    "state": {
+      "type": "string"
+    }
+  }
+}
