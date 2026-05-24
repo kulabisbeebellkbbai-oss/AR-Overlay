@@ -1,0 +1,22 @@
+[
+  {
+    "scene": "image-overlay.json",
+    "frame": "image-overlay.svg",
+    "sha256": "0e1a9366f2fe86d5f248607b8774079d8a8a01167b7506d48838f7d7f0ba802b"
+  },
+  {
+    "scene": "motion-placeholder.json",
+    "frame": "motion-placeholder.svg",
+    "sha256": "cc20ec87d8def7c0d5d66adb3579d4bece1f486f96482cc333f596ddf0526427"
+  },
+  {
+    "scene": "static-text.json",
+    "frame": "static-text.svg",
+    "sha256": "475999ca1634df6e7139b177b2f600df85c6befa3e53170050d968e52603d57f"
+  },
+  {
+    "scene": "z-order.json",
+    "frame": "z-order.svg",
+    "sha256": "fd832940dd819daa428f1f89745e77cb9df4571e919394b5c7e34a718e82dd39"
+  }
+]

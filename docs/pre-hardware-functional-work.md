@@ -21,17 +21,15 @@ display bridges are required.
   scene presentation, scene updates, input translation, permission recovery,
   diagnostics, and shutdown.
 - Implemented deterministic SVG frame rendering.
-- Added frame hash manifest generation.
+- Added frame hash manifest generation and checked-in expected frame hashes.
 - Added tests for schemas, input replay, command processing, state transitions,
   simulator output, and adapter capabilities.
 - Added a GitHub Actions no-hardware verification workflow.
 
-## Remaining Functional Work Before Hardware
+## Additional Non-Blocking Pre-Hardware Enhancements
 
 - Add a real transport layer around the existing command processor, such as
   local stdio, HTTP, WebSocket, or platform-native IPC.
-- Add a richer visual fixture comparison command that can compare generated
-  hashes against checked-in expected hashes.
 - Add more complex layout primitives, including groups, anchors, clipping,
   opacity inheritance, and text wrapping rules.
 - Add a shared logical font map and fallback tests.
