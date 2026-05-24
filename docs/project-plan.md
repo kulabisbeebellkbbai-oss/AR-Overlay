@@ -28,7 +28,7 @@ Status: started.
 
 ## Phase 1: Shared Functional Core
 
-Status: started.
+Status: complete for the current no-hardware baseline.
 
 - Chosen initial stack: dependency-free Node.js ES modules.
 - Implemented a platform-neutral overlay scene model.
@@ -36,10 +36,12 @@ Status: started.
 - Added a no-hardware SVG renderer that validates layout, ordering, color,
   sizing, and state transitions through fixtures.
 - Added contract tests that every platform branch must run.
+- Added HTTP command transport, platform emulator transcripts, diagnostics, and
+  host-emulator availability checks.
 
 ## Phase 2: Platform Adapters
 
-Status: queued.
+Status: started with no-hardware adapters.
 
 - Linux: build the first local host implementation and simulator path.
 - Android: build against Android 15/API 35 behavior while preserving compatible

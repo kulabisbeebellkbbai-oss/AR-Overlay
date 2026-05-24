@@ -9,7 +9,10 @@
     "validate:fixtures": "node scripts/validate-fixtures.js",
     "render:fixtures": "node scripts/render-fixtures.js",
     "compare:frames": "node scripts/compare-frames.js",
-    "verify": "npm run validate:fixtures && npm test && npm run compare:frames && npm run render:fixtures"
+    "emulate": "node scripts/run-emulators.js --all",
+    "check:host-emulators": "node scripts/check-host-emulators.js",
+    "serve:api": "node scripts/serve-api.js",
+    "verify": "npm run validate:fixtures && npm test && npm run compare:frames && npm run render:fixtures && npm run emulate && npm run check:host-emulators"
   },
   "engines": {
     "node": ">=20"

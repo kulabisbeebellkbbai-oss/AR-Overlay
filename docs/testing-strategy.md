@@ -19,7 +19,9 @@ Current no-hardware command:
 - `npm run verify`
 
 The verify command includes deterministic frame-hash comparison through
-`npm run compare:frames`.
+`npm run compare:frames` and platform emulator transcript generation through
+`npm run emulate`. It also records native host emulator availability with
+`npm run check:host-emulators`.
 
 ## Branch Gate
 
