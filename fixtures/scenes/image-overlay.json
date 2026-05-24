@@ -1,0 +1,33 @@
+{
+  "version": "0.1",
+  "id": "image-overlay",
+  "viewport": {
+    "width": 800,
+    "height": 450
+  },
+  "elements": [
+    {
+      "id": "sample-image",
+      "type": "image",
+      "x": 300,
+      "y": 125,
+      "width": 200,
+      "height": 200,
+      "z": 5,
+      "href": "../assets/sample-overlay.svg"
+    },
+    {
+      "id": "caption",
+      "type": "text",
+      "x": 0,
+      "y": 345,
+      "width": 800,
+      "height": 50,
+      "z": 10,
+      "text": "Image Overlay",
+      "fill": "#ffffff",
+      "fontSize": 28,
+      "align": "center"
+    }
+  ]
+}

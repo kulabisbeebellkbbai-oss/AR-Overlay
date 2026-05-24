@@ -1,0 +1,23 @@
+{
+  "version": "0.1",
+  "id": "static-text",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "elements": [
+    {
+      "id": "title",
+      "type": "text",
+      "x": 120,
+      "y": 96,
+      "width": 1040,
+      "height": 80,
+      "z": 10,
+      "text": "AR Overlay Ready",
+      "fill": "#ffffff",
+      "fontSize": 48,
+      "align": "center"
+    }
+  ]
+}

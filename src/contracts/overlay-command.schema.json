@@ -1,0 +1,14 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kulabisbeebellkbbai-oss/AR-Overlay/schemas/overlay-command.schema.json",
+  "title": "AR Overlay Command Payload",
+  "type": "object",
+  "required": ["command"],
+  "additionalProperties": true,
+  "properties": {
+    "command": {
+      "type": "string",
+      "enum": ["createSession", "loadScene", "updateElement", "removeElement", "input", "closeSession"]
+    }
+  }
+}
