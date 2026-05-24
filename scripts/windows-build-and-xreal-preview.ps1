@@ -30,8 +30,18 @@ if (-not $preview) {
 
 $previewOut = Join-Path $OutDir "ar-overlay-windows-preview.txt"
 $previewErr = Join-Path $OutDir "ar-overlay-windows-preview.err.txt"
-& $preview --target=$Target --display-number=$DisplayNumber --duration=$DurationSeconds --require-target > $previewOut 2> $previewErr
-$previewExit = $LASTEXITCODE
+if (Test-Path $previewOut) { Remove-Item -Force $previewOut }
+if (Test-Path $previewErr) { Remove-Item -Force $previewErr }
+
+$previewArgs = @(
+    "--target=$Target",
+    "--display-number=$DisplayNumber",
+    "--duration=$DurationSeconds",
+    "--require-target"
+)
+
+$process = Start-Process -FilePath $preview -ArgumentList $previewArgs -Wait -PassThru -NoNewWindow -RedirectStandardOutput $previewOut -RedirectStandardError $previewErr
+$previewExit = $process.ExitCode
 Get-Content $previewOut
 if ($previewExit -ne 0) {
     Get-Content $previewErr

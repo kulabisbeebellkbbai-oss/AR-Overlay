@@ -73,6 +73,24 @@ TargetChoice chooseTargetMonitor() {
                 return {monitor, true};
             }
         }
+
+        DEVMODE mode{};
+        mode.dmSize = sizeof(mode);
+        if (EnumDisplaySettingsExW(targetDevice.c_str(), ENUM_CURRENT_SETTINGS, &mode, 0)) {
+            DISPLAY_DEVICE device{};
+            device.cb = sizeof(device);
+            std::wstring label = targetName;
+            if (EnumDisplayDevicesW(targetDevice.c_str(), 0, &device, 0)) {
+                label = device.DeviceString;
+            }
+            RECT rect{
+                mode.dmPosition.x,
+                mode.dmPosition.y,
+                mode.dmPosition.x + static_cast<LONG>(mode.dmPelsWidth),
+                mode.dmPosition.y + static_cast<LONG>(mode.dmPelsHeight)
+            };
+            return {MonitorInfo{nullptr, rect, false, targetDevice, label}, true};
+        }
     }
 
     for (const auto& monitor : monitors) {
