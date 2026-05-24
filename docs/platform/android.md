@@ -23,14 +23,19 @@ preserving the shared UI, API, visualization, and input contract.
 
 ## Initial Work Items
 
-1. Create an Android capability probe for OS, display, sensors, input, and
-   permission state.
-2. Create a no-hardware activity or renderer path that consumes shared visual
-   fixtures.
-3. Add shared API message validation before platform command execution.
-4. Add input action translation from Android events to shared actions.
+1. Use `createPlatformAdapter("android")` for the current no-hardware
+   capability probe.
+2. Use `npm run render:fixtures` for the current no-hardware renderer path.
+3. Use the shared command processor for API message validation before platform
+   command execution.
+4. Use shared input fixtures as the target shape for Android event translation.
 5. Add smoke tests for Android 15 behavior changes that affect overlays,
    background work, and projection.
+
+## No-Hardware Verification
+
+Run `npm run verify` on this branch before hardware or Android device work
+begins.
 
 ## Compatibility Notes
 
