@@ -31,6 +31,10 @@ powershell -ExecutionPolicy Bypass -File scripts/windows-xreal-smoke.ps1
 
 The script writes results under `build\hardware\xreal-1s-windows11\`.
 
+Because `build/` is ignored by git, copy the generated files into
+`hardware-results\xreal-1s-windows11\` before syncing evidence back through the
+repo.
+
 Expected evidence:
 
 - `display-info.json`
@@ -38,6 +42,20 @@ Expected evidence:
 - `dxdiag.txt`
 - `ar-overlay-windows-smoke.txt`, if the native smoke binary exists
 - `summary.md`
+
+## Evidence Intake Path
+
+Use this tracked folder for synced evidence:
+
+```text
+hardware-results\xreal-1s-windows11\
+```
+
+Copy from:
+
+```text
+build\hardware\xreal-1s-windows11\
+```
 
 ## Build Step On Windows
 
