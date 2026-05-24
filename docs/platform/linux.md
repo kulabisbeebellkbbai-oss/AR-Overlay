@@ -25,13 +25,18 @@ When a concrete host path is required, use this workstation:
 
 ## Initial Work Items
 
-1. Create a Linux capability probe.
-2. Create a no-hardware renderer that consumes shared visual fixtures.
-3. Add display lifecycle commands: create session, present frame, update scene,
-   and close session.
-4. Add input action replay from shared fixtures.
+1. Use `createPlatformAdapter("linux")` for the current no-hardware capability
+   probe.
+2. Use `npm run render:fixtures` for the current no-hardware renderer.
+3. Use the shared command processor for display lifecycle commands: create
+   session, present frame, update scene, and close session.
+4. Use `fixtures/inputs/basic-actions.json` for input action replay.
 5. Add optional hardware notes once the first glasses or display bridge is
    selected.
+
+## No-Hardware Verification
+
+Run `npm run verify` on this branch before hardware work begins.
 
 ## Compatibility Notes
 
