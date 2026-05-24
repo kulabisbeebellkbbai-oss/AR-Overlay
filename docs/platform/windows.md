@@ -24,14 +24,19 @@ shared UI, API, visualization, and input contract.
 
 ## Initial Work Items
 
-1. Create a Windows capability probe for OS build, graphics backend, display,
-   input, permissions, and attached hardware bridge state.
-2. Create a no-hardware renderer that consumes shared visual fixtures.
-3. Add shared API message validation before Windows command execution.
-4. Add input action translation from keyboard, pointer, controller, or glasses
-   bridge events to shared actions.
-5. Add packaging and local run documentation after the implementation stack is
-   selected.
+1. Use `createPlatformAdapter("windows")` for the current no-hardware
+   capability probe.
+2. Use `npm run render:fixtures` for the current no-hardware renderer.
+3. Use the shared command processor for API message validation before Windows
+   command execution.
+4. Use shared input fixtures as the target shape for keyboard, pointer,
+   controller, or glasses bridge event translation.
+5. Add packaging and local run documentation after the native Windows adapter
+   stack is selected.
+
+## No-Hardware Verification
+
+Run `npm run verify` on this branch before hardware or Windows SDK work begins.
 
 ## Compatibility Notes
 
