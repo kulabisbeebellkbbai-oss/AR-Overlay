@@ -1,0 +1,1 @@
+﻿Smoke binary not found. Build with: cmake -S platforms/windows -B build/platforms/windows; cmake --build build/platforms/windows --config Debug

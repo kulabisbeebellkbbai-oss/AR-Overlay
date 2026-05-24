@@ -1,0 +1,14 @@
+﻿[
+    {
+        "Status":  "OK",
+        "Class":  "Display",
+        "FriendlyName":  "Intel(R) Graphics",
+        "InstanceId":  "PCI\\VEN_8086\u0026DEV_7D67\u0026SUBSYS_14741462\u0026REV_06\\3\u002611583659\u00261\u002610"
+    },
+    {
+        "Status":  "OK",
+        "Class":  "Display",
+        "FriendlyName":  "NVIDIA GeForce RTX 5080 Laptop GPU",
+        "InstanceId":  "PCI\\VEN_10DE\u0026DEV_2C19\u0026SUBSYS_14741462\u0026REV_A1\\C220F6A6712DB04800"
+    }
+]

@@ -1,0 +1,14 @@
+﻿[
+    {
+        "InstanceName":  "DISPLAY\\AUO7DB2\\4\u0026387fdc3b\u00260\u0026UID8388688_0",
+        "Active":  true,
+        "MaxHorizontalImageSize":  34,
+        "MaxVerticalImageSize":  22
+    },
+    {
+        "InstanceName":  "DISPLAY\\MRG4102\\5\u002623fdb3e6\u00260\u0026UID4356_0",
+        "Active":  true,
+        "MaxHorizontalImageSize":  16,
+        "MaxVerticalImageSize":  10
+    }
+]
