@@ -25,15 +25,20 @@ keeping the broadest practical backwards compatibility.
 
 ## Initial Work Items
 
-1. Create an iOS capability probe for OS, device, display, camera, ARKit, input,
-   permissions, and available glasses bridge APIs.
-2. Create a no-hardware simulator or preview path that consumes shared visual
-   fixtures.
-3. Add shared API message validation before native command execution.
-4. Add input action translation from touch, pointer, controller, or glasses
-   bridge events to shared actions.
+1. Use `createPlatformAdapter("ios")` for the current no-hardware capability
+   probe.
+2. Use `npm run render:fixtures` for the current no-hardware simulator path.
+3. Use the shared command processor for API message validation before native
+   command execution.
+4. Use shared input fixtures as the target shape for touch, pointer, controller,
+   or glasses bridge event translation.
 5. Add availability tests for iOS 15 through the current SDK target where tools
    allow.
+
+## No-Hardware Verification
+
+Run `npm run verify` on this branch before hardware, simulator, or Apple SDK
+work begins.
 
 ## Compatibility Notes
 
