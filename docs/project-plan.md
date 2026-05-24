@@ -41,7 +41,7 @@ Status: complete for the current no-hardware baseline.
 
 ## Phase 2: Platform Adapters
 
-Status: started with no-hardware adapters.
+Status: complete for no-hardware/native-scaffold readiness.
 
 - Linux: build the first local host implementation and simulator path.
 - Android: build against Android 15/API 35 behavior while preserving compatible
@@ -50,6 +50,9 @@ Status: started with no-hardware adapters.
   compatibility as far back as iOS 15 where functionality remains intact.
 - Windows: build for current Windows 11, with adapter boundaries ready for
   graphics/display APIs and device-specific SDKs.
+
+No-hardware native scaffolds now exist for all four branches. Remaining adapter
+work requires native OS runtime access and/or physical AR/XR hardware.
 
 ## Phase 3: Hardware Bring-Up
 
@@ -71,8 +74,7 @@ Status: queued.
 
 ## Near-Term Manager Queue
 
-1. Add branch CI or local scripts for contract verification.
-2. Expand the command processor around real transport options.
-3. Add richer visual comparison evidence from generated frames.
-4. Start Linux adapter implementation first because this Debian host can verify
-   it locally.
+1. Resolve native runtime blockers where possible: Android KVM, macOS/Xcode for
+   iOS, and Windows 11 host or VM for Windows.
+2. Select first physical AR/XR display bridge or glasses target.
+3. Begin hardware bring-up on the platform whose device is available first.

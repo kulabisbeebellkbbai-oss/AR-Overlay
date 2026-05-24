@@ -10,6 +10,8 @@ generation without physical AR/XR hardware.
 - `npm run emulate` - run all platform emulators.
 - `npm run check:host-emulators` - report native host emulator availability and
   blockers.
+- `npm run verify:platform-scaffolds` - validate native/no-hardware platform
+  scaffolds without launching Android runtime resources.
 - `npm run verify` - run validation, tests, frame comparison, frame rendering,
   all platform emulators, and host emulator checks.
 - `npm run serve:api` - start the local HTTP API transport for manual command

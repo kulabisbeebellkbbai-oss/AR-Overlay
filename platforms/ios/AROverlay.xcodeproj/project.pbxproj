@@ -1,0 +1,44 @@
+// !$*UTF8*$!
+{
+  archiveVersion = 1;
+  objectVersion = 56;
+  rootObject = 000000000000000000000001;
+  objects = {
+    000000000000000000000001 = {
+      isa = PBXProject;
+      attributes = {
+        LastUpgradeCheck = 1600;
+      };
+      buildConfigurationList = 000000000000000000000002;
+      compatibilityVersion = "Xcode 15.0";
+      developmentRegion = en;
+      hasScannedForEncodings = 0;
+      mainGroup = 000000000000000000000003;
+      projectDirPath = "";
+      projectRoot = "";
+      targets = ();
+    };
+    000000000000000000000002 = {
+      isa = XCConfigurationList;
+      buildConfigurations = (
+        000000000000000000000004,
+      );
+      defaultConfigurationIsVisible = 0;
+      defaultConfigurationName = Debug;
+    };
+    000000000000000000000003 = {
+      isa = PBXGroup;
+      children = ();
+      sourceTree = "<group>";
+    };
+    000000000000000000000004 = {
+      isa = XCBuildConfiguration;
+      buildSettings = {
+        IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+        PRODUCT_NAME = AROverlay;
+        SWIFT_VERSION = 5.0;
+      };
+      name = Debug;
+    };
+  };
+}

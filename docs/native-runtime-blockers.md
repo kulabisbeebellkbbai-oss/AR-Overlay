@@ -12,6 +12,8 @@ Status: partially available.
 - Android SDK tooling is installed.
 - Waydroid is running and boot-complete.
 - Android SDK AVD acceleration is blocked because `/dev/kvm` is missing.
+- Android app build/install/runtime validation is currently held to avoid
+  interfering with another Android app test running on this machine.
 
 Required external action:
 
