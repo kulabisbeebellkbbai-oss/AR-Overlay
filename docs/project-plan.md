@@ -56,12 +56,16 @@ work requires native OS runtime access and/or physical AR/XR hardware.
 
 ## Phase 3: Hardware Bring-Up
 
-Status: queued.
+Status: started on Windows 11 with XReal 1S.
 
 - Select the first target AR/XR glasses or display bridge for each platform.
 - Add per-platform hardware capability manifests.
 - Validate display connection, presentation timing, input delivery, and teardown.
 - Record device-specific deviations as adapter constraints, not shared behavior.
+
+First target selected:
+
+- Windows 11 host with XReal 1S glasses connected and working properly.
 
 ## Phase 4: Cross-Platform Verification
 
