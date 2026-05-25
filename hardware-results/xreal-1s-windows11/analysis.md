@@ -116,6 +116,9 @@ Current preview result:
   WinDbg/cdb blackbox PnP data identifies `DISPLAY\MRG4102\5&23fdb3e6&0&UID4356`
   as the affected PnP device path, matching the XReal 1S monitor. Details are
   in `restart-bugcheck-analysis.md`.
+- DXGI preview evidence from 2026-05-25 confirms the preflight passed, selected
+  `\\.\DISPLAY5`, created a hardware D3D11 swap chain with `flip-discard`, and
+  rendered `2237` frames over `20006.7 ms` with exit code `0`.
 
 ## Hardware Bring-Up Status
 
@@ -125,5 +128,7 @@ reported successful, manual visibility and placement confirmed on the XReal
 display, presentation timing accepted against the reported 120 Hz target.
 XReal 1S physical controls are closed as device-local firmware controls, not
 AR Overlay application inputs. Windows AR Overlay input should use host input
-or API paths. The next hardware validation step is the Windows DirectX/DXGI
-presentation backend using the already validated XReal display target.
+or API paths. The Windows DirectX/DXGI presentation backend now runs
+programmatically on the validated XReal display target; manual visual
+confirmation for the DXGI color-field preview remains to be completed before
+moving the shared scene renderer from GDI into the DXGI path.
