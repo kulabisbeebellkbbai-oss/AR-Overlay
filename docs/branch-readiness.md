@@ -34,7 +34,9 @@ Ready without hardware:
 - Android emulator start is available through `npm run android:start-emulator`.
 - Android build/install/launch/focus/screenshot validation is available through
   `npm run android:emulator-smoke`.
-- Emulator validation passed on `emulator-5554` with Android 16/API 36.
+- Full emulator validation is available through `npm run android:emulator-test`.
+- Emulator validation passed on `emulator-5554` with Android 16/API 36,
+  including visual assertions and back-input state transition.
 
 Blocked next by runtime/hardware:
 

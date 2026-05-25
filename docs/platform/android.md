@@ -37,6 +37,12 @@ preserving the shared UI, API, visualization, and input contract.
 Run `npm run verify` on this branch before hardware or Android device work
 begins.
 
+Run `npm run android:emulator-test` when the Android emulator testing slot is
+available. This starts or reuses `codex_api36`, installs the Android APK,
+validates foreground focus, asserts the rendered fixture screenshot, sends the
+Android back key, and verifies the shared `ready` state through the
+accessibility tree.
+
 ## Compatibility Notes
 
 - Use runtime permission and API availability checks instead of assuming

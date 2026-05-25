@@ -16,6 +16,8 @@ generation without physical AR/XR hardware.
   ADB device is visible.
 - `npm run android:emulator-smoke` - build the Android APK, install and launch
   it on the visible emulator, and collect focus plus screenshot evidence.
+- `npm run android:emulator-test` - run the full Android emulator functional
+  path, including screenshot assertions and back-input state validation.
 - `npm run verify` - run validation, tests, frame comparison, frame rendering,
   all platform emulators, and host emulator checks.
 - `npm run serve:api` - start the local HTTP API transport for manual command
@@ -39,8 +41,8 @@ Current host checks show:
 
 - Linux: repo-native emulator runs locally.
 - Android: Android SDK tooling, ADB, Android Emulator, the `codex_api36` AVD,
-  and `/dev/kvm` are available. Build/install/launch/focus/screenshot
-  validation passed on `emulator-5554`.
+  and `/dev/kvm` are available. Build/install/launch/focus/screenshot and
+  back-input state validation passed on `emulator-5554`.
 - iOS: Apple iOS Simulator is not available on this Debian host.
 - Windows: Wine and QEMU are installed, but no Windows 11 VM image is configured
   in this repo. The Windows branch uses the repo-native emulator until a VM or

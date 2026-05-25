@@ -75,6 +75,7 @@ sleep 2
   | grep -E "ResumedActivity|topResumedActivity|Hist" \
   | head -n 40 > "$OUT_DIR/activity-focus.txt" || true
 "$ANDROID_HOME/platform-tools/adb" -s "$DEVICE" exec-out screencap -p > "$OUT_DIR/screen.png"
+node scripts/assert-android-emulator-results.js --mode=initial
 
 {
   echo "- Target device: $DEVICE"

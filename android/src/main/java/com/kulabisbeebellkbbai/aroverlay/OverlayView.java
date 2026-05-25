@@ -12,6 +12,7 @@ final class OverlayView extends View {
     OverlayView(Context context) {
         super(context);
         setFocusable(true);
+        setImportantForAccessibility(IMPORTANT_FOR_ACCESSIBILITY_YES);
     }
 
     void setScene(OverlayScene scene) {

@@ -15,9 +15,9 @@ Status: available for emulator build/install/launch validation.
 - `/dev/kvm` is present, so Android SDK emulator acceleration is available.
 - Waydroid is also installed and has a running session on this host.
 - Android runtime validation is available through
-  `npm run android:start-emulator` followed by `npm run android:emulator-smoke`.
-- Build/install/launch/focus/screenshot validation passed on `emulator-5554`
-  with Android 16/API 36.
+  `npm run android:start-emulator` followed by `npm run android:emulator-test`.
+- Build/install/launch/focus/screenshot and back-input state validation passed
+  on `emulator-5554` with Android 16/API 36.
 
 Current blocker:
 

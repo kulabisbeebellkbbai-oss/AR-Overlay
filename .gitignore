@@ -7,4 +7,5 @@ npm-debug.log*
 hardware-results/android-emulator/*.log
 hardware-results/android-emulator/*.txt
 hardware-results/android-emulator/*.png
+hardware-results/android-emulator/*.xml
 hardware-results/android-emulator/summary.md

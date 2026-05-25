@@ -27,7 +27,7 @@ function checkAndroidScaffold() {
   checks.push({
     name: "android scaffold static validation",
     ok,
-    detail: "static contract ok; use npm run android:start-emulator && npm run android:emulator-smoke for runtime validation"
+    detail: "static contract ok; use npm run android:emulator-test for runtime validation"
   });
 }
 

@@ -14,6 +14,7 @@
     "verify:platform-scaffolds": "node scripts/verify-platform-scaffolds.js",
     "android:start-emulator": "bash scripts/android-start-emulator.sh",
     "android:emulator-smoke": "bash scripts/android-build-and-emulator-smoke.sh",
+    "android:emulator-test": "bash scripts/android-emulator-functional-test.sh",
     "serve:api": "node scripts/serve-api.js",
     "verify": "npm run validate:fixtures && npm test && npm run compare:frames && npm run render:fixtures && npm run emulate && npm run check:host-emulators && npm run verify:platform-scaffolds"
   },
