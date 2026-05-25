@@ -9,6 +9,8 @@ Expected files from the Windows host:
 - `pnp-display-devices.json`
 - `dxdiag.txt`
 - `ar-overlay-windows-smoke.txt`
+- `xreal-display-recovery-report.json`, when collecting a display-topology
+  failure report
 
 The smoke script writes these files under
 `build\hardware\xreal-1s-windows11\` on the Windows machine. Because `build/`

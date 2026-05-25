@@ -27,6 +27,7 @@ static bool listOnly = false;
 static bool requireTarget = false;
 
 std::string narrow(const std::wstring& value);
+std::string jsonEscape(const std::string& value);
 
 BOOL CALLBACK collectMonitor(HMONITOR monitor, HDC, LPRECT, LPARAM) {
     MONITORINFOEX info{};
@@ -123,8 +124,8 @@ void printMonitorList() {
         if (index > 0) std::cout << ",";
         std::cout
             << "{"
-            << "\"device\":\"" << narrow(monitor.device) << "\","
-            << "\"label\":\"" << narrow(monitor.label) << "\","
+            << "\"device\":\"" << jsonEscape(narrow(monitor.device)) << "\","
+            << "\"label\":\"" << jsonEscape(narrow(monitor.label)) << "\","
             << "\"primary\":" << (monitor.primary ? "true" : "false") << ","
             << "\"x\":" << monitor.rect.left << ","
             << "\"y\":" << monitor.rect.top << ","
@@ -195,6 +196,24 @@ std::string narrow(const std::wstring& value) {
     return output;
 }
 
+std::string jsonEscape(const std::string& value) {
+    std::string output;
+    output.reserve(value.size());
+    for (char ch : value) {
+        switch (ch) {
+            case '\\': output += "\\\\"; break;
+            case '"': output += "\\\""; break;
+            case '\b': output += "\\b"; break;
+            case '\f': output += "\\f"; break;
+            case '\n': output += "\\n"; break;
+            case '\r': output += "\\r"; break;
+            case '\t': output += "\\t"; break;
+            default: output += ch; break;
+        }
+    }
+    return output;
+}
+
 int wmain(int argc, wchar_t** argv) {
     for (int index = 1; index < argc; ++index) {
         std::wstring arg = argv[index];
@@ -253,12 +272,12 @@ int wmain(int argc, wchar_t** argv) {
         << "{"
         << "\"platform\":\"windows\","
         << "\"mode\":\"xreal-preview\","
-        << "\"target\":\"" << narrow(targetName) << "\","
-        << "\"targetDevice\":\"" << narrow(targetDevice) << "\","
+        << "\"target\":\"" << jsonEscape(narrow(targetName)) << "\","
+        << "\"targetDevice\":\"" << jsonEscape(narrow(targetDevice)) << "\","
         << "\"targetMatched\":" << (choice.matched ? "true" : "false") << ","
         << "\"fallbackAllowed\":" << (allowFallback ? "true" : "false") << ","
-        << "\"monitorDevice\":\"" << narrow(target.device) << "\","
-        << "\"monitorLabel\":\"" << narrow(target.label) << "\","
+        << "\"monitorDevice\":\"" << jsonEscape(narrow(target.device)) << "\","
+        << "\"monitorLabel\":\"" << jsonEscape(narrow(target.label)) << "\","
         << "\"primary\":" << (target.primary ? "true" : "false") << ","
         << "\"x\":" << target.rect.left << ","
         << "\"y\":" << target.rect.top << ","

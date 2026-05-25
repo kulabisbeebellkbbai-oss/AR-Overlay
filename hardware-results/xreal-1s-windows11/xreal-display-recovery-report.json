@@ -1,0 +1,245 @@
+{
+    "timestamp":  "2026-05-24T23:42:19.5455328-04:00",
+    "isAdministrator":  false,
+    "pnpXreal":  [
+                     {
+                         "Class":  "Monitor",
+                         "FriendlyName":  "Generic Monitor (XREAL 1S)",
+                         "InstanceId":  "DISPLAY\\MRG4102\\5\u002623FDB3E6\u00260\u0026UID4356",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  "HIDClass",
+                         "FriendlyName":  "HID-compliant device",
+                         "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  "HIDClass",
+                         "FriendlyName":  "USB Input Device",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  "MEDIA",
+                         "FriendlyName":  "XREAL 1S",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  null,
+                         "FriendlyName":  "CDC ECM",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u002666989DB\u00260\u00260003",
+                         "Status":  "Error",
+                         "Problem":  28
+                     },
+                     {
+                         "Class":  "Net",
+                         "FriendlyName":  "UsbNcm Host Device #2",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  "HIDClass",
+                         "FriendlyName":  "USB Input Device",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  null,
+                         "FriendlyName":  "CDC ECM",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u00261B9C1F57\u00260\u00260003",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     },
+                     {
+                         "Class":  "HIDClass",
+                         "FriendlyName":  "USB Input Device",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u00261B9C1F57\u00260\u00260008",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     },
+                     {
+                         "Class":  "AudioEndpoint",
+                         "FriendlyName":  "Capture Input terminal (XREAL 1S)",
+                         "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{80F7BED4-13EF-4391-998C-EBB9BA307DD0}",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     },
+                     {
+                         "Class":  "AudioEndpoint",
+                         "FriendlyName":  "Capture Input terminal (2- XREAL 1S)",
+                         "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{A37EBA59-772C-4D52-8191-9D54D9B7D9E6}",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  "HIDClass",
+                         "FriendlyName":  "HID-compliant consumer control device",
+                         "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  "HIDClass",
+                         "FriendlyName":  "HID-compliant consumer control device",
+                         "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u0026EABBC77\u00260\u00260000",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     },
+                     {
+                         "Class":  "AudioEndpoint",
+                         "FriendlyName":  "Speakers (2- XREAL 1S)",
+                         "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  "HIDClass",
+                         "FriendlyName":  "USB Input Device",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u00261B9C1F57\u00260\u00260000",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     },
+                     {
+                         "Class":  "MEDIA",
+                         "FriendlyName":  "XREAL 1S",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u00261B9C1F57\u00260\u00260005",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     },
+                     {
+                         "Class":  "AudioEndpoint",
+                         "FriendlyName":  "Speakers (XREAL 1S)",
+                         "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{7CB05A60-93D2-455C-AFD1-DB4C5E4EA77E}",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     },
+                     {
+                         "Class":  "HIDClass",
+                         "FriendlyName":  "HID-compliant device",
+                         "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u00262B8C986E\u00260\u00260000",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     },
+                     {
+                         "Class":  "USB",
+                         "FriendlyName":  "USB Composite Device",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00261",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     },
+                     {
+                         "Class":  "USB",
+                         "FriendlyName":  "USB Composite Device",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
+                         "Status":  "OK",
+                         "Problem":  0
+                     },
+                     {
+                         "Class":  "Net",
+                         "FriendlyName":  "UsbNcm Host Device",
+                         "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u00261B9C1F57\u00260\u00260001",
+                         "Status":  "Unknown",
+                         "Problem":  45
+                     }
+                 ],
+    "monitorDevices":  [
+                           {
+                               "FriendlyName":  "Generic Monitor (XREAL 1S)",
+                               "InstanceId":  "DISPLAY\\MRG4102\\5\u002623FDB3E6\u00260\u0026UID4356",
+                               "Status":  "OK",
+                               "Problem":  0
+                           },
+                           {
+                               "FriendlyName":  "Integrated Monitor",
+                               "InstanceId":  "DISPLAY\\AUO7DB2\\4\u0026387FDC3B\u00260\u0026UID8388688",
+                               "Status":  "OK",
+                               "Problem":  0
+                           },
+                           {
+                               "FriendlyName":  "Generic Monitor (Odyssey G5)",
+                               "InstanceId":  "DISPLAY\\SAM748A\\5\u002623FDB3E6\u00260\u0026UID4352",
+                               "Status":  "Unknown",
+                               "Problem":  45
+                           }
+                       ],
+    "desktopMonitors":  [
+                            {
+                                "Name":  "Generic PnP Monitor",
+                                "PNPDeviceID":  "DISPLAY\\AUO7DB2\\4\u0026387FDC3B\u00260\u0026UID8388688",
+                                "ScreenWidth":  1920,
+                                "ScreenHeight":  1200,
+                                "Status":  "OK"
+                            },
+                            {
+                                "Name":  "Generic PnP Monitor",
+                                "PNPDeviceID":  "DISPLAY\\MRG4102\\5\u002623FDB3E6\u00260\u0026UID4356",
+                                "ScreenWidth":  3840,
+                                "ScreenHeight":  1080,
+                                "Status":  "OK"
+                            }
+                        ],
+    "wmiMonitorIds":  {
+                          "InstanceName":  "DISPLAY\\AUO7DB2\\4\u0026387fdc3b\u00260\u0026UID8388688_0",
+                          "Name":  "\u0000",
+                          "Active":  true
+                      },
+    "wmiConnections":  [
+                           {
+                               "InstanceName":  "DISPLAY\\AUO7DB2\\4\u0026387fdc3b\u00260\u0026UID8388688_0",
+                               "Active":  true,
+                               "VideoOutputTechnology":  2147483648
+                           },
+                           {
+                               "InstanceName":  "DISPLAY\\MRG4102\\5\u002623fdb3e6\u00260\u0026UID4356_0",
+                               "Active":  true,
+                               "VideoOutputTechnology":  10
+                           }
+                       ],
+    "wmiBasicDisplayParams":  {
+                                  "InstanceName":  "DISPLAY\\AUO7DB2\\4\u0026387fdc3b\u00260\u0026UID8388688_0",
+                                  "Active":  true,
+                                  "MaxHorizontalImageSize":  34,
+                                  "MaxVerticalImageSize":  22
+                              },
+    "win32MonitorsBeforeExtend":  {
+                                      "monitors":  [
+                                                       {
+                                                           "device":  "\\\\.\\DISPLAY1",
+                                                           "label":  "",
+                                                           "primary":  true,
+                                                           "x":  0,
+                                                           "y":  0,
+                                                           "width":  2560,
+                                                           "height":  1600
+                                                       }
+                                                   ]
+                                  },
+    "topologyResults":  [
+                            {
+                                "topology":  "extend",
+                                "result":  31,
+                                "resultMeaning":  "ERROR_GEN_FAILURE"
+                            }
+                        ],
+    "win32MonitorsAfterExtend":  {
+                                     "monitors":  [
+                                                      {
+                                                          "device":  "\\\\.\\DISPLAY1",
+                                                          "label":  "",
+                                                          "primary":  true,
+                                                          "x":  0,
+                                                          "y":  0,
+                                                          "width":  2560,
+                                                          "height":  1600
+                                                      }
+                                                  ]
+                                 }
+}
