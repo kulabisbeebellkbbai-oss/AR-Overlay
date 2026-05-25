@@ -196,3 +196,15 @@ Build the first Windows production presentation backend beyond the GDI preview:
 a DirectX/DXGI presentation path that keeps the existing shared scene contract,
 targets the validated XReal display path, and preserves the same UI/API/input
 behavior as the other platform branches.
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-dxgi-preview.ps1
+```
+
+This builds `ar-overlay-windows-dxgi-preview.exe`, creates a borderless window
+on the validated XReal display, presents through a D3D11/DXGI swap chain, and
+writes evidence to `hardware-results\xreal-1s-windows11\`. The initial DXGI
+preview validates presentation plumbing with a smooth color field before the
+shared scene renderer is moved from the GDI preview into the DirectX path.

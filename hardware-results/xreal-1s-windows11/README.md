@@ -13,6 +13,10 @@ Expected files from the Windows host:
   failure report
 - `ar-overlay-windows-timing.txt` and `timing-manual-result.md`, when
   collecting presentation timing evidence
+- `ar-overlay-windows-dxgi-preview.txt`,
+  `ar-overlay-windows-dxgi-preview.err.txt`, and
+  `dxgi-preview-manual-result.md`, when collecting DirectX/DXGI presentation
+  evidence
 - `xreal-input-report.json` and `input-manual-result.md`, when collecting
   physical input discovery evidence
 - `ar-overlay-windows-raw-input-capture.txt`,

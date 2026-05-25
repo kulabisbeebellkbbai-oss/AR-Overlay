@@ -56,18 +56,17 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 
 ## Next Required Windows Step
 
-Build the first Windows production presentation backend beyond the GDI preview:
-a DirectX/DXGI presentation path that uses the same shared scene contract and
-targets the XReal display path already validated by the preview runner.
+Run the DirectX/DXGI preview path against the validated XReal display target:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview.ps1
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-dxgi-preview.ps1
 ```
 
-Use the existing preview command as the baseline regression test while adding
-the DirectX/DXGI path. XReal 1S physical buttons are not an AR Overlay input
-source, so no additional physical button testing is required unless a vendor SDK
-or external controller path is introduced later.
+This is the first Windows production presentation backend beyond the GDI
+preview. It should target the same XReal display path and preserve the same
+shared scene/UI/API/input behavior. XReal 1S physical buttons are not an AR
+Overlay input source, so no additional physical button testing is required
+unless a vendor SDK or external controller path is introduced later.
 
 Implemented next artifact:
 
@@ -102,5 +101,5 @@ reported successful, manual visibility and placement confirmed on the XReal
 display, presentation timing accepted against the reported 120 Hz target.
 XReal 1S physical controls are closed as device-local firmware controls, not
 AR Overlay application inputs. Windows AR Overlay input should use host input
-or API paths. The next implementation step is the Windows DirectX/DXGI
+or API paths. The next hardware validation step is the Windows DirectX/DXGI
 presentation backend using the already validated XReal display target.
