@@ -119,6 +119,10 @@ Current preview result:
 - DXGI preview evidence from 2026-05-25 confirms the preflight passed, selected
   `\\.\DISPLAY5`, created a hardware D3D11 swap chain with `flip-discard`, and
   rendered `2237` frames over `20006.7 ms` with exit code `0`.
+- Manual DXGI visual confirmation from 2026-05-25 reports that the DXGI preview
+  was visible on the XReal display, full-screen placement/scaling was correct,
+  the color field changed smoothly, and no Windows display mode changes were
+  needed. Minor occasional flicker was observed.
 
 ## Hardware Bring-Up Status
 
@@ -128,7 +132,8 @@ reported successful, manual visibility and placement confirmed on the XReal
 display, presentation timing accepted against the reported 120 Hz target.
 XReal 1S physical controls are closed as device-local firmware controls, not
 AR Overlay application inputs. Windows AR Overlay input should use host input
-or API paths. The Windows DirectX/DXGI presentation backend now runs
-programmatically on the validated XReal display target; manual visual
-confirmation for the DXGI color-field preview remains to be completed before
-moving the shared scene renderer from GDI into the DXGI path.
+or API paths. The Windows DirectX/DXGI presentation backend now runs and has
+manual visual confirmation on the validated XReal display target. The next code
+step is moving the shared scene renderer from the GDI preview into the DXGI
+path, while adding presentation timing/flicker instrumentation for the minor
+occasional flicker observed during the color-field test.

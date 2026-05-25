@@ -216,8 +216,14 @@ rerun the script, and sync both stdout and stderr evidence.
 
 The 2026-05-25 DXGI run passed preflight, selected `\\.\DISPLAY5`, created a
 hardware D3D11 swap chain with `flip-discard`, and rendered `2237` frames over
-`20006.7 ms` with exit code `0`. Manual visual confirmation is still required
-for visibility, scaling, smooth color-field presentation, and comfort.
+`20006.7 ms` with exit code `0`. Manual visual confirmation reports that the
+preview was visible on the XReal display, full-screen placement/scaling was
+correct, the color field changed smoothly, and no Windows display mode changes
+were needed. Minor occasional flicker was observed.
+
+Next code step: move the shared scene renderer from the GDI preview into the
+DXGI path and include presentation timing/flicker instrumentation so the minor
+occasional flicker can be measured on the next hardware run.
 
 The Windows preview, timing, and DXGI scripts run this preflight first:
 
