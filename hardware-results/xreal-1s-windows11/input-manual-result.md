@@ -15,5 +15,8 @@ produce Windows input.
 
 ## Result
 
-- Input path usable for AR Overlay shared controls: TODO
-- If not usable, limitation to record: TODO
+- Input path usable for AR Overlay shared controls: not through generic
+  Windows keyboard, mouse, or media events from this observation
+- If not usable, limitation to record: XReal HID devices are exposed, but a
+  native Raw Input/HID capture is required before declaring physical controls
+  usable or unsupported

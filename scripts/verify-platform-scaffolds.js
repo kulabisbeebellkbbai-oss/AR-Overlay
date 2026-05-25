@@ -9,6 +9,7 @@ checkIosScaffold();
 checkCmakeScaffold("linux", "linux", "platforms/linux", "build/platforms/linux", "ar-overlay-linux-smoke");
 checkCmakeScaffold("windows smoke", "windows", "platforms/windows", "build/platforms/windows-host-check", "ar-overlay-windows-smoke");
 checkCmakeScaffold("windows preview", "windows", "platforms/windows", "build/platforms/windows-host-check", "ar-overlay-windows-preview");
+checkCmakeScaffold("windows raw input capture", "windows", "platforms/windows", "build/platforms/windows-host-check", "ar-overlay-windows-raw-input-capture");
 
 for (const check of checks) {
   console.log(`${check.name}: ${check.ok ? "ok" : "failed"}${check.detail ? ` - ${check.detail}` : ""}`);

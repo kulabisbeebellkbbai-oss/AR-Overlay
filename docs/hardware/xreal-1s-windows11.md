@@ -178,3 +178,30 @@ The report does not decode HID event payloads. If Windows exposes only a HID
 device with no observable keyboard, mouse, or media event, the next software
 step is a native Raw Input/HID listener. If Windows exposes no usable input
 path, record that as an XReal 1S Windows capability limitation.
+
+The 2026-05-25 input discovery report found active XReal HID interfaces for
+`VID_3318&PID_043E`, including HID-compliant device, USB Input Device, and
+HID-compliant consumer control device entries with `Status: OK`. Manual
+observation reported that the physical controls seemed available but no Windows
+keyboard, mouse, or media events were observed.
+
+## Raw Input Capture Test
+
+Run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-input-capture.ps1
+```
+
+This builds and runs `ar-overlay-windows-raw-input-capture.exe`, enumerates Raw
+Input devices, listens for keyboard, mouse, consumer-control, system-control,
+and vendor-defined HID packets, and writes synced evidence to
+`hardware-results\xreal-1s-windows11\`. During the capture window, use any
+physical XReal controls. Then complete
+`hardware-results\xreal-1s-windows11\raw-input-manual-result.md`.
+
+Pass criteria: the capture output includes one or more `raw-input` events with
+`"xreal":true` while a physical control is used. If that occurs, map the HID
+payloads into the shared AR Overlay input contract. If no XReal events are
+captured, generic Windows input for XReal 1S should be recorded as unsupported
+pending vendor SDK or deeper USB/HID integration.

@@ -29,6 +29,12 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
   the reported `120 Hz` target: `3600` frames over `30000.7 ms`, average frame
   interval `8.33134 ms`, maximum `12.8139 ms`, `0` frames over `20 ms`, and `1`
   frame over target plus `2 ms`.
+- Input discovery from 2026-05-25 shows active XReal HID interfaces for
+  `VID_3318&PID_043E`, including HID-compliant device, USB Input Device, and
+  HID-compliant consumer control device entries with `Status: OK`.
+- During the input discovery observation window, the tester reported that all
+  physical controls seemed available but no Windows keyboard, mouse, or media
+  events were observed.
 
 ## Not Yet Completed
 
@@ -43,15 +49,18 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 
 ## Next Required Windows Step
 
-Run the XReal input discovery report and validate physical input behavior
-exposed by the XReal path, if any:
+Run the native Raw Input capture and validate whether the XReal HID interfaces
+produce packets that can be mapped to shared AR Overlay actions:
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\windows-xreal-input-report.ps1
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-input-capture.ps1
 ```
 
-If no input path is exposed by the glasses, record that as a Windows capability
-limitation and continue toward the first DirectX/vendor-SDK integration path.
+If the capture records XReal HID packets, implement a Windows input adapter
+mapping those packets to the shared action contract. If no XReal Raw Input
+events are emitted while controls are used, record input as unsupported through
+the generic Windows input path and continue toward the first DirectX/vendor-SDK
+integration path.
 
 Implemented next artifact:
 
@@ -84,4 +93,6 @@ Status: display enumeration confirmed, AR Overlay Windows scaffold runtime
 confirmed, preview targeted to the XReal display geometry, reboot recovery
 reported successful, manual visibility and placement confirmed on the XReal
 display, presentation timing accepted against the reported 120 Hz target.
-Physical input remains to be validated or explicitly marked unsupported.
+Physical input has visible HID device exposure but no generic Windows input
+events yet. Native Raw Input/HID event capture remains to be validated or the
+path must be explicitly marked unsupported.
