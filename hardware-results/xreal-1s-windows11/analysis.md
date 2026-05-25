@@ -62,6 +62,11 @@ Run the DirectX/DXGI preview path against the validated XReal display target:
 powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-dxgi-preview.ps1
 ```
 
+The preview, timing, and DXGI scripts now run
+`scripts\windows-xreal-preflight.ps1` first. If Windows only has phantom XReal
+PnP devices or the XReal monitor is missing from Win32 enumeration, the scripts
+write `xreal-preflight-report.json` and refuse to run presentation code.
+
 This is the first Windows production presentation backend beyond the GDI
 preview. It should target the same XReal display path and preserve the same
 shared scene/UI/API/input behavior. XReal 1S physical buttons are not an AR

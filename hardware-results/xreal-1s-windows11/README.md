@@ -11,6 +11,8 @@ Expected files from the Windows host:
 - `ar-overlay-windows-smoke.txt`
 - `xreal-display-recovery-report.json`, when collecting a display-topology
   failure report
+- `xreal-preflight-report.json`, before running preview, timing, or DXGI
+  presentation scripts
 - `ar-overlay-windows-timing.txt` and `timing-manual-result.md`, when
   collecting presentation timing evidence
 - `ar-overlay-windows-dxgi-preview.txt`,

@@ -28,6 +28,14 @@ if (-not $preview) {
     throw "Preview binary not found after build."
 }
 
+& powershell -ExecutionPolicy Bypass -File scripts\windows-xreal-preflight.ps1 `
+    -Target $Target `
+    -DisplayNumber $DisplayNumber `
+    -MonitorListExecutable $preview `
+    -OutDir $OutDir `
+    -SyncDir $SyncDir `
+    -RequireReady
+
 $previewOut = Join-Path $OutDir "ar-overlay-windows-preview.txt"
 $previewErr = Join-Path $OutDir "ar-overlay-windows-preview.err.txt"
 if (Test-Path $previewOut) { Remove-Item -Force $previewOut }

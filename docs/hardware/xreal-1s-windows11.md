@@ -213,3 +213,14 @@ The DXGI preview tries hardware D3D11 first and falls back through compatible
 swap-chain modes, then WARP, while logging each `create-device-attempt`. If the
 first run fails after a display topology issue, reboot the Windows 11 test host,
 rerun the script, and sync both stdout and stderr evidence.
+
+The Windows preview, timing, and DXGI scripts run this preflight first:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-xreal-preflight.ps1 -RequireReady
+```
+
+If Windows only has phantom XReal PnP entries or the XReal display is missing
+from Win32 monitor enumeration, the scripts write
+`hardware-results\xreal-1s-windows11\xreal-preflight-report.json` and stop
+before opening any presentation window.
