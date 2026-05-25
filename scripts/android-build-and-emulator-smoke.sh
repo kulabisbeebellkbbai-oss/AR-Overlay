@@ -46,8 +46,8 @@ fi
 adb devices -l | tee "$OUT_DIR/adb-devices.txt"
 cat "$OUT_DIR/adb-devices.txt" >> "$OUT_DIR/summary.md"
 
-DEVICE_COUNT="$(awk 'NR > 1 && $2 == "device" { count++ } END { print count + 0 }' "$OUT_DIR/adb-devices.txt")"
-if [[ "$DEVICE_COUNT" -eq 0 ]]; then
+DEVICE="$(awk 'NR > 1 && $2 == "device" { print $1; exit }' "$OUT_DIR/adb-devices.txt")"
+if [[ -z "$DEVICE" ]]; then
   {
     echo
     echo "## Runtime"
@@ -61,19 +61,34 @@ fi
   echo
   echo "## Runtime"
   echo
-  echo "Installing and launching on the first visible ADB device."
+  echo "Installing and launching on ADB device $DEVICE."
 } >> "$OUT_DIR/summary.md"
 
-adb install -r "$APK" | tee "$OUT_DIR/adb-install.txt"
-adb shell monkey -p com.kulabisbeebellkbbai.aroverlay 1 | tee "$OUT_DIR/adb-launch.txt"
+"$ANDROID_HOME/platform-tools/adb" -s "$DEVICE" install -r "$APK" | tee "$OUT_DIR/adb-install.txt"
+"$ANDROID_HOME/platform-tools/adb" -s "$DEVICE" shell monkey -p com.kulabisbeebellkbbai.aroverlay 1 | tee "$OUT_DIR/adb-launch.txt"
 sleep 2
-adb shell pidof com.kulabisbeebellkbbai.aroverlay | tee "$OUT_DIR/adb-pidof.txt" || true
+"$ANDROID_HOME/platform-tools/adb" -s "$DEVICE" shell pidof com.kulabisbeebellkbbai.aroverlay | tee "$OUT_DIR/adb-pidof.txt" || true
+"$ANDROID_HOME/platform-tools/adb" -s "$DEVICE" shell getprop ro.build.version.release > "$OUT_DIR/android-version.txt"
+"$ANDROID_HOME/platform-tools/adb" -s "$DEVICE" shell getprop ro.build.version.sdk >> "$OUT_DIR/android-version.txt"
+"$ANDROID_HOME/platform-tools/adb" -s "$DEVICE" shell dumpsys window | grep -E "mCurrentFocus|mFocusedApp" > "$OUT_DIR/window-focus.txt" || true
+"$ANDROID_HOME/platform-tools/adb" -s "$DEVICE" shell dumpsys activity activities \
+  | grep -E "ResumedActivity|topResumedActivity|Hist" \
+  | head -n 40 > "$OUT_DIR/activity-focus.txt" || true
+"$ANDROID_HOME/platform-tools/adb" -s "$DEVICE" exec-out screencap -p > "$OUT_DIR/screen.png"
 
 {
+  echo "- Target device: $DEVICE"
   echo "- Install result:"
   sed 's/^/  /' "$OUT_DIR/adb-install.txt"
   echo "- Launch result:"
   sed 's/^/  /' "$OUT_DIR/adb-launch.txt"
   echo "- PID:"
   sed 's/^/  /' "$OUT_DIR/adb-pidof.txt"
+  echo "- Android version/API:"
+  sed 's/^/  /' "$OUT_DIR/android-version.txt"
+  echo "- Window focus:"
+  sed 's/^/  /' "$OUT_DIR/window-focus.txt"
+  echo "- Activity focus:"
+  sed 's/^/  /' "$OUT_DIR/activity-focus.txt"
+  echo "- Screenshot: $OUT_DIR/screen.png"
 } >> "$OUT_DIR/summary.md"

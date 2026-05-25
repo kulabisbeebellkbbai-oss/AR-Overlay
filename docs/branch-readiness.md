@@ -31,15 +31,13 @@ Ready without hardware:
 - Android SDK tooling, Gradle, ADB, Android Emulator, Android 36.1 image, and
   the `codex_api36` AVD are present on this host.
 - `/dev/kvm` is available, so Android SDK emulator acceleration is available.
-- Guarded build/install/launch validation is available through
-  `npm run android:emulator-smoke`. The script does not start, stop, or reset
-  an emulator; it only installs and launches when an ADB device is already
-  visible.
+- Android emulator start is available through `npm run android:start-emulator`.
+- Android build/install/launch/focus/screenshot validation is available through
+  `npm run android:emulator-smoke`.
+- Emulator validation passed on `emulator-5554` with Android 16/API 36.
 
 Blocked next by runtime/hardware:
 
-- If no ADB device is visible, emulator runtime validation is blocked until the
-  already-running emulator exposes an ADB target to this shell.
 - ARCore, camera, media projection, overlay windows, sensors, glasses bridge,
   and physical input require emulator/device runtime validation and/or physical
   hardware.

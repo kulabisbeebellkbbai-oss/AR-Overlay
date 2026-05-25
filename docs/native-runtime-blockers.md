@@ -7,23 +7,22 @@ native OS runtime validation only.
 
 ## Android
 
-Status: available for guarded emulator build/install validation when an ADB
-device is visible.
+Status: available for emulator build/install/launch validation.
 
 - Android SDK tooling is installed.
 - Android Emulator, ADB, Gradle, API 36.1 platform/image, and the `codex_api36`
   AVD are installed.
 - `/dev/kvm` is present, so Android SDK emulator acceleration is available.
 - Waydroid is also installed and has a running session on this host.
-- Android build/install/runtime validation is guarded by
-  `npm run android:emulator-smoke`, which does not start, stop, or reset
-  emulator state.
+- Android runtime validation is available through
+  `npm run android:start-emulator` followed by `npm run android:emulator-smoke`.
+- Build/install/launch/focus/screenshot validation passed on `emulator-5554`
+  with Android 16/API 36.
 
 Current blocker:
 
-- A visible ADB device is required for install/launch validation. If `adb
-  devices -l` is empty, build validation can still complete but runtime launch
-  evidence cannot be collected from this shell.
+- Physical AR/XR Android hardware remains required for glasses bridge,
+  real-display, camera, sensor, and physical input validation.
 
 ## iOS
 

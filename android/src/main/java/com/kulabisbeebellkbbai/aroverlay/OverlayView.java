@@ -24,21 +24,22 @@ final class OverlayView extends View {
         super.onDraw(canvas);
         if (scene == null) return;
 
-        float scaleX = getWidth() / scene.width;
-        float scaleY = getHeight() / scene.height;
+        float scale = Math.min(getWidth() / scene.width, getHeight() / scene.height);
+        float offsetX = (getWidth() - scene.width * scale) / 2f;
+        float offsetY = (getHeight() - scene.height * scale) / 2f;
         for (OverlayElement element : scene.elements) {
             paint.setAlpha(Math.round(element.opacity * 255));
             paint.setColor(element.fill);
             if ("rect".equals(element.type)) {
-                canvas.drawRect(element.x * scaleX, element.y * scaleY,
-                        (element.x + element.width) * scaleX,
-                        (element.y + element.height) * scaleY, paint);
+                canvas.drawRect(offsetX + element.x * scale, offsetY + element.y * scale,
+                        offsetX + (element.x + element.width) * scale,
+                        offsetY + (element.y + element.height) * scale, paint);
             } else if ("text".equals(element.type)) {
-                paint.setTextSize(element.fontSize * scaleY);
+                paint.setTextSize(element.fontSize * scale);
                 paint.setTextAlign(Paint.Align.CENTER);
                 canvas.drawText(element.text,
-                        (element.x + element.width / 2f) * scaleX,
-                        (element.y + element.fontSize) * scaleY,
+                        offsetX + (element.x + element.width / 2f) * scale,
+                        offsetY + (element.y + element.fontSize) * scale,
                         paint);
             }
         }

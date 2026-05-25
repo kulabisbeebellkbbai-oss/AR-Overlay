@@ -6,4 +6,5 @@ npm-debug.log*
 .gradle/
 hardware-results/android-emulator/*.log
 hardware-results/android-emulator/*.txt
+hardware-results/android-emulator/*.png
 hardware-results/android-emulator/summary.md
