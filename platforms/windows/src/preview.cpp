@@ -3,6 +3,7 @@
 #define NOMINMAX
 #include <windows.h>
 #include <shellscalingapi.h>
+#include <mmsystem.h>
 
 #include <algorithm>
 #include <chrono>
@@ -303,7 +304,15 @@ int wmain(int argc, wchar_t** argv) {
     const auto stopAt = std::chrono::steady_clock::now() + std::chrono::seconds(durationSeconds);
     const auto startedAt = std::chrono::steady_clock::now();
     auto previousFrame = startedAt;
+    auto nextFrame = startedAt;
+    const double targetFrameMs = targetRefreshHz > 0 ? 1000.0 / static_cast<double>(targetRefreshHz) : 16.6667;
+    const auto frameStep = std::chrono::duration_cast<std::chrono::steady_clock::duration>(
+        std::chrono::duration<double, std::milli>(targetFrameMs));
     std::vector<double> frameIntervalsMs;
+    bool highResolutionTimer = false;
+    if (measureTiming && timeBeginPeriod(1) == TIMERR_NOERROR) {
+        highResolutionTimer = true;
+    }
     MSG msg{};
     while (std::chrono::steady_clock::now() < stopAt) {
         while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
@@ -317,12 +326,16 @@ int wmain(int argc, wchar_t** argv) {
             previousFrame = now;
             InvalidateRect(window, nullptr, FALSE);
             UpdateWindow(window);
+            nextFrame += frameStep;
+            std::this_thread::sleep_until(nextFrame);
+        } else {
+            std::this_thread::sleep_for(std::chrono::milliseconds(16));
         }
-        std::this_thread::sleep_for(std::chrono::milliseconds(16));
     }
 
     if (measureTiming) {
         const auto endedAt = std::chrono::steady_clock::now();
+        if (highResolutionTimer) timeEndPeriod(1);
         printTimingReport(frameIntervalsMs, std::chrono::duration<double, std::milli>(endedAt - startedAt).count(), targetRefreshHz);
     }
 
@@ -334,8 +347,10 @@ void printTimingReport(const std::vector<double>& frameIntervalsMs, double elaps
     double minFrameMs = 0;
     double maxFrameMs = 0;
     double avgFrameMs = 0;
+    double targetFrameMs = targetRefreshHz > 0 ? 1000.0 / static_cast<double>(targetRefreshHz) : 16.6667;
     int over20Ms = 0;
     int over33Ms = 0;
+    int overTargetBy2Ms = 0;
     if (!frameIntervalsMs.empty()) {
         minFrameMs = std::numeric_limits<double>::max();
         for (double value : frameIntervalsMs) {
@@ -344,6 +359,7 @@ void printTimingReport(const std::vector<double>& frameIntervalsMs, double elaps
             avgFrameMs += value;
             if (value > 20.0) ++over20Ms;
             if (value > 33.0) ++over33Ms;
+            if (value > targetFrameMs + 2.0) ++overTargetBy2Ms;
         }
         avgFrameMs /= static_cast<double>(frameIntervalsMs.size());
     }
@@ -355,11 +371,13 @@ void printTimingReport(const std::vector<double>& frameIntervalsMs, double elaps
         << "\"frameCount\":" << frameIntervalsMs.size() << ","
         << "\"elapsedMs\":" << elapsedMs << ","
         << "\"targetRefreshHz\":" << targetRefreshHz << ","
+        << "\"targetFrameMs\":" << targetFrameMs << ","
         << "\"minFrameMs\":" << minFrameMs << ","
         << "\"avgFrameMs\":" << avgFrameMs << ","
         << "\"maxFrameMs\":" << maxFrameMs << ","
         << "\"framesOver20Ms\":" << over20Ms << ","
-        << "\"framesOver33Ms\":" << over33Ms
+        << "\"framesOver33Ms\":" << over33Ms << ","
+        << "\"framesOverTargetBy2Ms\":" << overTargetBy2Ms
         << "}" << std::endl;
 }
 #else

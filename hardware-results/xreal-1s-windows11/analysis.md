@@ -34,9 +34,13 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 - The preview runner later enumerated `\\.\DISPLAY5` as the non-primary
   `1920 x 1200` monitor. That is the Win32 display device corresponding to the
   Windows Settings `Display 2: XREAL 1S` path on this host.
-- Real presentation timing has not been measured.
+- Real presentation timing has been measured once, but not yet accepted against
+  the XReal refresh target.
 - No photo/screenshot from the glasses view has been synced yet.
 - Physical input behavior, if exposed by the XReal path, has not been validated.
+- First timing run completed, but it measured `targetRefreshHz: 120` with
+  `avgFrameMs: 31.0947`; this proves the initial fixed-sleep timing loop did
+  not meet the display refresh target.
 
 ## Next Required Windows Step
 
@@ -46,6 +50,9 @@ evidence while targeting the XReal display:
 ```powershell
 powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-timing.ps1
 ```
+
+The timing script now requests a 1 ms Windows timer period and paces frames
+against the detected refresh interval. Re-run it after pulling the timing update.
 
 Implemented next artifact:
 

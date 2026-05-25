@@ -72,12 +72,14 @@ $summary = @"
 Measured timing:
 
 - Target refresh Hz: $(if ($timing) { $timing.targetRefreshHz } else { "unknown" })
+- Target frame interval ms: $(if ($timing) { $timing.targetFrameMs } else { "unknown" })
 - Frame count: $(if ($timing) { $timing.frameCount } else { "unknown" })
 - Average frame interval ms: $(if ($timing) { $timing.avgFrameMs } else { "unknown" })
 - Minimum frame interval ms: $(if ($timing) { $timing.minFrameMs } else { "unknown" })
 - Maximum frame interval ms: $(if ($timing) { $timing.maxFrameMs } else { "unknown" })
 - Frames over 20 ms: $(if ($timing) { $timing.framesOver20Ms } else { "unknown" })
 - Frames over 33 ms: $(if ($timing) { $timing.framesOver33Ms } else { "unknown" })
+- Frames over target + 2 ms: $(if ($timing) { $timing.framesOverTargetBy2Ms } else { "unknown" })
 
 Manual observations to fill in:
 

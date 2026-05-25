@@ -20,5 +20,5 @@ add_executable(ar-overlay-windows-preview
 target_include_directories(ar-overlay-windows-preview PRIVATE src)
 
 if(WIN32)
-    target_link_libraries(ar-overlay-windows-preview PRIVATE user32 gdi32 shcore)
+    target_link_libraries(ar-overlay-windows-preview PRIVATE user32 gdi32 shcore winmm)
 endif()
