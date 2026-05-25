@@ -10,8 +10,8 @@
 
 Manual observations to fill in:
 
-- DXGI preview visible on XReal display: TODO
-- Full-screen placement/scaling correct: TODO
-- Color field changes smoothly: TODO
-- Flicker/latency/comfort notes: TODO
-- Any Windows display mode changes needed: TODO
+- DXGI preview visible on XReal display: yes
+- Full-screen placement/scaling correct: full screen
+- Color field changes smoothly: yes
+- Flicker/latency/comfort notes: minor occasional flicker
+- Any Windows display mode changes needed: no
