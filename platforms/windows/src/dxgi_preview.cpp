@@ -9,7 +9,10 @@
 
 #include <algorithm>
 #include <chrono>
+#include <iomanip>
 #include <iostream>
+#include <iterator>
+#include <sstream>
 #include <stdexcept>
 #include <string>
 #include <thread>
@@ -38,6 +41,31 @@ static bool requireTarget = false;
 static bool listOnly = false;
 static int durationSeconds = 20;
 static bool running = true;
+
+std::string hresultHex(HRESULT value) {
+    std::ostringstream output;
+    output << "0x" << std::hex << std::uppercase << static_cast<unsigned long>(value);
+    return output.str();
+}
+
+std::string swapEffectName(DXGI_SWAP_EFFECT value) {
+    switch (value) {
+        case DXGI_SWAP_EFFECT_DISCARD: return "discard";
+        case DXGI_SWAP_EFFECT_SEQUENTIAL: return "sequential";
+        case DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL: return "flip-sequential";
+        case DXGI_SWAP_EFFECT_FLIP_DISCARD: return "flip-discard";
+        default: return "unknown";
+    }
+}
+
+std::string driverTypeName(D3D_DRIVER_TYPE value) {
+    switch (value) {
+        case D3D_DRIVER_TYPE_HARDWARE: return "hardware";
+        case D3D_DRIVER_TYPE_WARP: return "warp";
+        case D3D_DRIVER_TYPE_REFERENCE: return "reference";
+        default: return "unknown";
+    }
+}
 
 std::string narrow(const std::wstring& value) {
     if (value.empty()) return "";
@@ -235,42 +263,89 @@ int wmain(int argc, wchar_t** argv) {
         return 1;
     }
 
-    DXGI_SWAP_CHAIN_DESC swapDesc{};
-    swapDesc.BufferCount = 2;
-    swapDesc.BufferDesc.Width = static_cast<UINT>(width);
-    swapDesc.BufferDesc.Height = static_cast<UINT>(height);
-    swapDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
-    swapDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
-    swapDesc.OutputWindow = window;
-    swapDesc.SampleDesc.Count = 1;
-    swapDesc.Windowed = TRUE;
-    swapDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_DISCARD;
-
     ComPtr<ID3D11Device> device;
     ComPtr<ID3D11DeviceContext> context;
     ComPtr<IDXGISwapChain> swapChain;
     D3D_FEATURE_LEVEL featureLevel{};
+    DXGI_SWAP_EFFECT selectedSwapEffect = DXGI_SWAP_EFFECT_DISCARD;
+    D3D_DRIVER_TYPE selectedDriverType = D3D_DRIVER_TYPE_UNKNOWN;
     const D3D_FEATURE_LEVEL requestedLevels[] = {
         D3D_FEATURE_LEVEL_11_1,
         D3D_FEATURE_LEVEL_11_0,
         D3D_FEATURE_LEVEL_10_1,
         D3D_FEATURE_LEVEL_10_0
     };
-    HRESULT hr = D3D11CreateDeviceAndSwapChain(
-        nullptr,
+
+    HRESULT hr = E_FAIL;
+    const D3D_DRIVER_TYPE driverTypes[] = {
         D3D_DRIVER_TYPE_HARDWARE,
-        nullptr,
-        0,
-        requestedLevels,
-        static_cast<UINT>(std::size(requestedLevels)),
-        D3D11_SDK_VERSION,
-        &swapDesc,
-        &swapChain,
-        &device,
-        &featureLevel,
-        &context);
+        D3D_DRIVER_TYPE_WARP
+    };
+    const DXGI_SWAP_EFFECT swapEffects[] = {
+        DXGI_SWAP_EFFECT_FLIP_DISCARD,
+        DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL,
+        DXGI_SWAP_EFFECT_DISCARD
+    };
+
+    for (D3D_DRIVER_TYPE driverType : driverTypes) {
+        for (DXGI_SWAP_EFFECT swapEffect : swapEffects) {
+            DXGI_SWAP_CHAIN_DESC swapDesc{};
+            swapDesc.BufferCount = (swapEffect == DXGI_SWAP_EFFECT_DISCARD) ? 1 : 2;
+            swapDesc.BufferDesc.Width = static_cast<UINT>(width);
+            swapDesc.BufferDesc.Height = static_cast<UINT>(height);
+            swapDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+            swapDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
+            swapDesc.OutputWindow = window;
+            swapDesc.SampleDesc.Count = 1;
+            swapDesc.Windowed = TRUE;
+            swapDesc.SwapEffect = swapEffect;
+
+            std::cout
+                << "{"
+                << "\"platform\":\"windows\","
+                << "\"mode\":\"xreal-dxgi-preview\","
+                << "\"event\":\"create-device-attempt\","
+                << "\"driverType\":\"" << driverTypeName(driverType) << "\","
+                << "\"swapEffect\":\"" << swapEffectName(swapEffect) << "\""
+                << "}" << std::endl;
+
+            device.Reset();
+            context.Reset();
+            swapChain.Reset();
+            hr = D3D11CreateDeviceAndSwapChain(
+                nullptr,
+                driverType,
+                nullptr,
+                0,
+                requestedLevels,
+                static_cast<UINT>(std::size(requestedLevels)),
+                D3D11_SDK_VERSION,
+                &swapDesc,
+                &swapChain,
+                &device,
+                &featureLevel,
+                &context);
+
+            if (SUCCEEDED(hr)) {
+                selectedDriverType = driverType;
+                selectedSwapEffect = swapEffect;
+                break;
+            }
+
+            std::cerr
+                << "D3D11CreateDeviceAndSwapChain failed with driver="
+                << driverTypeName(driverType)
+                << " swapEffect="
+                << swapEffectName(swapEffect)
+                << " hr="
+                << hresultHex(hr)
+                << "\n";
+        }
+        if (SUCCEEDED(hr)) break;
+    }
+
     if (FAILED(hr)) {
-        std::cerr << "D3D11CreateDeviceAndSwapChain failed: 0x" << std::hex << hr << "\n";
+        std::cerr << "D3D11CreateDeviceAndSwapChain failed after all fallback attempts: " << hresultHex(hr) << "\n";
         DestroyWindow(window);
         return 3;
     }
@@ -278,7 +353,7 @@ int wmain(int argc, wchar_t** argv) {
     ComPtr<ID3D11Texture2D> backBuffer;
     hr = swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>(backBuffer.GetAddressOf()));
     if (FAILED(hr)) {
-        std::cerr << "GetBuffer failed: 0x" << std::hex << hr << "\n";
+        std::cerr << "GetBuffer failed: " << hresultHex(hr) << "\n";
         DestroyWindow(window);
         return 4;
     }
@@ -286,7 +361,7 @@ int wmain(int argc, wchar_t** argv) {
     ComPtr<ID3D11RenderTargetView> renderTarget;
     hr = device->CreateRenderTargetView(backBuffer.Get(), nullptr, &renderTarget);
     if (FAILED(hr)) {
-        std::cerr << "CreateRenderTargetView failed: 0x" << std::hex << hr << "\n";
+        std::cerr << "CreateRenderTargetView failed: " << hresultHex(hr) << "\n";
         DestroyWindow(window);
         return 5;
     }
@@ -309,6 +384,8 @@ int wmain(int argc, wchar_t** argv) {
         << "\"y\":" << target.rect.top << ","
         << "\"width\":" << width << ","
         << "\"height\":" << height << ","
+        << "\"driverType\":\"" << driverTypeName(selectedDriverType) << "\","
+        << "\"swapEffect\":\"" << swapEffectName(selectedSwapEffect) << "\","
         << "\"featureLevel\":\"0x" << std::hex << featureLevel << std::dec << "\","
         << "\"durationSeconds\":" << durationSeconds
         << "}" << std::endl;

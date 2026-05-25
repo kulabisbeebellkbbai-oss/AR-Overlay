@@ -68,6 +68,11 @@ shared scene/UI/API/input behavior. XReal 1S physical buttons are not an AR
 Overlay input source, so no additional physical button testing is required
 unless a vendor SDK or external controller path is introduced later.
 
+The DXGI runner logs each D3D11 device/swap-chain creation attempt and falls
+back across hardware, compatible swap effects, and WARP. If a display topology
+failure appears, reboot the Windows 11 test host and rerun the DXGI script
+before changing the validated display targeting behavior.
+
 Implemented next artifact:
 
 ```powershell

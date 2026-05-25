@@ -208,3 +208,8 @@ on the validated XReal display, presents through a D3D11/DXGI swap chain, and
 writes evidence to `hardware-results\xreal-1s-windows11\`. The initial DXGI
 preview validates presentation plumbing with a smooth color field before the
 shared scene renderer is moved from the GDI preview into the DirectX path.
+
+The DXGI preview tries hardware D3D11 first and falls back through compatible
+swap-chain modes, then WARP, while logging each `create-device-attempt`. If the
+first run fails after a display topology issue, reboot the Windows 11 test host,
+rerun the script, and sync both stdout and stderr evidence.
