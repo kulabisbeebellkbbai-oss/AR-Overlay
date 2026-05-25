@@ -1,7 +1,8 @@
 param(
     [string]$OutDir = "build\hardware\xreal-1s-windows11",
     [switch]$AdminRescan,
-    [switch]$OpenDisplaySettings
+    [switch]$OpenDisplaySettings,
+    [switch]$TryExtend
 )
 
 $ErrorActionPreference = "Stop"
@@ -132,11 +133,15 @@ $wmiBasic = Get-CimInstance -Namespace root\wmi -ClassName WmiMonitorBasicDispla
     Select-Object InstanceName, Active, MaxHorizontalImageSize, MaxVerticalImageSize
 
 $win32Monitors = Get-Win32MonitorList
-$topologyResults = @(
-    Invoke-DisplayTopology "extend" 0x4
-)
-Start-Sleep -Seconds 2
-$win32MonitorsAfterExtend = Get-Win32MonitorList
+$topologyResults = @()
+$win32MonitorsAfterExtend = $null
+if ($TryExtend) {
+    $topologyResults = @(
+        Invoke-DisplayTopology "extend" 0x4
+    )
+    Start-Sleep -Seconds 2
+    $win32MonitorsAfterExtend = Get-Win32MonitorList
+}
 
 $report = [pscustomobject]@{
     timestamp = $timestamp
@@ -148,6 +153,7 @@ $report = [pscustomobject]@{
     wmiConnections = $wmiConnections
     wmiBasicDisplayParams = $wmiBasic
     win32MonitorsBeforeExtend = $win32Monitors
+    tryExtendRequested = [bool]$TryExtend
     topologyResults = $topologyResults
     win32MonitorsAfterExtend = $win32MonitorsAfterExtend
 }
@@ -156,5 +162,11 @@ $reportPath = Join-Path $OutDir "xreal-display-recovery-report.json"
 Write-JsonFile $reportPath $report
 
 Write-Host "Wrote $reportPath"
-Write-Host "Win32 monitors after extend attempt:"
-$win32MonitorsAfterExtend | ConvertTo-Json -Depth 8
+if ($TryExtend) {
+    Write-Host "Win32 monitors after extend attempt:"
+    $win32MonitorsAfterExtend | ConvertTo-Json -Depth 8
+} else {
+    Write-Host "Win32 monitors:"
+    $win32Monitors | ConvertTo-Json -Depth 8
+    Write-Host "No display topology changes attempted. Rerun with -TryExtend to request Extend."
+}

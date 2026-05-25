@@ -97,6 +97,12 @@ Current preview result:
 - If the XReal display disappears from Win32 enumeration again, capture
   `xreal-display-recovery-report.json` before and after reboot. The current
   working recovery action is a Windows system reboot.
+- Recurrence captured on 2026-05-25 after a later test run: the XReal 1S again
+  disappeared from Win32 desktop monitor enumeration. The diagnose-only
+  recovery report at `xreal-display-recovery-report.json` records only
+  `\\.\DISPLAY1` in `win32MonitorsBeforeExtend`, with `tryExtendRequested=false`
+  so the report did not attempt a topology change. The user planned a cold
+  reboot after this commit.
 
 ## Hardware Bring-Up Status
 

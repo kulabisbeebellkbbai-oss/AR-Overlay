@@ -1,13 +1,13 @@
 {
-    "timestamp":  "2026-05-24T23:42:19.5455328-04:00",
+    "timestamp":  "2026-05-25T15:42:52.6474262-04:00",
     "isAdministrator":  false,
     "pnpXreal":  [
                      {
                          "Class":  "Monitor",
                          "FriendlyName":  "Generic Monitor (XREAL 1S)",
                          "InstanceId":  "DISPLAY\\MRG4102\\5\u002623FDB3E6\u00260\u0026UID4356",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  "HIDClass",
@@ -76,8 +76,8 @@
                          "Class":  "AudioEndpoint",
                          "FriendlyName":  "Capture Input terminal (2- XREAL 1S)",
                          "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{A37EBA59-772C-4D52-8191-9D54D9B7D9E6}",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  "HIDClass",
@@ -97,8 +97,8 @@
                          "Class":  "AudioEndpoint",
                          "FriendlyName":  "Speakers (2- XREAL 1S)",
                          "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  "HIDClass",
@@ -154,8 +154,8 @@
                            {
                                "FriendlyName":  "Generic Monitor (XREAL 1S)",
                                "InstanceId":  "DISPLAY\\MRG4102\\5\u002623FDB3E6\u00260\u0026UID4356",
-                               "Status":  "OK",
-                               "Problem":  0
+                               "Status":  "Unknown",
+                               "Problem":  45
                            },
                            {
                                "FriendlyName":  "Integrated Monitor",
@@ -179,10 +179,10 @@
                                 "Status":  "OK"
                             },
                             {
-                                "Name":  "Generic PnP Monitor",
-                                "PNPDeviceID":  "DISPLAY\\MRG4102\\5\u002623FDB3E6\u00260\u0026UID4356",
-                                "ScreenWidth":  3840,
-                                "ScreenHeight":  1080,
+                                "Name":  "Default Monitor",
+                                "PNPDeviceID":  null,
+                                "ScreenWidth":  null,
+                                "ScreenHeight":  null,
                                 "Status":  "OK"
                             }
                         ],
@@ -191,18 +191,11 @@
                           "Name":  "\u0000",
                           "Active":  true
                       },
-    "wmiConnections":  [
-                           {
-                               "InstanceName":  "DISPLAY\\AUO7DB2\\4\u0026387fdc3b\u00260\u0026UID8388688_0",
-                               "Active":  true,
-                               "VideoOutputTechnology":  2147483648
-                           },
-                           {
-                               "InstanceName":  "DISPLAY\\MRG4102\\5\u002623fdb3e6\u00260\u0026UID4356_0",
-                               "Active":  true,
-                               "VideoOutputTechnology":  10
-                           }
-                       ],
+    "wmiConnections":  {
+                           "InstanceName":  "DISPLAY\\AUO7DB2\\4\u0026387fdc3b\u00260\u0026UID8388688_0",
+                           "Active":  true,
+                           "VideoOutputTechnology":  2147483648
+                       },
     "wmiBasicDisplayParams":  {
                                   "InstanceName":  "DISPLAY\\AUO7DB2\\4\u0026387fdc3b\u00260\u0026UID8388688_0",
                                   "Active":  true,
@@ -222,24 +215,9 @@
                                                        }
                                                    ]
                                   },
+    "tryExtendRequested":  false,
     "topologyResults":  [
-                            {
-                                "topology":  "extend",
-                                "result":  31,
-                                "resultMeaning":  "ERROR_GEN_FAILURE"
-                            }
+
                         ],
-    "win32MonitorsAfterExtend":  {
-                                     "monitors":  [
-                                                      {
-                                                          "device":  "\\\\.\\DISPLAY1",
-                                                          "label":  "",
-                                                          "primary":  true,
-                                                          "x":  0,
-                                                          "y":  0,
-                                                          "width":  2560,
-                                                          "height":  1600
-                                                      }
-                                                  ]
-                                 }
+    "win32MonitorsAfterExtend":  null
 }
