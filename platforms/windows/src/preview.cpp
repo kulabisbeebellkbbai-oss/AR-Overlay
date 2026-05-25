@@ -4,8 +4,10 @@
 #include <windows.h>
 #include <shellscalingapi.h>
 
+#include <algorithm>
 #include <chrono>
 #include <iostream>
+#include <limits>
 #include <string>
 #include <thread>
 #include <vector>
@@ -25,9 +27,11 @@ static bool allowFallback = false;
 static int durationSeconds = 20;
 static bool listOnly = false;
 static bool requireTarget = false;
+static bool measureTiming = false;
 
 std::string narrow(const std::wstring& value);
 std::string jsonEscape(const std::string& value);
+void printTimingReport(const std::vector<double>& frameIntervalsMs, double elapsedMs, int targetRefreshHz);
 
 BOOL CALLBACK collectMonitor(HMONITOR monitor, HDC, LPRECT, LPARAM) {
     MONITORINFOEX info{};
@@ -224,6 +228,7 @@ int wmain(int argc, wchar_t** argv) {
         if (arg == L"--allow-fallback") allowFallback = true;
         if (arg == L"--list") listOnly = true;
         if (arg == L"--require-target") requireTarget = true;
+        if (arg == L"--measure-timing") measureTiming = true;
     }
 
     SetProcessDpiAwareness(PROCESS_PER_MONITOR_DPI_AWARE);
@@ -238,6 +243,14 @@ int wmain(int argc, wchar_t** argv) {
     MonitorInfo target = choice.monitor;
     int width = target.rect.right - target.rect.left;
     int height = target.rect.bottom - target.rect.top;
+    int targetRefreshHz = 0;
+    if (!target.device.empty()) {
+        DEVMODE mode{};
+        mode.dmSize = sizeof(mode);
+        if (EnumDisplaySettingsExW(target.device.c_str(), ENUM_CURRENT_SETTINGS, &mode, 0)) {
+            targetRefreshHz = static_cast<int>(mode.dmDisplayFrequency);
+        }
+    }
 
     WNDCLASSW wc{};
     wc.lpfnWndProc = windowProc;
@@ -283,10 +296,14 @@ int wmain(int argc, wchar_t** argv) {
         << "\"y\":" << target.rect.top << ","
         << "\"width\":" << width << ","
         << "\"height\":" << height << ","
+        << "\"refreshHz\":" << targetRefreshHz << ","
         << "\"durationSeconds\":" << durationSeconds
         << "}" << std::endl;
 
     const auto stopAt = std::chrono::steady_clock::now() + std::chrono::seconds(durationSeconds);
+    const auto startedAt = std::chrono::steady_clock::now();
+    auto previousFrame = startedAt;
+    std::vector<double> frameIntervalsMs;
     MSG msg{};
     while (std::chrono::steady_clock::now() < stopAt) {
         while (PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE)) {
@@ -294,11 +311,56 @@ int wmain(int argc, wchar_t** argv) {
             TranslateMessage(&msg);
             DispatchMessage(&msg);
         }
+        if (measureTiming) {
+            const auto now = std::chrono::steady_clock::now();
+            frameIntervalsMs.push_back(std::chrono::duration<double, std::milli>(now - previousFrame).count());
+            previousFrame = now;
+            InvalidateRect(window, nullptr, FALSE);
+            UpdateWindow(window);
+        }
         std::this_thread::sleep_for(std::chrono::milliseconds(16));
+    }
+
+    if (measureTiming) {
+        const auto endedAt = std::chrono::steady_clock::now();
+        printTimingReport(frameIntervalsMs, std::chrono::duration<double, std::milli>(endedAt - startedAt).count(), targetRefreshHz);
     }
 
     DestroyWindow(window);
     return 0;
+}
+
+void printTimingReport(const std::vector<double>& frameIntervalsMs, double elapsedMs, int targetRefreshHz) {
+    double minFrameMs = 0;
+    double maxFrameMs = 0;
+    double avgFrameMs = 0;
+    int over20Ms = 0;
+    int over33Ms = 0;
+    if (!frameIntervalsMs.empty()) {
+        minFrameMs = std::numeric_limits<double>::max();
+        for (double value : frameIntervalsMs) {
+            minFrameMs = std::min(minFrameMs, value);
+            maxFrameMs = std::max(maxFrameMs, value);
+            avgFrameMs += value;
+            if (value > 20.0) ++over20Ms;
+            if (value > 33.0) ++over33Ms;
+        }
+        avgFrameMs /= static_cast<double>(frameIntervalsMs.size());
+    }
+
+    std::cout
+        << "{"
+        << "\"platform\":\"windows\","
+        << "\"mode\":\"xreal-preview-timing\","
+        << "\"frameCount\":" << frameIntervalsMs.size() << ","
+        << "\"elapsedMs\":" << elapsedMs << ","
+        << "\"targetRefreshHz\":" << targetRefreshHz << ","
+        << "\"minFrameMs\":" << minFrameMs << ","
+        << "\"avgFrameMs\":" << avgFrameMs << ","
+        << "\"maxFrameMs\":" << maxFrameMs << ","
+        << "\"framesOver20Ms\":" << over20Ms << ","
+        << "\"framesOver33Ms\":" << over33Ms
+        << "}" << std::endl;
 }
 #else
 #include <iostream>

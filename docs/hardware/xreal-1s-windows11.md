@@ -145,3 +145,15 @@ rerun the preview script.
 - Identify whether the first real integration path should use a borderless
   window, Win32 display targeting, DirectX, vendor tooling, or another Windows
   presentation path.
+
+## Timing Test
+
+After preview visibility and placement are confirmed, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-timing.ps1
+```
+
+This rebuilds the Windows preview executable, presents to the XReal target for
+30 seconds, records frame-loop timing JSON, and writes synced evidence to
+`hardware-results\xreal-1s-windows11\`.

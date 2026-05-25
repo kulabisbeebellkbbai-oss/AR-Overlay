@@ -40,8 +40,12 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 
 ## Next Required Windows Step
 
-Add a timed Windows presentation run that records frame/presentation timing
-evidence while targeting the XReal display.
+Run the timed Windows presentation script that records frame/presentation timing
+evidence while targeting the XReal display:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-timing.ps1
+```
 
 Implemented next artifact:
 
