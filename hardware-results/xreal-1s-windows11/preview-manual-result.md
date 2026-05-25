@@ -1,6 +1,6 @@
 ﻿# XReal 1S Preview Manual Result
 
-- Date: 2026-05-24T16:13:18.1571643-04:00
+- Date: 2026-05-25T13:15:05.1086998-04:00
 - Target selector: XREAL
 - Windows display number: 2
 - Duration seconds: 20
@@ -10,7 +10,7 @@
 
 Manual observations to fill in:
 
-- Preview visible on XReal display: TODO
-- Placement/scaling correct: TODO
-- Flicker/latency/comfort notes: TODO
-- Any Windows display mode changes needed: TODO
+- Preview visible on XReal display: yes
+- Placement/scaling correct: placement of the text was in the center of the screen
+- Flicker/latency/comfort notes: image was visible without issue
+- Any Windows display mode changes needed: no
