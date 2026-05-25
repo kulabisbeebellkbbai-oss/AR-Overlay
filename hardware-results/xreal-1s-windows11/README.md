@@ -13,6 +13,8 @@ Expected files from the Windows host:
   failure report
 - `ar-overlay-windows-timing.txt` and `timing-manual-result.md`, when
   collecting presentation timing evidence
+- `xreal-input-report.json` and `input-manual-result.md`, when collecting
+  physical input discovery evidence
 
 The smoke script writes these files under
 `build\hardware\xreal-1s-windows11\` on the Windows machine. Because `build/`

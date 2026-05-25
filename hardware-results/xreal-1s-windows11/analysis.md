@@ -43,8 +43,14 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 
 ## Next Required Windows Step
 
-Validate physical input behavior exposed by the XReal path, if any. If no
-input path is exposed by the glasses, record that as a Windows capability
+Run the XReal input discovery report and validate physical input behavior
+exposed by the XReal path, if any:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-xreal-input-report.ps1
+```
+
+If no input path is exposed by the glasses, record that as a Windows capability
 limitation and continue toward the first DirectX/vendor-SDK integration path.
 
 Implemented next artifact:

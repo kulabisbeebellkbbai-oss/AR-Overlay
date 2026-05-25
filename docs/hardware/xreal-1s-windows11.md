@@ -140,7 +140,6 @@ rerun the preview script.
 
 ## Remaining Physical-Hardware Work
 
-- Measure real presentation timing.
 - Validate physical input path, if any.
 - Identify whether the first real integration path should use a borderless
   window, Win32 display targeting, DirectX, vendor tooling, or another Windows
@@ -161,3 +160,21 @@ This rebuilds the Windows preview executable, presents to the XReal target for
 The corrected 2026-05-25 timing run reported `3600` frames over `30000.7 ms`
 on the XReal target at `120 Hz`, with average frame interval `8.33134 ms`, no
 frames over `20 ms`, and one frame over target plus `2 ms`.
+
+## Input Discovery Test
+
+After presentation timing is accepted, run:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-xreal-input-report.ps1
+```
+
+This records XReal-related PnP, HID, keyboard, pointing, media, USB, audio, and
+network devices before and after a short observation window. During that window,
+use any physical XReal controls that should produce Windows input, then complete
+`hardware-results\xreal-1s-windows11\input-manual-result.md`.
+
+The report does not decode HID event payloads. If Windows exposes only a HID
+device with no observable keyboard, mouse, or media event, the next software
+step is a native Raw Input/HID listener. If Windows exposes no usable input
+path, record that as an XReal 1S Windows capability limitation.
