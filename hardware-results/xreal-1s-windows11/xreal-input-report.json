@@ -1,0 +1,2078 @@
+{
+    "timestamp":  "2026-05-25T13:53:37.4213385-04:00",
+    "observationSeconds":  20,
+    "host":  {
+                 "computerName":  "MSI",
+                 "os":  {
+                            "Caption":  "Microsoft Windows 11 Home",
+                            "Version":  "10.0.26200",
+                            "BuildNumber":  "26200"
+                        }
+             },
+    "before":  {
+                   "xrealPnp":  [
+                                    {
+                                        "Class":  "Monitor",
+                                        "FriendlyName":  "Generic Monitor (XREAL 1S)",
+                                        "InstanceId":  "DISPLAY\\MRG4102\\5\u002623FDB3E6\u00260\u0026UID4356",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "HIDClass",
+                                        "FriendlyName":  "HID-compliant device",
+                                        "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
+                                        "Status":  "OK",
+                                        "Problem":  0
+                                    },
+                                    {
+                                        "Class":  "HIDClass",
+                                        "FriendlyName":  "USB Input Device",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
+                                        "Status":  "OK",
+                                        "Problem":  0
+                                    },
+                                    {
+                                        "Class":  "MEDIA",
+                                        "FriendlyName":  "XREAL 1S",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
+                                        "Status":  "OK",
+                                        "Problem":  0
+                                    },
+                                    {
+                                        "Class":  null,
+                                        "FriendlyName":  "CDC ECM",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u002666989DB\u00260\u00260003",
+                                        "Status":  "Error",
+                                        "Problem":  28
+                                    },
+                                    {
+                                        "Class":  "Net",
+                                        "FriendlyName":  "UsbNcm Host Device #2",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
+                                        "Status":  "OK",
+                                        "Problem":  0
+                                    },
+                                    {
+                                        "Class":  "HIDClass",
+                                        "FriendlyName":  "USB Input Device",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
+                                        "Status":  "OK",
+                                        "Problem":  0
+                                    },
+                                    {
+                                        "Class":  null,
+                                        "FriendlyName":  "CDC ECM",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u00261B9C1F57\u00260\u00260003",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "HIDClass",
+                                        "FriendlyName":  "USB Input Device",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u00261B9C1F57\u00260\u00260008",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "AudioEndpoint",
+                                        "FriendlyName":  "Capture Input terminal (XREAL 1S)",
+                                        "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{80F7BED4-13EF-4391-998C-EBB9BA307DD0}",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "AudioEndpoint",
+                                        "FriendlyName":  "Capture Input terminal (2- XREAL 1S)",
+                                        "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{A37EBA59-772C-4D52-8191-9D54D9B7D9E6}",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "HIDClass",
+                                        "FriendlyName":  "HID-compliant consumer control device",
+                                        "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
+                                        "Status":  "OK",
+                                        "Problem":  0
+                                    },
+                                    {
+                                        "Class":  "HIDClass",
+                                        "FriendlyName":  "HID-compliant consumer control device",
+                                        "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u0026EABBC77\u00260\u00260000",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "AudioEndpoint",
+                                        "FriendlyName":  "Speakers (2- XREAL 1S)",
+                                        "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "HIDClass",
+                                        "FriendlyName":  "USB Input Device",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u00261B9C1F57\u00260\u00260000",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "MEDIA",
+                                        "FriendlyName":  "XREAL 1S",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u00261B9C1F57\u00260\u00260005",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "AudioEndpoint",
+                                        "FriendlyName":  "Speakers (XREAL 1S)",
+                                        "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{7CB05A60-93D2-455C-AFD1-DB4C5E4EA77E}",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "HIDClass",
+                                        "FriendlyName":  "HID-compliant device",
+                                        "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u00262B8C986E\u00260\u00260000",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "USB",
+                                        "FriendlyName":  "USB Composite Device",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00261",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    },
+                                    {
+                                        "Class":  "USB",
+                                        "FriendlyName":  "USB Composite Device",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
+                                        "Status":  "OK",
+                                        "Problem":  0
+                                    },
+                                    {
+                                        "Class":  "Net",
+                                        "FriendlyName":  "UsbNcm Host Device",
+                                        "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u00261B9C1F57\u00260\u00260001",
+                                        "Status":  "Unknown",
+                                        "Problem":  45
+                                    }
+                                ],
+                   "xrealCim":  [
+                                    {
+                                        "Name":  "HID-compliant device",
+                                        "PNPClass":  "HIDClass",
+                                        "DeviceID":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
+                                        "Manufacturer":  "(Standard system devices)",
+                                        "Service":  null,
+                                        "Status":  "OK",
+                                        "ConfigManagerErrorCode":  0
+                                    },
+                                    {
+                                        "Name":  "USB Input Device",
+                                        "PNPClass":  "HIDClass",
+                                        "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
+                                        "Manufacturer":  "(Standard system devices)",
+                                        "Service":  "HidUsb",
+                                        "Status":  "OK",
+                                        "ConfigManagerErrorCode":  0
+                                    },
+                                    {
+                                        "Name":  "XREAL 1S",
+                                        "PNPClass":  "MEDIA",
+                                        "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
+                                        "Manufacturer":  "(Generic USB Audio)",
+                                        "Service":  "usbaudio",
+                                        "Status":  "OK",
+                                        "ConfigManagerErrorCode":  0
+                                    },
+                                    {
+                                        "Name":  "CDC ECM",
+                                        "PNPClass":  null,
+                                        "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u002666989DB\u00260\u00260003",
+                                        "Manufacturer":  null,
+                                        "Service":  null,
+                                        "Status":  "Error",
+                                        "ConfigManagerErrorCode":  28
+                                    },
+                                    {
+                                        "Name":  "UsbNcm Host Device #2",
+                                        "PNPClass":  "Net",
+                                        "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
+                                        "Manufacturer":  "Microsoft",
+                                        "Service":  "UsbNcm",
+                                        "Status":  "OK",
+                                        "ConfigManagerErrorCode":  0
+                                    },
+                                    {
+                                        "Name":  "USB Input Device",
+                                        "PNPClass":  "HIDClass",
+                                        "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
+                                        "Manufacturer":  "(Standard system devices)",
+                                        "Service":  "HidUsb",
+                                        "Status":  "OK",
+                                        "ConfigManagerErrorCode":  0
+                                    },
+                                    {
+                                        "Name":  "HID-compliant consumer control device",
+                                        "PNPClass":  "HIDClass",
+                                        "DeviceID":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
+                                        "Manufacturer":  "Microsoft",
+                                        "Service":  null,
+                                        "Status":  "OK",
+                                        "ConfigManagerErrorCode":  0
+                                    },
+                                    {
+                                        "Name":  "USB Composite Device",
+                                        "PNPClass":  "USB",
+                                        "DeviceID":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
+                                        "Manufacturer":  "(Standard USB Host Controller)",
+                                        "Service":  "usbccgp",
+                                        "Status":  "OK",
+                                        "ConfigManagerErrorCode":  0
+                                    }
+                                ],
+                   "inputClassDevices":  [
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\INTC816\u0026COL07\\3\u00263B404111\u00260\u00260006",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL01\\7\u00262A0FCF58\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\INTC816\u0026COL0A\\3\u00263B404111\u00260\u00260009",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant device",
+                                                 "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL03\\7\u00263811276E\u00260\u00260002",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL03\\7\u00262302B1DA\u00260\u00260002",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_00\\6\u00262E254C23\u00261\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_046D\u0026PID_C534\u0026MI_01\\6\u002612D7F86A\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant device",
+                                                 "InstanceId":  "HID\\VID_062A\u0026PID_4101\u0026MI_01\u0026COL04\\7\u0026B8008DB\u00260\u00260003",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant device",
+                                                 "InstanceId":  "HID\\VID_1462\u0026PID_1603\\6\u002625EDBF06\u00260\u00260000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_062A\u0026PID_4101\u0026MI_01\u0026COL03\\7\u0026B8008DB\u00260\u00260002",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL02\\7\u0026A60024D\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant touch pad",
+                                                 "InstanceId":  "HID\\CUST000\u0026COL03\\5\u00261691BC05\u00260\u00260002",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL02\\7\u00262B05B19C\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_062A\u0026PID_4101\u0026MI_01\u0026COL02\\7\u0026B8008DB\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_00\\6\u00262635C113\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL01\\7\u0026A60024D\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL03\\7\u002611EC8D67\u00260\u00260002",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL05\\7\u00262862B718\u00260\u00260004",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_00\\6\u00261B6B9B7E\u00261\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\INTC816\u0026COL03\\3\u00263B404111\u00260\u00260002",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_045E\u0026PID_02FF\u0026IG_00\\00\u002600\u0026000053E1B888ED7E",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\INTC816\u0026COL08\\3\u00263B404111\u00260\u00260007",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL02\\7\u00262A0FCF58\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_02\\7\u00261439E9AC\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant device",
+                                                 "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL08\\8\u00262B52D3E\u00260\u00260007",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\HIDCLASS\u0026COL04\\1\u00262D595CA7\u00260\u00260003",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_00\\6\u0026137C106E\u00262\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL06\\8\u00262B52D3E\u00260\u00260005",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant wireless radio controls",
+                                                 "InstanceId":  "HID\\ACPI0011\\3\u002612EA6EFA\u00260\u00260000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_01\\6\u00262E254C23\u00261\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL02\\7\u002622C55908\u00260\u00260001",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL05\\8\u00262B52D3E\u00260\u00260004",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL04\\8\u00262B52D3E\u00260\u00260003",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL03\\8\u00262B52D3E\u00260\u00260002",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL02\\8\u00262B52D3E\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_01\\6\u00262635C113\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u00261B9C1F57\u00260\u00260008",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_1462\u0026PID_1603\\1DE3A4A94000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_02\\7\u0026F5AD11\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL04\\7\u002611EC8D67\u00260\u00260003",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_046D\u0026PID_C534\u0026MI_00\\6\u00262591A90F\u00260\u00260000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_01\\6\u00261B6B9B7E\u00261\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\INTC816\u0026COL04\\3\u00263B404111\u00260\u00260003",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\INTC816\u0026COL09\\3\u00263B404111\u00260\u00260008",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL03\\7\u002628B4D85\u00260\u00260002",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_01\\6\u0026E8998C4\u00261\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL02\\7\u002628B4D85\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL05\\7\u00263811276E\u00260\u00260004",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_00\\6\u0026E8998C4\u00261\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_0513\u0026PID_0318\u0026MI_00\\6\u00261E6D7B9A\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\HIDCLASS\u0026COL05\\1\u00262D595CA7\u00260\u00260004",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_0513\u0026PID_0318\u0026MI_01\\6\u0026BB3CAF5\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_01\\6\u0026137C106E\u00262\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u0026EABBC77\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_0513\u0026PID_0318\u0026MI_00\\6\u0026BB3CAF5\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_02\\6\u00262E254C23\u00261\u00260002",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL03\\7\u002622C55908\u00260\u00260002",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL02\\7\u00262862B718\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL05\\7\u002611EC8D67\u00260\u00260004",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_046D\u0026PID_C534\u0026MI_01\\6\u00262591A90F\u00260\u00260001",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_02\\6\u00261B6B9B7E\u00261\u00260002",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\INTC816\u0026COL05\\3\u00263B404111\u00260\u00260004",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\CONVERTEDDEVICE\u0026COL03\\5\u00266175CE0\u00260\u00260002",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\CONVERTEDDEVICE\u0026COL02\\5\u00266175CE0\u00260\u00260001",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant device",
+                                                 "InstanceId":  "HID\\HIDCLASS\u0026COL01\\1\u00262D595CA7\u00260\u00260000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_0513\u0026PID_0318\u0026MI_01\\6\u00261E6D7B9A\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\HIDCLASS\u0026COL06\\1\u00262D595CA7\u00260\u00260005",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL04\\7\u002622C55908\u00260\u00260003",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u00261B9C1F57\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_062A\u0026PID_4101\u0026MI_00\\6\u00261970BAF5\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL03\\7\u00262862B718\u00260\u00260002",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\INTC816\u0026COL06\\3\u00263B404111\u00260\u00260005",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant device",
+                                                 "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u00262B8C986E\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant system controller",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL02\\7\u00263811276E\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL02\\7\u00262302B1DA\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_046D\u0026PID_C534\u0026MI_00\\6\u002612D7F86A\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL05\\7\u002622C55908\u00260\u00260004",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant vendor-defined device",
+                                                 "InstanceId":  "HID\\CUST000\u0026COL02\\5\u00261691BC05\u00260\u00260001",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL01\\7\u00262B05B19C\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "USB Input Device",
+                                                 "InstanceId":  "USB\\VID_062A\u0026PID_4101\u0026MI_01\\6\u00261970BAF5\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant consumer control device",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL02\\7\u002611EC8D67\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "HIDClass",
+                                                 "FriendlyName":  "HID-compliant wireless radio controls",
+                                                 "InstanceId":  "HID\\INTC816\u0026COL02\\3\u00263B404111\u00260\u00260001",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL01\\7\u002622C55908\u00260\u00260000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\VID_062A\u0026PID_4101\u0026MI_01\u0026COL01\\7\u0026B8008DB\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_00\\7\u00262CE206C2\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL04\\7\u00263811276E\u00260\u00260003",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL01\\7\u002628B4D85\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_00\\7\u002648B7956\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL01\\7\u00262302B1DA\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\CUST000\u0026COL01\\5\u00261691BC05\u00260\u00260000",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL01\\7\u002611EC8D67\u00260\u00260000",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\HIDCLASS\u0026COL02\\1\u00262D595CA7\u00260\u00260001",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "Mouse",
+                                                 "FriendlyName":  "HID-compliant mouse",
+                                                 "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL04\\7\u00262862B718\u00260\u00260003",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "MEDIA",
+                                                 "FriendlyName":  "XREAL 1S",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "MEDIA",
+                                                 "FriendlyName":  "XREAL 1S",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u00261B9C1F57\u00260\u00260005",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "AudioEndpoint",
+                                                 "FriendlyName":  "Capture Input terminal (XREAL 1S)",
+                                                 "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{80F7BED4-13EF-4391-998C-EBB9BA307DD0}",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "AudioEndpoint",
+                                                 "FriendlyName":  "Capture Input terminal (2- XREAL 1S)",
+                                                 "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{A37EBA59-772C-4D52-8191-9D54D9B7D9E6}",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "AudioEndpoint",
+                                                 "FriendlyName":  "Speakers (2- XREAL 1S)",
+                                                 "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "AudioEndpoint",
+                                                 "FriendlyName":  "Speakers (XREAL 1S)",
+                                                 "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{7CB05A60-93D2-455C-AFD1-DB4C5E4EA77E}",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "USB",
+                                                 "FriendlyName":  "USB Composite Device",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00261",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             },
+                                             {
+                                                 "Class":  "USB",
+                                                 "FriendlyName":  "USB Composite Device",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "Net",
+                                                 "FriendlyName":  "UsbNcm Host Device #2",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
+                                                 "Status":  "OK",
+                                                 "Problem":  0
+                                             },
+                                             {
+                                                 "Class":  "Net",
+                                                 "FriendlyName":  "UsbNcm Host Device",
+                                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u00261B9C1F57\u00260\u00260001",
+                                                 "Status":  "Unknown",
+                                                 "Problem":  45
+                                             }
+                                         ],
+                   "keyboards":  [
+                                     {
+                                         "Name":  "Enhanced (101- or 102-key)",
+                                         "DeviceID":  "HID\\HIDCLASS\u0026COL03\\1\u00262D595CA7\u00260\u00260002",
+                                         "PNPDeviceID":  "HID\\HIDCLASS\u0026COL03\\1\u00262D595CA7\u00260\u00260002",
+                                         "Status":  "OK"
+                                     },
+                                     {
+                                         "Name":  "Enhanced (101- or 102-key)",
+                                         "DeviceID":  "USB\\VID_046D\u0026PID_C534\u0026MI_00\\6\u00262591A90F\u00260\u00260000",
+                                         "PNPDeviceID":  "USB\\VID_046D\u0026PID_C534\u0026MI_00\\6\u00262591A90F\u00260\u00260000",
+                                         "Status":  "OK"
+                                     },
+                                     {
+                                         "Name":  "Enhanced (101- or 102-key)",
+                                         "DeviceID":  "ACPI\\MSI0007\\4\u0026EA58A4D\u00260",
+                                         "PNPDeviceID":  "ACPI\\MSI0007\\4\u0026EA58A4D\u00260",
+                                         "Status":  "OK"
+                                     },
+                                     {
+                                         "Name":  "Enhanced (101- or 102-key)",
+                                         "DeviceID":  "HID\\CONVERTEDDEVICE\u0026COL01\\5\u00266175CE0\u00260\u00260000",
+                                         "PNPDeviceID":  "HID\\CONVERTEDDEVICE\u0026COL01\\5\u00266175CE0\u00260\u00260000",
+                                         "Status":  "OK"
+                                     },
+                                     {
+                                         "Name":  "Enhanced (101- or 102-key)",
+                                         "DeviceID":  "HID\\INTC816\u0026COL01\\3\u00263B404111\u00260\u00260000",
+                                         "PNPDeviceID":  "HID\\INTC816\u0026COL01\\3\u00263B404111\u00260\u00260000",
+                                         "Status":  "OK"
+                                     }
+                                 ],
+                   "pointingDevices":  [
+                                           {
+                                               "Name":  "HID-compliant mouse",
+                                               "DeviceID":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL01\\7\u002622C55908\u00260\u00260000",
+                                               "PNPDeviceID":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL01\\7\u002622C55908\u00260\u00260000",
+                                               "HardwareType":  "HID-compliant mouse",
+                                               "Status":  "OK"
+                                           },
+                                           {
+                                               "Name":  "HID-compliant mouse",
+                                               "DeviceID":  "HID\\CUST000\u0026COL01\\5\u00261691BC05\u00260\u00260000",
+                                               "PNPDeviceID":  "HID\\CUST000\u0026COL01\\5\u00261691BC05\u00260\u00260000",
+                                               "HardwareType":  "HID-compliant mouse",
+                                               "Status":  "OK"
+                                           },
+                                           {
+                                               "Name":  "HID-compliant mouse",
+                                               "DeviceID":  "HID\\HIDCLASS\u0026COL02\\1\u00262D595CA7\u00260\u00260001",
+                                               "PNPDeviceID":  "HID\\HIDCLASS\u0026COL02\\1\u00262D595CA7\u00260\u00260001",
+                                               "HardwareType":  "HID-compliant mouse",
+                                               "Status":  "OK"
+                                           }
+                                       ]
+               },
+    "after":  {
+                  "xrealPnp":  [
+                                   {
+                                       "Class":  "Monitor",
+                                       "FriendlyName":  "Generic Monitor (XREAL 1S)",
+                                       "InstanceId":  "DISPLAY\\MRG4102\\5\u002623FDB3E6\u00260\u0026UID4356",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "HIDClass",
+                                       "FriendlyName":  "HID-compliant device",
+                                       "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
+                                       "Status":  "OK",
+                                       "Problem":  0
+                                   },
+                                   {
+                                       "Class":  "HIDClass",
+                                       "FriendlyName":  "USB Input Device",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
+                                       "Status":  "OK",
+                                       "Problem":  0
+                                   },
+                                   {
+                                       "Class":  "MEDIA",
+                                       "FriendlyName":  "XREAL 1S",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
+                                       "Status":  "OK",
+                                       "Problem":  0
+                                   },
+                                   {
+                                       "Class":  null,
+                                       "FriendlyName":  "CDC ECM",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u002666989DB\u00260\u00260003",
+                                       "Status":  "Error",
+                                       "Problem":  28
+                                   },
+                                   {
+                                       "Class":  "Net",
+                                       "FriendlyName":  "UsbNcm Host Device #2",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
+                                       "Status":  "OK",
+                                       "Problem":  0
+                                   },
+                                   {
+                                       "Class":  "HIDClass",
+                                       "FriendlyName":  "USB Input Device",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
+                                       "Status":  "OK",
+                                       "Problem":  0
+                                   },
+                                   {
+                                       "Class":  null,
+                                       "FriendlyName":  "CDC ECM",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u00261B9C1F57\u00260\u00260003",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "HIDClass",
+                                       "FriendlyName":  "USB Input Device",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u00261B9C1F57\u00260\u00260008",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "AudioEndpoint",
+                                       "FriendlyName":  "Capture Input terminal (XREAL 1S)",
+                                       "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{80F7BED4-13EF-4391-998C-EBB9BA307DD0}",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "AudioEndpoint",
+                                       "FriendlyName":  "Capture Input terminal (2- XREAL 1S)",
+                                       "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{A37EBA59-772C-4D52-8191-9D54D9B7D9E6}",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "HIDClass",
+                                       "FriendlyName":  "HID-compliant consumer control device",
+                                       "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
+                                       "Status":  "OK",
+                                       "Problem":  0
+                                   },
+                                   {
+                                       "Class":  "HIDClass",
+                                       "FriendlyName":  "HID-compliant consumer control device",
+                                       "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u0026EABBC77\u00260\u00260000",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "AudioEndpoint",
+                                       "FriendlyName":  "Speakers (2- XREAL 1S)",
+                                       "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "HIDClass",
+                                       "FriendlyName":  "USB Input Device",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u00261B9C1F57\u00260\u00260000",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "MEDIA",
+                                       "FriendlyName":  "XREAL 1S",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u00261B9C1F57\u00260\u00260005",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "AudioEndpoint",
+                                       "FriendlyName":  "Speakers (XREAL 1S)",
+                                       "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{7CB05A60-93D2-455C-AFD1-DB4C5E4EA77E}",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "HIDClass",
+                                       "FriendlyName":  "HID-compliant device",
+                                       "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u00262B8C986E\u00260\u00260000",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "USB",
+                                       "FriendlyName":  "USB Composite Device",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00261",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   },
+                                   {
+                                       "Class":  "USB",
+                                       "FriendlyName":  "USB Composite Device",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
+                                       "Status":  "OK",
+                                       "Problem":  0
+                                   },
+                                   {
+                                       "Class":  "Net",
+                                       "FriendlyName":  "UsbNcm Host Device",
+                                       "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u00261B9C1F57\u00260\u00260001",
+                                       "Status":  "Unknown",
+                                       "Problem":  45
+                                   }
+                               ],
+                  "xrealCim":  [
+                                   {
+                                       "Name":  "HID-compliant device",
+                                       "PNPClass":  "HIDClass",
+                                       "DeviceID":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
+                                       "Manufacturer":  "(Standard system devices)",
+                                       "Service":  null,
+                                       "Status":  "OK",
+                                       "ConfigManagerErrorCode":  0
+                                   },
+                                   {
+                                       "Name":  "USB Input Device",
+                                       "PNPClass":  "HIDClass",
+                                       "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
+                                       "Manufacturer":  "(Standard system devices)",
+                                       "Service":  "HidUsb",
+                                       "Status":  "OK",
+                                       "ConfigManagerErrorCode":  0
+                                   },
+                                   {
+                                       "Name":  "XREAL 1S",
+                                       "PNPClass":  "MEDIA",
+                                       "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
+                                       "Manufacturer":  "(Generic USB Audio)",
+                                       "Service":  "usbaudio",
+                                       "Status":  "OK",
+                                       "ConfigManagerErrorCode":  0
+                                   },
+                                   {
+                                       "Name":  "CDC ECM",
+                                       "PNPClass":  null,
+                                       "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u002666989DB\u00260\u00260003",
+                                       "Manufacturer":  null,
+                                       "Service":  null,
+                                       "Status":  "Error",
+                                       "ConfigManagerErrorCode":  28
+                                   },
+                                   {
+                                       "Name":  "UsbNcm Host Device #2",
+                                       "PNPClass":  "Net",
+                                       "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
+                                       "Manufacturer":  "Microsoft",
+                                       "Service":  "UsbNcm",
+                                       "Status":  "OK",
+                                       "ConfigManagerErrorCode":  0
+                                   },
+                                   {
+                                       "Name":  "USB Input Device",
+                                       "PNPClass":  "HIDClass",
+                                       "DeviceID":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
+                                       "Manufacturer":  "(Standard system devices)",
+                                       "Service":  "HidUsb",
+                                       "Status":  "OK",
+                                       "ConfigManagerErrorCode":  0
+                                   },
+                                   {
+                                       "Name":  "HID-compliant consumer control device",
+                                       "PNPClass":  "HIDClass",
+                                       "DeviceID":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
+                                       "Manufacturer":  "Microsoft",
+                                       "Service":  null,
+                                       "Status":  "OK",
+                                       "ConfigManagerErrorCode":  0
+                                   },
+                                   {
+                                       "Name":  "USB Composite Device",
+                                       "PNPClass":  "USB",
+                                       "DeviceID":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
+                                       "Manufacturer":  "(Standard USB Host Controller)",
+                                       "Service":  "usbccgp",
+                                       "Status":  "OK",
+                                       "ConfigManagerErrorCode":  0
+                                   }
+                               ],
+                  "inputClassDevices":  [
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\INTC816\u0026COL07\\3\u00263B404111\u00260\u00260006",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL01\\7\u00262A0FCF58\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\INTC816\u0026COL0A\\3\u00263B404111\u00260\u00260009",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant device",
+                                                "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL03\\7\u00263811276E\u00260\u00260002",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL03\\7\u00262302B1DA\u00260\u00260002",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_00\\6\u00262E254C23\u00261\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_046D\u0026PID_C534\u0026MI_01\\6\u002612D7F86A\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant device",
+                                                "InstanceId":  "HID\\VID_062A\u0026PID_4101\u0026MI_01\u0026COL04\\7\u0026B8008DB\u00260\u00260003",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant device",
+                                                "InstanceId":  "HID\\VID_1462\u0026PID_1603\\6\u002625EDBF06\u00260\u00260000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_062A\u0026PID_4101\u0026MI_01\u0026COL03\\7\u0026B8008DB\u00260\u00260002",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL02\\7\u0026A60024D\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant touch pad",
+                                                "InstanceId":  "HID\\CUST000\u0026COL03\\5\u00261691BC05\u00260\u00260002",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL02\\7\u00262B05B19C\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_062A\u0026PID_4101\u0026MI_01\u0026COL02\\7\u0026B8008DB\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_00\\6\u00262635C113\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL01\\7\u0026A60024D\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL03\\7\u002611EC8D67\u00260\u00260002",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL05\\7\u00262862B718\u00260\u00260004",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_00\\6\u00261B6B9B7E\u00261\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\INTC816\u0026COL03\\3\u00263B404111\u00260\u00260002",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_045E\u0026PID_02FF\u0026IG_00\\00\u002600\u0026000053E1B888ED7E",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\INTC816\u0026COL08\\3\u00263B404111\u00260\u00260007",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL02\\7\u00262A0FCF58\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_02\\7\u00261439E9AC\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant device",
+                                                "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL08\\8\u00262B52D3E\u00260\u00260007",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\HIDCLASS\u0026COL04\\1\u00262D595CA7\u00260\u00260003",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_00\\6\u0026137C106E\u00262\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL06\\8\u00262B52D3E\u00260\u00260005",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant wireless radio controls",
+                                                "InstanceId":  "HID\\ACPI0011\\3\u002612EA6EFA\u00260\u00260000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_01\\6\u00262E254C23\u00261\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL02\\7\u002622C55908\u00260\u00260001",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL05\\8\u00262B52D3E\u00260\u00260004",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL04\\8\u00262B52D3E\u00260\u00260003",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL03\\8\u00262B52D3E\u00260\u00260002",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\{00001124-0000-1000-8000-00805F9B34FB}_VID\u0026000205AC_PID\u0026024F\u0026COL02\\8\u00262B52D3E\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_01\\6\u00262635C113\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u00261B9C1F57\u00260\u00260008",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_1462\u0026PID_1603\\1DE3A4A94000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_02\\7\u0026F5AD11\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL04\\7\u002611EC8D67\u00260\u00260003",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_046D\u0026PID_C534\u0026MI_00\\6\u00262591A90F\u00260\u00260000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_01\\6\u00261B6B9B7E\u00261\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\INTC816\u0026COL04\\3\u00263B404111\u00260\u00260003",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\INTC816\u0026COL09\\3\u00263B404111\u00260\u00260008",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL03\\7\u002628B4D85\u00260\u00260002",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_01\\6\u0026E8998C4\u00261\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL02\\7\u002628B4D85\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL05\\7\u00263811276E\u00260\u00260004",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_00\\6\u0026E8998C4\u00261\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_0513\u0026PID_0318\u0026MI_00\\6\u00261E6D7B9A\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\HIDCLASS\u0026COL05\\1\u00262D595CA7\u00260\u00260004",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_0513\u0026PID_0318\u0026MI_01\\6\u0026BB3CAF5\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_05AC\u0026PID_024F\u0026MI_01\\6\u0026137C106E\u00262\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u0026EABBC77\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_0513\u0026PID_0318\u0026MI_00\\6\u0026BB3CAF5\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_02\\6\u00262E254C23\u00261\u00260002",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL03\\7\u002622C55908\u00260\u00260002",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL02\\7\u00262862B718\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL05\\7\u002611EC8D67\u00260\u00260004",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_046D\u0026PID_C534\u0026MI_01\\6\u00262591A90F\u00260\u00260001",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_12C9\u0026PID_1027\u0026MI_02\\6\u00261B6B9B7E\u00261\u00260002",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\INTC816\u0026COL05\\3\u00263B404111\u00260\u00260004",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\CONVERTEDDEVICE\u0026COL03\\5\u00266175CE0\u00260\u00260002",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\CONVERTEDDEVICE\u0026COL02\\5\u00266175CE0\u00260\u00260001",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant device",
+                                                "InstanceId":  "HID\\HIDCLASS\u0026COL01\\1\u00262D595CA7\u00260\u00260000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_0513\u0026PID_0318\u0026MI_01\\6\u00261E6D7B9A\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\HIDCLASS\u0026COL06\\1\u00262D595CA7\u00260\u00260005",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL04\\7\u002622C55908\u00260\u00260003",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u00261B9C1F57\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_062A\u0026PID_4101\u0026MI_00\\6\u00261970BAF5\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL03\\7\u00262862B718\u00260\u00260002",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\INTC816\u0026COL06\\3\u00263B404111\u00260\u00260005",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant device",
+                                                "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u00262B8C986E\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant system controller",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL02\\7\u00263811276E\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL02\\7\u00262302B1DA\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_046D\u0026PID_C534\u0026MI_00\\6\u002612D7F86A\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL05\\7\u002622C55908\u00260\u00260004",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant vendor-defined device",
+                                                "InstanceId":  "HID\\CUST000\u0026COL02\\5\u00261691BC05\u00260\u00260001",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_05AC\u0026PID_024F\u0026MI_01\u0026COL01\\7\u00262B05B19C\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "USB Input Device",
+                                                "InstanceId":  "USB\\VID_062A\u0026PID_4101\u0026MI_01\\6\u00261970BAF5\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant consumer control device",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL02\\7\u002611EC8D67\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "HIDClass",
+                                                "FriendlyName":  "HID-compliant wireless radio controls",
+                                                "InstanceId":  "HID\\INTC816\u0026COL02\\3\u00263B404111\u00260\u00260001",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL01\\7\u002622C55908\u00260\u00260000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\VID_062A\u0026PID_4101\u0026MI_01\u0026COL01\\7\u0026B8008DB\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_00\\7\u00262CE206C2\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL04\\7\u00263811276E\u00260\u00260003",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL01\\7\u002628B4D85\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_00\\7\u002648B7956\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\VID_0513\u0026PID_0318\u0026MI_01\u0026COL01\\7\u00262302B1DA\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\CUST000\u0026COL01\\5\u00261691BC05\u00260\u00260000",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL01\\7\u002611EC8D67\u00260\u00260000",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\HIDCLASS\u0026COL02\\1\u00262D595CA7\u00260\u00260001",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "Mouse",
+                                                "FriendlyName":  "HID-compliant mouse",
+                                                "InstanceId":  "HID\\VID_12C9\u0026PID_1027\u0026MI_01\u0026COL04\\7\u00262862B718\u00260\u00260003",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "MEDIA",
+                                                "FriendlyName":  "XREAL 1S",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "MEDIA",
+                                                "FriendlyName":  "XREAL 1S",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u00261B9C1F57\u00260\u00260005",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "AudioEndpoint",
+                                                "FriendlyName":  "Capture Input terminal (XREAL 1S)",
+                                                "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{80F7BED4-13EF-4391-998C-EBB9BA307DD0}",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "AudioEndpoint",
+                                                "FriendlyName":  "Capture Input terminal (2- XREAL 1S)",
+                                                "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{A37EBA59-772C-4D52-8191-9D54D9B7D9E6}",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "AudioEndpoint",
+                                                "FriendlyName":  "Speakers (2- XREAL 1S)",
+                                                "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "AudioEndpoint",
+                                                "FriendlyName":  "Speakers (XREAL 1S)",
+                                                "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{7CB05A60-93D2-455C-AFD1-DB4C5E4EA77E}",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "USB",
+                                                "FriendlyName":  "USB Composite Device",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00261",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            },
+                                            {
+                                                "Class":  "USB",
+                                                "FriendlyName":  "USB Composite Device",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "Net",
+                                                "FriendlyName":  "UsbNcm Host Device #2",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
+                                                "Status":  "OK",
+                                                "Problem":  0
+                                            },
+                                            {
+                                                "Class":  "Net",
+                                                "FriendlyName":  "UsbNcm Host Device",
+                                                "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u00261B9C1F57\u00260\u00260001",
+                                                "Status":  "Unknown",
+                                                "Problem":  45
+                                            }
+                                        ],
+                  "keyboards":  [
+                                    {
+                                        "Name":  "Enhanced (101- or 102-key)",
+                                        "DeviceID":  "HID\\HIDCLASS\u0026COL03\\1\u00262D595CA7\u00260\u00260002",
+                                        "PNPDeviceID":  "HID\\HIDCLASS\u0026COL03\\1\u00262D595CA7\u00260\u00260002",
+                                        "Status":  "OK"
+                                    },
+                                    {
+                                        "Name":  "Enhanced (101- or 102-key)",
+                                        "DeviceID":  "USB\\VID_046D\u0026PID_C534\u0026MI_00\\6\u00262591A90F\u00260\u00260000",
+                                        "PNPDeviceID":  "USB\\VID_046D\u0026PID_C534\u0026MI_00\\6\u00262591A90F\u00260\u00260000",
+                                        "Status":  "OK"
+                                    },
+                                    {
+                                        "Name":  "Enhanced (101- or 102-key)",
+                                        "DeviceID":  "ACPI\\MSI0007\\4\u0026EA58A4D\u00260",
+                                        "PNPDeviceID":  "ACPI\\MSI0007\\4\u0026EA58A4D\u00260",
+                                        "Status":  "OK"
+                                    },
+                                    {
+                                        "Name":  "Enhanced (101- or 102-key)",
+                                        "DeviceID":  "HID\\CONVERTEDDEVICE\u0026COL01\\5\u00266175CE0\u00260\u00260000",
+                                        "PNPDeviceID":  "HID\\CONVERTEDDEVICE\u0026COL01\\5\u00266175CE0\u00260\u00260000",
+                                        "Status":  "OK"
+                                    },
+                                    {
+                                        "Name":  "Enhanced (101- or 102-key)",
+                                        "DeviceID":  "HID\\INTC816\u0026COL01\\3\u00263B404111\u00260\u00260000",
+                                        "PNPDeviceID":  "HID\\INTC816\u0026COL01\\3\u00263B404111\u00260\u00260000",
+                                        "Status":  "OK"
+                                    }
+                                ],
+                  "pointingDevices":  [
+                                          {
+                                              "Name":  "HID-compliant mouse",
+                                              "DeviceID":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL01\\7\u002622C55908\u00260\u00260000",
+                                              "PNPDeviceID":  "HID\\VID_046D\u0026PID_C534\u0026MI_01\u0026COL01\\7\u002622C55908\u00260\u00260000",
+                                              "HardwareType":  "HID-compliant mouse",
+                                              "Status":  "OK"
+                                          },
+                                          {
+                                              "Name":  "HID-compliant mouse",
+                                              "DeviceID":  "HID\\CUST000\u0026COL01\\5\u00261691BC05\u00260\u00260000",
+                                              "PNPDeviceID":  "HID\\CUST000\u0026COL01\\5\u00261691BC05\u00260\u00260000",
+                                              "HardwareType":  "HID-compliant mouse",
+                                              "Status":  "OK"
+                                          },
+                                          {
+                                              "Name":  "HID-compliant mouse",
+                                              "DeviceID":  "HID\\HIDCLASS\u0026COL02\\1\u00262D595CA7\u00260\u00260001",
+                                              "PNPDeviceID":  "HID\\HIDCLASS\u0026COL02\\1\u00262D595CA7\u00260\u00260001",
+                                              "HardwareType":  "HID-compliant mouse",
+                                              "Status":  "OK"
+                                          }
+                                      ]
+              },
+    "captureLimitations":  [
+                               "This PowerShell report captures Windows device presence and state before and after the observation window.",
+                               "It does not decode HID event payloads. If XReal controls appear only as HID reports, the next step is a native Raw Input/HID listener."
+                           ]
+}
