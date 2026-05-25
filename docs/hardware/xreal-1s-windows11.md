@@ -221,9 +221,10 @@ preview was visible on the XReal display, full-screen placement/scaling was
 correct, the color field changed smoothly, and no Windows display mode changes
 were needed. Minor occasional flicker was observed.
 
-Next code step: move the shared scene renderer from the GDI preview into the
-DXGI path and include presentation timing/flicker instrumentation so the minor
-occasional flicker can be measured on the next hardware run.
+The next DXGI run renders the shared `static-text` scene content through
+Direct2D/DirectWrite on the D3D11/DXGI swap chain and emits timing/flicker
+instrumentation: target refresh, frame interval min/average/max, frames over
+20 ms, frames over 33 ms, frames over target plus 2 ms, and `Present` failures.
 
 The Windows preview, timing, and DXGI scripts run this preflight first:
 

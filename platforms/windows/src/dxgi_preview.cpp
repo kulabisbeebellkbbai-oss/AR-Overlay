@@ -4,11 +4,14 @@
 #include <windows.h>
 #include <shellscalingapi.h>
 #include <d3d11.h>
+#include <d2d1.h>
+#include <dwrite.h>
 #include <dxgi.h>
 #include <wrl/client.h>
 
 #include <algorithm>
 #include <chrono>
+#include <cwchar>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
@@ -42,6 +45,18 @@ static bool listOnly = false;
 static int durationSeconds = 20;
 static bool running = true;
 
+struct FrameStats {
+    int frameCount = 0;
+    int presentFailures = 0;
+    int framesOver20Ms = 0;
+    int framesOver33Ms = 0;
+    int framesOverTargetBy2Ms = 0;
+    double minFrameMs = 0;
+    double avgFrameMs = 0;
+    double maxFrameMs = 0;
+    HRESULT lastPresentFailure = S_OK;
+};
+
 std::string hresultHex(HRESULT value) {
     std::ostringstream output;
     output << "0x" << std::hex << std::uppercase << static_cast<unsigned long>(value);
@@ -65,6 +80,24 @@ std::string driverTypeName(D3D_DRIVER_TYPE value) {
         case D3D_DRIVER_TYPE_REFERENCE: return "reference";
         default: return "unknown";
     }
+}
+
+double targetFrameMsForRefresh(int refreshHz) {
+    return refreshHz > 0 ? 1000.0 / static_cast<double>(refreshHz) : 16.6667;
+}
+
+void recordFrameInterval(FrameStats& stats, double frameMs, double targetFrameMs) {
+    if (stats.frameCount == 0) {
+        stats.minFrameMs = frameMs;
+        stats.maxFrameMs = frameMs;
+    } else {
+        stats.minFrameMs = std::min(stats.minFrameMs, frameMs);
+        stats.maxFrameMs = std::max(stats.maxFrameMs, frameMs);
+    }
+    stats.avgFrameMs += frameMs;
+    if (frameMs > 20.0) ++stats.framesOver20Ms;
+    if (frameMs > 33.0) ++stats.framesOver33Ms;
+    if (frameMs > targetFrameMs + 2.0) ++stats.framesOverTargetBy2Ms;
 }
 
 std::string narrow(const std::wstring& value) {
@@ -195,6 +228,113 @@ void printMonitorList() {
     std::cout << "]}" << std::endl;
 }
 
+int refreshRateForMonitor(const MonitorInfo& monitor) {
+    if (monitor.device.empty()) return 0;
+    DEVMODEW mode{};
+    mode.dmSize = sizeof(mode);
+    if (EnumDisplaySettingsExW(monitor.device.c_str(), ENUM_CURRENT_SETTINGS, &mode, 0)) {
+        return static_cast<int>(mode.dmDisplayFrequency);
+    }
+    return 0;
+}
+
+HRESULT createSceneRenderer(
+    IDXGISwapChain* swapChain,
+    ID2D1RenderTarget** d2dRenderTarget,
+    IDWriteTextFormat** titleFormat,
+    IDWriteTextFormat** bodyFormat,
+    ID2D1SolidColorBrush** whiteBrush,
+    ID2D1SolidColorBrush** accentBrush,
+    ID2D1SolidColorBrush** panelBrush) {
+    ComPtr<ID2D1Factory> d2dFactory;
+    HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &d2dFactory);
+    if (FAILED(hr)) return hr;
+
+    ComPtr<IDXGISurface> surface;
+    hr = swapChain->GetBuffer(0, __uuidof(IDXGISurface), reinterpret_cast<void**>(surface.GetAddressOf()));
+    if (FAILED(hr)) return hr;
+
+    D2D1_RENDER_TARGET_PROPERTIES properties = D2D1::RenderTargetProperties(
+        D2D1_RENDER_TARGET_TYPE_DEFAULT,
+        D2D1::PixelFormat(DXGI_FORMAT_UNKNOWN, D2D1_ALPHA_MODE_PREMULTIPLIED),
+        96.0f,
+        96.0f);
+    hr = d2dFactory->CreateDxgiSurfaceRenderTarget(surface.Get(), &properties, d2dRenderTarget);
+    if (FAILED(hr)) return hr;
+
+    ComPtr<IDWriteFactory> writeFactory;
+    hr = DWriteCreateFactory(DWRITE_FACTORY_TYPE_SHARED, __uuidof(IDWriteFactory), reinterpret_cast<IUnknown**>(writeFactory.GetAddressOf()));
+    if (FAILED(hr)) return hr;
+
+    hr = writeFactory->CreateTextFormat(
+        L"Segoe UI",
+        nullptr,
+        DWRITE_FONT_WEIGHT_SEMI_BOLD,
+        DWRITE_FONT_STYLE_NORMAL,
+        DWRITE_FONT_STRETCH_NORMAL,
+        64.0f,
+        L"en-us",
+        titleFormat);
+    if (FAILED(hr)) return hr;
+    (*titleFormat)->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
+    (*titleFormat)->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
+
+    hr = writeFactory->CreateTextFormat(
+        L"Segoe UI",
+        nullptr,
+        DWRITE_FONT_WEIGHT_NORMAL,
+        DWRITE_FONT_STYLE_NORMAL,
+        DWRITE_FONT_STRETCH_NORMAL,
+        34.0f,
+        L"en-us",
+        bodyFormat);
+    if (FAILED(hr)) return hr;
+    (*bodyFormat)->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER);
+    (*bodyFormat)->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER);
+
+    hr = (*d2dRenderTarget)->CreateSolidColorBrush(D2D1::ColorF(D2D1::ColorF::White), whiteBrush);
+    if (FAILED(hr)) return hr;
+    hr = (*d2dRenderTarget)->CreateSolidColorBrush(D2D1::ColorF(1.0f, 0.80f, 0.0f, 1.0f), accentBrush);
+    if (FAILED(hr)) return hr;
+    hr = (*d2dRenderTarget)->CreateSolidColorBrush(D2D1::ColorF(0.0f, 0.64f, 1.0f, 0.85f), panelBrush);
+    return hr;
+}
+
+HRESULT renderSharedScene(
+    ID2D1RenderTarget* renderTarget,
+    IDWriteTextFormat* titleFormat,
+    IDWriteTextFormat* bodyFormat,
+    ID2D1SolidColorBrush* whiteBrush,
+    ID2D1SolidColorBrush* accentBrush,
+    ID2D1SolidColorBrush* panelBrush,
+    int frameCount) {
+    const D2D1_SIZE_F size = renderTarget->GetSize();
+    const float phase = static_cast<float>((frameCount % 240) / 240.0);
+    renderTarget->BeginDraw();
+    renderTarget->Clear(D2D1::ColorF(0.04f + 0.04f * phase, 0.07f, 0.11f + 0.05f * (1.0f - phase), 1.0f));
+
+    const float panelWidth = std::min(size.width * 0.82f, 1100.0f);
+    const float panelHeight = 270.0f;
+    const float panelLeft = (size.width - panelWidth) / 2.0f;
+    const float panelTop = (size.height - panelHeight) / 2.0f;
+    const D2D1_RECT_F panel = D2D1::RectF(panelLeft, panelTop, panelLeft + panelWidth, panelTop + panelHeight);
+    renderTarget->FillRectangle(panel, panelBrush);
+
+    const D2D1_RECT_F title = D2D1::RectF(panelLeft, panelTop + 50.0f, panelLeft + panelWidth, panelTop + 130.0f);
+    const wchar_t* titleText = L"AR Overlay Ready";
+    renderTarget->DrawText(titleText, static_cast<UINT32>(std::wcslen(titleText)), titleFormat, title, whiteBrush);
+
+    const D2D1_RECT_F body = D2D1::RectF(panelLeft, panelTop + 150.0f, panelLeft + panelWidth, panelTop + 215.0f);
+    const wchar_t* bodyText = L"Shared scene via Windows DXGI";
+    renderTarget->DrawText(bodyText, static_cast<UINT32>(std::wcslen(bodyText)), bodyFormat, body, accentBrush);
+
+    const D2D1_RECT_F footer = D2D1::RectF(panelLeft, panelTop + 215.0f, panelLeft + panelWidth, panelTop + 258.0f);
+    const wchar_t* footerText = L"Host input and API commands remain the shared input path";
+    renderTarget->DrawText(footerText, static_cast<UINT32>(std::wcslen(footerText)), bodyFormat, footer, whiteBrush);
+
+    return renderTarget->EndDraw();
+}
+
 LRESULT CALLBACK windowProc(HWND window, UINT message, WPARAM wParam, LPARAM lParam) {
     switch (message) {
         case WM_KEYDOWN:
@@ -293,7 +433,7 @@ int wmain(int argc, wchar_t** argv) {
             swapDesc.BufferCount = (swapEffect == DXGI_SWAP_EFFECT_DISCARD) ? 1 : 2;
             swapDesc.BufferDesc.Width = static_cast<UINT>(width);
             swapDesc.BufferDesc.Height = static_cast<UINT>(height);
-            swapDesc.BufferDesc.Format = DXGI_FORMAT_R8G8B8A8_UNORM;
+            swapDesc.BufferDesc.Format = DXGI_FORMAT_B8G8R8A8_UNORM;
             swapDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
             swapDesc.OutputWindow = window;
             swapDesc.SampleDesc.Count = 1;
@@ -316,7 +456,7 @@ int wmain(int argc, wchar_t** argv) {
                 nullptr,
                 driverType,
                 nullptr,
-                0,
+                D3D11_CREATE_DEVICE_BGRA_SUPPORT,
                 requestedLevels,
                 static_cast<UINT>(std::size(requestedLevels)),
                 D3D11_SDK_VERSION,
@@ -350,18 +490,22 @@ int wmain(int argc, wchar_t** argv) {
         return 3;
     }
 
-    ComPtr<ID3D11Texture2D> backBuffer;
-    hr = swapChain->GetBuffer(0, __uuidof(ID3D11Texture2D), reinterpret_cast<void**>(backBuffer.GetAddressOf()));
+    ComPtr<ID2D1RenderTarget> d2dRenderTarget;
+    ComPtr<IDWriteTextFormat> titleFormat;
+    ComPtr<IDWriteTextFormat> bodyFormat;
+    ComPtr<ID2D1SolidColorBrush> whiteBrush;
+    ComPtr<ID2D1SolidColorBrush> accentBrush;
+    ComPtr<ID2D1SolidColorBrush> panelBrush;
+    hr = createSceneRenderer(
+        swapChain.Get(),
+        d2dRenderTarget.GetAddressOf(),
+        titleFormat.GetAddressOf(),
+        bodyFormat.GetAddressOf(),
+        whiteBrush.GetAddressOf(),
+        accentBrush.GetAddressOf(),
+        panelBrush.GetAddressOf());
     if (FAILED(hr)) {
-        std::cerr << "GetBuffer failed: " << hresultHex(hr) << "\n";
-        DestroyWindow(window);
-        return 4;
-    }
-
-    ComPtr<ID3D11RenderTargetView> renderTarget;
-    hr = device->CreateRenderTargetView(backBuffer.Get(), nullptr, &renderTarget);
-    if (FAILED(hr)) {
-        std::cerr << "CreateRenderTargetView failed: " << hresultHex(hr) << "\n";
+        std::cerr << "createSceneRenderer failed: " << hresultHex(hr) << "\n";
         DestroyWindow(window);
         return 5;
     }
@@ -387,12 +531,17 @@ int wmain(int argc, wchar_t** argv) {
         << "\"driverType\":\"" << driverTypeName(selectedDriverType) << "\","
         << "\"swapEffect\":\"" << swapEffectName(selectedSwapEffect) << "\","
         << "\"featureLevel\":\"0x" << std::hex << featureLevel << std::dec << "\","
+        << "\"scene\":\"static-text\","
+        << "\"renderer\":\"direct2d-directwrite\","
         << "\"durationSeconds\":" << durationSeconds
         << "}" << std::endl;
 
+    const int targetRefreshHz = refreshRateForMonitor(target);
+    const double targetFrameMs = targetFrameMsForRefresh(targetRefreshHz);
     const auto startedAt = std::chrono::steady_clock::now();
     const auto stopAt = startedAt + std::chrono::seconds(durationSeconds);
-    int frameCount = 0;
+    auto previousFrameAt = startedAt;
+    FrameStats stats;
     MSG msg{};
     while (running && std::chrono::steady_clock::now() < stopAt) {
         while (PeekMessageW(&msg, nullptr, 0, 0, PM_REMOVE)) {
@@ -401,27 +550,53 @@ int wmain(int argc, wchar_t** argv) {
             DispatchMessageW(&msg);
         }
 
-        const float phase = static_cast<float>((frameCount % 240) / 240.0);
-        const float color[] = {
-            0.04f + 0.12f * phase,
-            0.08f,
-            0.12f + 0.18f * (1.0f - phase),
-            1.0f
-        };
-        context->OMSetRenderTargets(1, renderTarget.GetAddressOf(), nullptr);
-        context->ClearRenderTargetView(renderTarget.Get(), color);
-        swapChain->Present(1, 0);
-        ++frameCount;
+        hr = renderSharedScene(
+            d2dRenderTarget.Get(),
+            titleFormat.Get(),
+            bodyFormat.Get(),
+            whiteBrush.Get(),
+            accentBrush.Get(),
+            panelBrush.Get(),
+            stats.frameCount);
+        if (FAILED(hr)) {
+            std::cerr << "renderSharedScene failed: " << hresultHex(hr) << "\n";
+            break;
+        }
+
+        hr = swapChain->Present(1, 0);
+        if (FAILED(hr)) {
+            ++stats.presentFailures;
+            stats.lastPresentFailure = hr;
+        }
+
+        const auto now = std::chrono::steady_clock::now();
+        recordFrameInterval(stats, std::chrono::duration<double, std::milli>(now - previousFrameAt).count(), targetFrameMs);
+        previousFrameAt = now;
+        ++stats.frameCount;
     }
 
     const auto endedAt = std::chrono::steady_clock::now();
+    if (stats.frameCount > 0) {
+        stats.avgFrameMs /= static_cast<double>(stats.frameCount);
+    }
     std::cout
         << "{"
         << "\"platform\":\"windows\","
         << "\"mode\":\"xreal-dxgi-preview\","
         << "\"event\":\"summary\","
-        << "\"frameCount\":" << frameCount << ","
+        << "\"scene\":\"static-text\","
+        << "\"frameCount\":" << stats.frameCount << ","
         << "\"elapsedMs\":" << std::chrono::duration<double, std::milli>(endedAt - startedAt).count()
+        << ",\"targetRefreshHz\":" << targetRefreshHz
+        << ",\"targetFrameMs\":" << targetFrameMs
+        << ",\"minFrameMs\":" << stats.minFrameMs
+        << ",\"avgFrameMs\":" << stats.avgFrameMs
+        << ",\"maxFrameMs\":" << stats.maxFrameMs
+        << ",\"framesOver20Ms\":" << stats.framesOver20Ms
+        << ",\"framesOver33Ms\":" << stats.framesOver33Ms
+        << ",\"framesOverTargetBy2Ms\":" << stats.framesOverTargetBy2Ms
+        << ",\"presentFailures\":" << stats.presentFailures
+        << ",\"lastPresentFailure\":\"" << hresultHex(stats.lastPresentFailure) << "\""
         << "}" << std::endl;
 
     DestroyWindow(window);

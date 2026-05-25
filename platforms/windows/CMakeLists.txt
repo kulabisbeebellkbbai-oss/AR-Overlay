@@ -33,6 +33,6 @@ target_include_directories(ar-overlay-windows-raw-input-capture PRIVATE src)
 
 if(WIN32)
     target_link_libraries(ar-overlay-windows-preview PRIVATE user32 gdi32 shcore winmm)
-    target_link_libraries(ar-overlay-windows-dxgi-preview PRIVATE user32 shcore d3d11 dxgi)
+    target_link_libraries(ar-overlay-windows-dxgi-preview PRIVATE user32 shcore d3d11 dxgi d2d1 dwrite)
     target_link_libraries(ar-overlay-windows-raw-input-capture PRIVATE user32)
 endif()

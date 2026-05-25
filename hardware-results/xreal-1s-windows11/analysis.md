@@ -133,7 +133,7 @@ display, presentation timing accepted against the reported 120 Hz target.
 XReal 1S physical controls are closed as device-local firmware controls, not
 AR Overlay application inputs. Windows AR Overlay input should use host input
 or API paths. The Windows DirectX/DXGI presentation backend now runs and has
-manual visual confirmation on the validated XReal display target. The next code
-step is moving the shared scene renderer from the GDI preview into the DXGI
-path, while adding presentation timing/flicker instrumentation for the minor
-occasional flicker observed during the color-field test.
+manual visual confirmation on the validated XReal display target. The next
+hardware validation step is the DXGI shared-scene renderer with presentation
+timing/flicker instrumentation for the minor occasional flicker observed during
+the color-field test.

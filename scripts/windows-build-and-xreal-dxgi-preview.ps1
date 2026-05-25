@@ -71,7 +71,8 @@ Manual observations to fill in:
 
 - DXGI preview visible on XReal display: TODO
 - Full-screen placement/scaling correct: TODO
-- Color field changes smoothly: TODO
+- Shared scene text visible and centered: TODO
+- Motion/background changes smoothly: TODO
 - Flicker/latency/comfort notes: TODO
 - Any Windows display mode changes needed: TODO
 "@
