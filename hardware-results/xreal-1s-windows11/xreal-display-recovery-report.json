@@ -1,5 +1,5 @@
 {
-    "timestamp":  "2026-05-25T15:42:52.6474262-04:00",
+    "timestamp":  "2026-05-25T15:57:39.1701533-04:00",
     "isAdministrator":  false,
     "pnpXreal":  [
                      {
@@ -13,43 +13,43 @@
                          "Class":  "HIDClass",
                          "FriendlyName":  "HID-compliant device",
                          "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  "HIDClass",
                          "FriendlyName":  "USB Input Device",
                          "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  "MEDIA",
                          "FriendlyName":  "XREAL 1S",
                          "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  null,
                          "FriendlyName":  "CDC ECM",
                          "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u002666989DB\u00260\u00260003",
-                         "Status":  "Error",
-                         "Problem":  28
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  "Net",
                          "FriendlyName":  "UsbNcm Host Device #2",
                          "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  "HIDClass",
                          "FriendlyName":  "USB Input Device",
                          "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  null,
@@ -83,8 +83,8 @@
                          "Class":  "HIDClass",
                          "FriendlyName":  "HID-compliant consumer control device",
                          "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  "HIDClass",
@@ -139,8 +139,8 @@
                          "Class":  "USB",
                          "FriendlyName":  "USB Composite Device",
                          "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
-                         "Status":  "OK",
-                         "Problem":  0
+                         "Status":  "Unknown",
+                         "Problem":  45
                      },
                      {
                          "Class":  "Net",
@@ -174,8 +174,8 @@
                             {
                                 "Name":  "Generic PnP Monitor",
                                 "PNPDeviceID":  "DISPLAY\\AUO7DB2\\4\u0026387FDC3B\u00260\u0026UID8388688",
-                                "ScreenWidth":  1920,
-                                "ScreenHeight":  1200,
+                                "ScreenWidth":  null,
+                                "ScreenHeight":  null,
                                 "Status":  "OK"
                             },
                             {
@@ -206,7 +206,7 @@
                                       "monitors":  [
                                                        {
                                                            "device":  "\\\\.\\DISPLAY1",
-                                                           "label":  "",
+                                                           "label":  "Generic PnP Monitor",
                                                            "primary":  true,
                                                            "x":  0,
                                                            "y":  0,

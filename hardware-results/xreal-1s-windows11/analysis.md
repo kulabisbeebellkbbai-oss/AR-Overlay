@@ -103,6 +103,11 @@ Current preview result:
   `\\.\DISPLAY1` in `win32MonitorsBeforeExtend`, with `tryExtendRequested=false`
   so the report did not attempt a topology change. The user planned a cold
   reboot after this commit.
+- Restart failure analysis captured on 2026-05-25: Windows produced repeated
+  `DRIVER_POWER_STATE_FAILURE (9f)` bugchecks during restart/power transition.
+  WinDbg/cdb blackbox PnP data identifies `DISPLAY\MRG4102\5&23fdb3e6&0&UID4356`
+  as the affected PnP device path, matching the XReal 1S monitor. Details are
+  in `restart-bugcheck-analysis.md`.
 
 ## Hardware Bring-Up Status
 
