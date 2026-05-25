@@ -17,6 +17,11 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 - The Windows preview runner now resolves the target to `\\.\DISPLAY5`, the
   non-primary `1920 x 1200` monitor at desktop position `x=2560, y=0`.
 - Preview run exit code is `0`, with no stderr output.
+- A later recovery test showed the XReal PnP monitor present but Win32 monitor
+  enumeration temporarily collapsed to only `\\.\DISPLAY1`; `SetDisplayConfig`
+  extend returned `ERROR_GEN_FAILURE`.
+- User-reported follow-up on 2026-05-25: after a Windows system reboot, the
+  XReal display appeared again without issues.
 
 ## Not Yet Completed
 
@@ -35,12 +40,9 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 
 ## Next Required Windows Step
 
-Build the first real Windows preview/presentation path and run it on the Windows
-11 machine with the XReal 1S as the target display.
-
-The next useful artifact should create a borderless preview window or equivalent
-targeted presentation surface, render the shared fixture, and capture manual
-confirmation of placement on the glasses.
+Rerun the real Windows preview/presentation path on the Windows 11 machine with
+the XReal 1S as the target display after the reboot restored display
+enumeration.
 
 Implemented next artifact:
 
@@ -59,9 +61,12 @@ Expected result:
 - XReal display is selected as the presentation target.
 - The shared scene is visible on the XReal display.
 - Scaling, refresh mode, and placement observations are captured.
+- If the XReal display disappears from Win32 enumeration again, capture
+  `xreal-display-recovery-report.json` before and after reboot. The current
+  working recovery action is a Windows system reboot.
 
 ## Hardware Bring-Up Status
 
 Status: display enumeration confirmed, AR Overlay Windows scaffold runtime
-confirmed, preview targeted to the XReal display geometry, manual visibility
-confirmation pending.
+confirmed, preview targeted to the XReal display geometry, reboot recovery
+reported successful, manual visibility confirmation pending after the reboot.

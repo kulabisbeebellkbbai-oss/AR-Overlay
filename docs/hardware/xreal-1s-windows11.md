@@ -128,6 +128,14 @@ Current synced preview evidence shows successful targeting of `\\.\DISPLAY5`,
 the non-primary `1920 x 1200` display corresponding to the XReal path. Manual
 confirmation of visibility on the glasses is still required.
 
+Recovery note from 2026-05-25: a display topology failure report showed the
+XReal PnP monitor present while Win32 monitor enumeration exposed only
+`\\.\DISPLAY1`, and `SetDisplayConfig` extend returned `ERROR_GEN_FAILURE`.
+The user-reported recovery was a Windows system reboot; after reboot the device
+showed up again without issues. If this recurs, capture
+`xreal-display-recovery-report.json` before reboot and again after reboot, then
+rerun the preview script.
+
 ## Remaining Physical-Hardware Work
 
 - Measure real presentation timing.
