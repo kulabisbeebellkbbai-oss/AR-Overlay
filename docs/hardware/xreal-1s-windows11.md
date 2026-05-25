@@ -228,6 +228,10 @@ instrumentation: target refresh, frame interval min/average/max, frames over
 The runner forces a clean build of `ar-overlay-windows-dxgi-preview` by default
 so Windows does not reuse a stale DXGI binary after source updates. Use
 `-SkipCleanBuild` only when intentionally testing an already-built executable.
+If the build fails or the binary is not found, the runner copies CMake configure
+and build logs into `hardware-results\xreal-1s-windows11\` and, when needed,
+writes `cmake-built-executables.txt` with the executable inventory from the
+Windows build tree.
 
 The Windows preview, timing, and DXGI scripts run this preflight first:
 

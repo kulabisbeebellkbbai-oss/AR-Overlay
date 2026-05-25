@@ -16,11 +16,48 @@ if (-not (Get-Command cmake -ErrorAction SilentlyContinue)) {
 New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
 New-Item -ItemType Directory -Force -Path $SyncDir | Out-Null
 
-cmake -S platforms/windows -B build/platforms/windows
+$configureOut = Join-Path $OutDir "cmake-configure-dxgi-preview.txt"
+$configureErr = Join-Path $OutDir "cmake-configure-dxgi-preview.err.txt"
+$buildOut = Join-Path $OutDir "cmake-build-dxgi-preview.txt"
+$buildErr = Join-Path $OutDir "cmake-build-dxgi-preview.err.txt"
+
+if (Test-Path $configureOut) { Remove-Item -Force $configureOut }
+if (Test-Path $configureErr) { Remove-Item -Force $configureErr }
+if (Test-Path $buildOut) { Remove-Item -Force $buildOut }
+if (Test-Path $buildErr) { Remove-Item -Force $buildErr }
+
+$configureProcess = Start-Process -FilePath "cmake" `
+    -ArgumentList @("-S", "platforms/windows", "-B", "build/platforms/windows") `
+    -Wait `
+    -PassThru `
+    -NoNewWindow `
+    -RedirectStandardOutput $configureOut `
+    -RedirectStandardError $configureErr
+Get-Content $configureOut
+if ($configureProcess.ExitCode -ne 0) {
+    Get-Content $configureErr
+    Copy-Item -Force -Path $configureOut, $configureErr -Destination $SyncDir
+    throw "CMake configure failed with exit code $($configureProcess.ExitCode). See $configureOut and $configureErr."
+}
+
 if ($SkipCleanBuild) {
-    cmake --build build/platforms/windows --config Debug --target ar-overlay-windows-dxgi-preview
+    $buildArgs = @("--build", "build/platforms/windows", "--config", "Debug", "--target", "ar-overlay-windows-dxgi-preview")
 } else {
-    cmake --build build/platforms/windows --config Debug --target ar-overlay-windows-dxgi-preview --clean-first
+    $buildArgs = @("--build", "build/platforms/windows", "--config", "Debug", "--target", "ar-overlay-windows-dxgi-preview", "--clean-first")
+}
+
+$buildProcess = Start-Process -FilePath "cmake" `
+    -ArgumentList $buildArgs `
+    -Wait `
+    -PassThru `
+    -NoNewWindow `
+    -RedirectStandardOutput $buildOut `
+    -RedirectStandardError $buildErr
+Get-Content $buildOut
+if ($buildProcess.ExitCode -ne 0) {
+    Get-Content $buildErr
+    Copy-Item -Force -Path $configureOut, $configureErr, $buildOut, $buildErr -Destination $SyncDir
+    throw "DXGI preview build failed with exit code $($buildProcess.ExitCode). See $buildOut and $buildErr."
 }
 
 $previewCandidates = @(
@@ -30,8 +67,18 @@ $previewCandidates = @(
 
 $preview = $previewCandidates | Where-Object { Test-Path $_ } | Select-Object -First 1
 if (-not $preview) {
-    throw "DXGI preview binary not found after build."
+    $preview = Get-ChildItem -Path "build\platforms\windows" -Recurse -Filter "ar-overlay-windows-dxgi-preview.exe" -ErrorAction SilentlyContinue |
+        Select-Object -ExpandProperty FullName -First 1
 }
+if (-not $preview) {
+    $exeInventory = Join-Path $OutDir "cmake-built-executables.txt"
+    Get-ChildItem -Path "build\platforms\windows" -Recurse -Filter "*.exe" -ErrorAction SilentlyContinue |
+        Select-Object -ExpandProperty FullName |
+        Set-Content -Path $exeInventory -Encoding UTF8
+    Copy-Item -Force -Path $configureOut, $configureErr, $buildOut, $buildErr, $exeInventory -Destination $SyncDir
+    throw "DXGI preview binary not found after successful build. See $exeInventory for executable inventory."
+}
+Write-Host "Using DXGI preview binary: $preview"
 
 & powershell -ExecutionPolicy Bypass -File scripts\windows-xreal-preflight.ps1 `
     -Target $Target `
@@ -87,6 +134,7 @@ $manualPath = Join-Path $OutDir "dxgi-preview-manual-result.md"
 $manual | Set-Content -Path $manualPath -Encoding UTF8
 
 Copy-Item -Force -Path $previewOut, $previewErr, $manualPath -Destination $SyncDir
+Copy-Item -Force -Path $configureOut, $configureErr, $buildOut, $buildErr -Destination $SyncDir
 Write-Host "Copied DXGI preview evidence to $SyncDir"
 
 if ($previewExit -ne 0) {

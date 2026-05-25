@@ -128,6 +128,11 @@ Current preview result:
   present. The PowerShell runner was updated, but the Windows build reused a
   stale DXGI executable. The next run must force a clean rebuild of
   `ar-overlay-windows-dxgi-preview` before validating shared-scene rendering.
+- A following Windows run reported `DXGI preview binary not found after build`.
+  The runner now checks CMake configure/build exit codes, copies configure and
+  build logs into `hardware-results\xreal-1s-windows11\`, recursively searches
+  the build tree for the DXGI executable, and writes an executable inventory if
+  the binary is still not found.
 
 ## Hardware Bring-Up Status
 

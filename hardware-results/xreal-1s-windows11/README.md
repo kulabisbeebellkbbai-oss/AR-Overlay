@@ -19,6 +19,10 @@ Expected files from the Windows host:
   `ar-overlay-windows-dxgi-preview.err.txt`, and
   `dxgi-preview-manual-result.md`, when collecting DirectX/DXGI presentation
   evidence
+- `cmake-configure-dxgi-preview.txt`,
+  `cmake-configure-dxgi-preview.err.txt`,
+  `cmake-build-dxgi-preview.txt`, and `cmake-build-dxgi-preview.err.txt`, when
+  collecting DirectX/DXGI build evidence or diagnosing build failures
 - `xreal-input-report.json` and `input-manual-result.md`, when collecting
   physical input discovery evidence
 - `ar-overlay-windows-raw-input-capture.txt`,
