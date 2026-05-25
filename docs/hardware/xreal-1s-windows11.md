@@ -157,3 +157,7 @@ powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-timing.
 This rebuilds the Windows preview executable, presents to the XReal target for
 30 seconds, records frame-loop timing JSON, and writes synced evidence to
 `hardware-results\xreal-1s-windows11\`.
+
+The corrected 2026-05-25 timing run reported `3600` frames over `30000.7 ms`
+on the XReal target at `120 Hz`, with average frame interval `8.33134 ms`, no
+frames over `20 ms`, and one frame over target plus `2 ms`.
