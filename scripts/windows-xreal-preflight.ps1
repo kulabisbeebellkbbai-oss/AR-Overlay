@@ -34,6 +34,16 @@ function Get-MatchingPnpDevices($PresentOnly) {
 }
 
 function Get-MonitorList($Executable) {
+    if (-not $Executable) {
+        $candidates = @(
+            "build\platforms\windows\Debug\ar-overlay-windows-dxgi-preview.exe",
+            "build\platforms\windows\ar-overlay-windows-dxgi-preview.exe",
+            "build\platforms\windows\Debug\ar-overlay-windows-preview.exe",
+            "build\platforms\windows\ar-overlay-windows-preview.exe"
+        )
+        $Executable = $candidates | Where-Object { Test-Path $_ } | Select-Object -First 1
+    }
+
     if (-not $Executable -or -not (Test-Path $Executable)) {
         return [pscustomobject]@{ error = "monitor list executable not found"; path = $Executable }
     }
@@ -77,15 +87,22 @@ New-Item -ItemType Directory -Force -Path $SyncDir | Out-Null
 $presentXreal = @(Get-MatchingPnpDevices $true)
 $allXreal = @(Get-MatchingPnpDevices $false)
 $phantomXreal = @($allXreal | Where-Object { $_.Problem -eq 45 -or $_.Status -eq "Unknown" })
+$presentXrealMonitors = @($presentXreal | Where-Object { $_.Class -eq "Monitor" -and $_.Status -eq "OK" -and $_.Problem -eq 0 })
 $monitorPayload = Get-MonitorList $MonitorListExecutable
 $selectedMonitor = Select-ExpectedMonitor $monitorPayload $Target $DisplayNumber
 
 $hasPresentDevice = $presentXreal.Count -gt 0
+$hasPresentMonitorPnp = $presentXrealMonitors.Count -gt 0
 $hasWin32Monitor = $null -ne $selectedMonitor
+$monitorListUnavailable = $null -ne $monitorPayload.error
 $onlyPhantom = (-not $hasPresentDevice) -and ($phantomXreal.Count -gt 0)
-$ready = $hasPresentDevice -and $hasWin32Monitor -and (-not $onlyPhantom)
+$ready = $hasPresentDevice -and (-not $onlyPhantom) -and ($hasWin32Monitor -or ($monitorListUnavailable -and $hasPresentMonitorPnp))
 $reason = if ($ready) {
-    "ready"
+    if ($hasWin32Monitor) {
+        "ready"
+    } else {
+        "ready from present XReal monitor PnP; Win32 monitor list executable unavailable"
+    }
 } elseif ($onlyPhantom) {
     "xreal devices are phantom/non-present in PnP"
 } elseif (-not $hasPresentDevice) {
@@ -104,6 +121,7 @@ $report = [pscustomobject]@{
     ready = $ready
     reason = $reason
     presentXrealDevices = $presentXreal
+    presentXrealMonitors = $presentXrealMonitors
     allXrealDevices = $allXreal
     phantomXrealDevices = $phantomXreal
     win32Monitors = $monitorPayload

@@ -224,3 +224,9 @@ If Windows only has phantom XReal PnP entries or the XReal display is missing
 from Win32 monitor enumeration, the scripts write
 `hardware-results\xreal-1s-windows11\xreal-preflight-report.json` and stop
 before opening any presentation window.
+
+When run standalone before a Windows build has produced a preview executable,
+preflight accepts an OK present PnP monitor entry for `Generic Monitor (XREAL
+1S)` as sufficient readiness evidence. The preview and DXGI scripts still pass
+their freshly built executable into preflight so it can also validate the Win32
+monitor list before opening a presentation window.

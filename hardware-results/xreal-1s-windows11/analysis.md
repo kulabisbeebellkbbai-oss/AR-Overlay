@@ -66,6 +66,9 @@ The preview, timing, and DXGI scripts now run
 `scripts\windows-xreal-preflight.ps1` first. If Windows only has phantom XReal
 PnP devices or the XReal monitor is missing from Win32 enumeration, the scripts
 write `xreal-preflight-report.json` and refuse to run presentation code.
+When preflight is run standalone before a preview executable exists, an OK
+present PnP monitor entry for `Generic Monitor (XREAL 1S)` is sufficient to
+avoid a false negative.
 
 This is the first Windows production presentation backend beyond the GDI
 preview. It should target the same XReal display path and preserve the same
