@@ -125,8 +125,10 @@ powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview
 ```
 
 Current synced preview evidence shows successful targeting of `\\.\DISPLAY5`,
-the non-primary `1920 x 1200` display corresponding to the XReal path. Manual
-confirmation of visibility on the glasses is still required.
+the non-primary `1920 x 1200` display corresponding to the XReal path. The
+2026-05-25 rerun confirmed the preview was visible on the XReal display, the
+text was centered, no image issue was observed, and no Windows display mode
+changes were needed.
 
 Recovery note from 2026-05-25: a display topology failure report showed the
 XReal PnP monitor present while Win32 monitor enumeration exposed only
@@ -139,7 +141,6 @@ rerun the preview script.
 ## Remaining Physical-Hardware Work
 
 - Measure real presentation timing.
-- Confirm overlay placement on the glasses display.
 - Validate physical input path, if any.
 - Identify whether the first real integration path should use a borderless
   window, Win32 display targeting, DirectX, vendor tooling, or another Windows

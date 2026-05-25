@@ -22,12 +22,12 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
   extend returned `ERROR_GEN_FAILURE`.
 - User-reported follow-up on 2026-05-25: after a Windows system reboot, the
   XReal display appeared again without issues.
+- Re-run preview evidence from 2026-05-25 confirms the shared preview was
+  visible on the XReal display, with text centered, no visible image issue, and
+  no Windows display mode changes required.
 
 ## Not Yet Completed
 
-- Manual evidence still has TODO values for whether the preview was visible on
-  the XReal display and whether placement/scaling was correct.
-- No photo/screenshot from the glasses view has been synced yet.
 - The Windows Settings screenshot identifies the glasses as `Display 2: XREAL
   1S`, connected to the NVIDIA GeForce RTX 5080 Laptop GPU, with desktop and
   active signal mode `1920 x 1200, 90 Hz`.
@@ -35,14 +35,13 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
   `1920 x 1200` monitor. That is the Win32 display device corresponding to the
   Windows Settings `Display 2: XREAL 1S` path on this host.
 - Real presentation timing has not been measured.
-- Display targeting, scaling, and placement behavior still need hands-on
-  validation on the Windows host.
+- No photo/screenshot from the glasses view has been synced yet.
+- Physical input behavior, if exposed by the XReal path, has not been validated.
 
 ## Next Required Windows Step
 
-Rerun the real Windows preview/presentation path on the Windows 11 machine with
-the XReal 1S as the target display after the reboot restored display
-enumeration.
+Add a timed Windows presentation run that records frame/presentation timing
+evidence while targeting the XReal display.
 
 Implemented next artifact:
 
@@ -56,11 +55,13 @@ Windows Settings number does not map directly to a Win32 `\\.\DISPLAY<n>` device
 it allows fallback to the non-primary `1920 x 1200` monitor. On this host the
 fallback target is `\\.\DISPLAY5`.
 
-Expected result:
+Current preview result:
 
 - XReal display is selected as the presentation target.
 - The shared scene is visible on the XReal display.
-- Scaling, refresh mode, and placement observations are captured.
+- Text placement is centered.
+- No image visibility issue was reported.
+- No Windows display mode changes were needed.
 - If the XReal display disappears from Win32 enumeration again, capture
   `xreal-display-recovery-report.json` before and after reboot. The current
   working recovery action is a Windows system reboot.
@@ -69,4 +70,5 @@ Expected result:
 
 Status: display enumeration confirmed, AR Overlay Windows scaffold runtime
 confirmed, preview targeted to the XReal display geometry, reboot recovery
-reported successful, manual visibility confirmation pending after the reboot.
+reported successful, manual visibility and placement confirmed on the XReal
+display. Presentation timing and physical input remain to be validated.
