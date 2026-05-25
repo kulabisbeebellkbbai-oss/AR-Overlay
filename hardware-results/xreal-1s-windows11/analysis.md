@@ -123,6 +123,11 @@ Current preview result:
   was visible on the XReal display, full-screen placement/scaling was correct,
   the color field changed smoothly, and no Windows display mode changes were
   needed. Minor occasional flicker was observed.
+- A later DXGI shared-scene test invocation on 2026-05-25 still emitted the old
+  color-field output shape: no `scene`, `renderer`, or frame timing fields were
+  present. The PowerShell runner was updated, but the Windows build reused a
+  stale DXGI executable. The next run must force a clean rebuild of
+  `ar-overlay-windows-dxgi-preview` before validating shared-scene rendering.
 
 ## Hardware Bring-Up Status
 

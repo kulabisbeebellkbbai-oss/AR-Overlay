@@ -3,7 +3,8 @@ param(
     [string]$Target = "XREAL",
     [int]$DisplayNumber = 2,
     [string]$OutDir = "build\hardware\xreal-1s-windows11",
-    [string]$SyncDir = "hardware-results\xreal-1s-windows11"
+    [string]$SyncDir = "hardware-results\xreal-1s-windows11",
+    [switch]$SkipCleanBuild
 )
 
 $ErrorActionPreference = "Stop"
@@ -16,7 +17,11 @@ New-Item -ItemType Directory -Force -Path $OutDir | Out-Null
 New-Item -ItemType Directory -Force -Path $SyncDir | Out-Null
 
 cmake -S platforms/windows -B build/platforms/windows
-cmake --build build/platforms/windows --config Debug
+if ($SkipCleanBuild) {
+    cmake --build build/platforms/windows --config Debug --target ar-overlay-windows-dxgi-preview
+} else {
+    cmake --build build/platforms/windows --config Debug --target ar-overlay-windows-dxgi-preview --clean-first
+}
 
 $previewCandidates = @(
     "build\platforms\windows\Debug\ar-overlay-windows-dxgi-preview.exe",
@@ -63,6 +68,7 @@ $manual = @"
 - Target selector: $Target
 - Windows display number: $DisplayNumber
 - Duration seconds: $DurationSeconds
+- Clean build used: $(-not [bool]$SkipCleanBuild)
 - DXGI preview output: $previewOut
 - DXGI preview error output: $previewErr
 - DXGI preview exit code: $previewExit

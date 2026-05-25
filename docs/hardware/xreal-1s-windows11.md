@@ -225,6 +225,9 @@ The next DXGI run renders the shared `static-text` scene content through
 Direct2D/DirectWrite on the D3D11/DXGI swap chain and emits timing/flicker
 instrumentation: target refresh, frame interval min/average/max, frames over
 20 ms, frames over 33 ms, frames over target plus 2 ms, and `Present` failures.
+The runner forces a clean build of `ar-overlay-windows-dxgi-preview` by default
+so Windows does not reuse a stale DXGI binary after source updates. Use
+`-SkipCleanBuild` only when intentionally testing an already-built executable.
 
 The Windows preview, timing, and DXGI scripts run this preflight first:
 
