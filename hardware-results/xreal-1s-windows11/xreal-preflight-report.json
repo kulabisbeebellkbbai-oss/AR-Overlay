@@ -1,5 +1,5 @@
 {
-    "timestamp":  "2026-05-25T16:33:32.8037208-04:00",
+    "timestamp":  "2026-05-25T18:22:23.8210465-04:00",
     "target":  "XREAL",
     "displayNumber":  2,
     "monitorListExecutable":  "build\\platforms\\windows\\Debug\\ar-overlay-windows-dxgi-preview.exe",
@@ -186,6 +186,13 @@
                                 "Problem":  0
                             },
                             {
+                                "Class":  "HIDClass",
+                                "FriendlyName":  "USB Input Device",
+                                "InstanceId":  "USB\\VID_3318\u0026PID_043D\\5\u0026C7A9A39\u00260\u00261",
+                                "Status":  "Unknown",
+                                "Problem":  45
+                            },
+                            {
                                 "Class":  "AudioEndpoint",
                                 "FriendlyName":  "Speakers (2- XREAL 1S)",
                                 "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
@@ -240,6 +247,13 @@
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u00261B9C1F57\u00260\u00260001",
                                 "Status":  "OK",
                                 "Problem":  0
+                            },
+                            {
+                                "Class":  "HIDClass",
+                                "FriendlyName":  "HID-compliant device",
+                                "InstanceId":  "HID\\VID_3318\u0026PID_043D\\6\u0026330F7644\u00260\u00260000",
+                                "Status":  "Unknown",
+                                "Problem":  45
                             }
                         ],
     "phantomXrealDevices":  [
@@ -300,6 +314,13 @@
                                     "Problem":  45
                                 },
                                 {
+                                    "Class":  "HIDClass",
+                                    "FriendlyName":  "USB Input Device",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043D\\5\u0026C7A9A39\u00260\u00261",
+                                    "Status":  "Unknown",
+                                    "Problem":  45
+                                },
+                                {
                                     "Class":  "AudioEndpoint",
                                     "FriendlyName":  "Speakers (2- XREAL 1S)",
                                     "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
@@ -310,6 +331,13 @@
                                     "Class":  "USB",
                                     "FriendlyName":  "USB Composite Device",
                                     "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
+                                    "Status":  "Unknown",
+                                    "Problem":  45
+                                },
+                                {
+                                    "Class":  "HIDClass",
+                                    "FriendlyName":  "HID-compliant device",
+                                    "InstanceId":  "HID\\VID_3318\u0026PID_043D\\6\u0026330F7644\u00260\u00260000",
                                     "Status":  "Unknown",
                                     "Problem":  45
                                 }
