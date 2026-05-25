@@ -214,6 +214,11 @@ swap-chain modes, then WARP, while logging each `create-device-attempt`. If the
 first run fails after a display topology issue, reboot the Windows 11 test host,
 rerun the script, and sync both stdout and stderr evidence.
 
+The 2026-05-25 DXGI run passed preflight, selected `\\.\DISPLAY5`, created a
+hardware D3D11 swap chain with `flip-discard`, and rendered `2237` frames over
+`20006.7 ms` with exit code `0`. Manual visual confirmation is still required
+for visibility, scaling, smooth color-field presentation, and comfort.
+
 The Windows preview, timing, and DXGI scripts run this preflight first:
 
 ```powershell
