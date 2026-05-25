@@ -140,7 +140,6 @@ rerun the preview script.
 
 ## Remaining Physical-Hardware Work
 
-- Validate physical input path, if any.
 - Identify whether the first real integration path should use a borderless
   window, Win32 display targeting, DirectX, vendor tooling, or another Windows
   presentation path.
@@ -174,34 +173,26 @@ network devices before and after a short observation window. During that window,
 use any physical XReal controls that should produce Windows input, then complete
 `hardware-results\xreal-1s-windows11\input-manual-result.md`.
 
-The report does not decode HID event payloads. If Windows exposes only a HID
-device with no observable keyboard, mouse, or media event, the next software
-step is a native Raw Input/HID listener. If Windows exposes no usable input
-path, record that as an XReal 1S Windows capability limitation.
-
 The 2026-05-25 input discovery report found active XReal HID interfaces for
 `VID_3318&PID_043E`, including HID-compliant device, USB Input Device, and
 HID-compliant consumer control device entries with `Status: OK`. Manual
 observation reported that the physical controls seemed available but no Windows
 keyboard, mouse, or media events were observed.
 
-## Raw Input Capture Test
+Follow-up hardware clarification: XReal 1S physical controls are device-local
+firmware controls. The mode button changes view modes, quick mode changes
+display mode, and +/- controls are used for volume, brightness, or firmware
+menu navigation. They are not expected to interact with Windows and should not
+be mapped into the shared AR Overlay input contract.
 
-Run:
+AR Overlay input on Windows should come from host keyboard, mouse, controller,
+API commands, or a future external controller/vendor SDK path. The checked-in
+Raw Input capture tool remains available as an optional diagnostic, but it is
+not the next required hardware step for XReal 1S.
 
-```powershell
-powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-input-capture.ps1
-```
+## Next Implementation Step
 
-This builds and runs `ar-overlay-windows-raw-input-capture.exe`, enumerates Raw
-Input devices, listens for keyboard, mouse, consumer-control, system-control,
-and vendor-defined HID packets, and writes synced evidence to
-`hardware-results\xreal-1s-windows11\`. During the capture window, use any
-physical XReal controls. Then complete
-`hardware-results\xreal-1s-windows11\raw-input-manual-result.md`.
-
-Pass criteria: the capture output includes one or more `raw-input` events with
-`"xreal":true` while a physical control is used. If that occurs, map the HID
-payloads into the shared AR Overlay input contract. If no XReal events are
-captured, generic Windows input for XReal 1S should be recorded as unsupported
-pending vendor SDK or deeper USB/HID integration.
+Build the first Windows production presentation backend beyond the GDI preview:
+a DirectX/DXGI presentation path that keeps the existing shared scene contract,
+targets the validated XReal display path, and preserves the same UI/API/input
+behavior as the other platform branches.

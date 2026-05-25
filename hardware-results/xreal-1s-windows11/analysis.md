@@ -35,6 +35,11 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
 - During the input discovery observation window, the tester reported that all
   physical controls seemed available but no Windows keyboard, mouse, or media
   events were observed.
+- Follow-up hardware clarification: the XReal 1S physical controls are
+  firmware/display controls only. The mode button changes view modes, quick
+  mode changes display mode, and +/- controls are used for volume, brightness,
+  or firmware menu navigation. They are not expected to interact with Windows
+  or map to AR Overlay shared actions.
 
 ## Not Yet Completed
 
@@ -45,22 +50,24 @@ Analyzed from the `windows` branch evidence synced on 2026-05-24.
   `1920 x 1200` monitor. That is the Win32 display device corresponding to the
   Windows Settings `Display 2: XREAL 1S` path on this host.
 - No photo/screenshot from the glasses view has been synced yet.
-- Physical input behavior, if exposed by the XReal path, has not been validated.
+- No direct application input path is expected from XReal 1S physical buttons.
+  AR Overlay input on Windows should come from host keyboard, mouse,
+  controller, API commands, or a future external controller/vendor SDK path.
 
 ## Next Required Windows Step
 
-Run the native Raw Input capture and validate whether the XReal HID interfaces
-produce packets that can be mapped to shared AR Overlay actions:
+Build the first Windows production presentation backend beyond the GDI preview:
+a DirectX/DXGI presentation path that uses the same shared scene contract and
+targets the XReal display path already validated by the preview runner.
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-input-capture.ps1
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-preview.ps1
 ```
 
-If the capture records XReal HID packets, implement a Windows input adapter
-mapping those packets to the shared action contract. If no XReal Raw Input
-events are emitted while controls are used, record input as unsupported through
-the generic Windows input path and continue toward the first DirectX/vendor-SDK
-integration path.
+Use the existing preview command as the baseline regression test while adding
+the DirectX/DXGI path. XReal 1S physical buttons are not an AR Overlay input
+source, so no additional physical button testing is required unless a vendor SDK
+or external controller path is introduced later.
 
 Implemented next artifact:
 
@@ -93,6 +100,7 @@ Status: display enumeration confirmed, AR Overlay Windows scaffold runtime
 confirmed, preview targeted to the XReal display geometry, reboot recovery
 reported successful, manual visibility and placement confirmed on the XReal
 display, presentation timing accepted against the reported 120 Hz target.
-Physical input has visible HID device exposure but no generic Windows input
-events yet. Native Raw Input/HID event capture remains to be validated or the
-path must be explicitly marked unsupported.
+XReal 1S physical controls are closed as device-local firmware controls, not
+AR Overlay application inputs. Windows AR Overlay input should use host input
+or API paths. The next implementation step is the Windows DirectX/DXGI
+presentation backend using the already validated XReal display target.

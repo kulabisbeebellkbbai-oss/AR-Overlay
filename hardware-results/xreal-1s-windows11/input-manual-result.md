@@ -7,16 +7,20 @@ produce Windows input.
 
 ## Observations
 
-- Any XReal control physically available: all controlls seemed to be available
+- Any XReal control physically available: mode button, quick mode change, and
+  +/- controls are available
 - Any Windows keyboard/mouse/media event observed: no windows events observed
 - Any visible overlay reaction expected but missing: none
-- Shared action mapping candidate: unknown
-- Notes: none
+- Shared action mapping candidate: none
+- Notes: XReal 1S physical controls are firmware/display controls only. The
+  mode button changes view modes, quick mode changes display mode, and +/-
+  controls are used for volume, brightness, or firmware menu navigation.
 
 ## Result
 
-- Input path usable for AR Overlay shared controls: not through generic
-  Windows keyboard, mouse, or media events from this observation
-- If not usable, limitation to record: XReal HID devices are exposed, but a
-  native Raw Input/HID capture is required before declaring physical controls
-  usable or unsupported
+- Input path usable for AR Overlay shared controls: no
+- If not usable, limitation to record: XReal 1S physical controls are
+  device-local firmware controls and should not be mapped into the shared AR
+  Overlay input contract on Windows. AR Overlay input should use host keyboard,
+  mouse, controller, API commands, or a future vendor SDK/external controller
+  path.
