@@ -1,0 +1,4 @@
+{"monitors":[{"device":"\\\\.\\DISPLAY1","label":"Generic PnP Monitor","primary":true,"x":0,"y":0,"width":2560,"height":1600},{"device":"\\\\.\\DISPLAY5","label":"Generic PnP Monitor","primary":false,"x":2560,"y":0,"width":1920,"height":1200}]}
+{"platform":"windows","mode":"xreal-dxgi-preview","event":"create-device-attempt","driverType":"hardware","swapEffect":"flip-discard"}
+{"platform":"windows","mode":"xreal-dxgi-preview","target":"XREAL","targetDevice":"\\\\.\\DISPLAY2","targetMatched":true,"fallbackAllowed":true,"monitorDevice":"\\\\.\\DISPLAY5","monitorLabel":"Generic PnP Monitor","primary":false,"x":2560,"y":0,"width":1920,"height":1200,"driverType":"hardware","swapEffect":"flip-discard","featureLevel":"0xb100","durationSeconds":20}
+{"platform":"windows","mode":"xreal-dxgi-preview","event":"summary","frameCount":2237,"elapsedMs":20006.7}

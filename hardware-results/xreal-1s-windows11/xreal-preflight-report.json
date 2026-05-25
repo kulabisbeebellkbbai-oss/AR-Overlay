@@ -1,10 +1,10 @@
 {
-    "timestamp":  "2026-05-25T16:25:04.4869057-04:00",
+    "timestamp":  "2026-05-25T16:33:32.8037208-04:00",
     "target":  "XREAL",
     "displayNumber":  2,
-    "monitorListExecutable":  "",
-    "ready":  false,
-    "reason":  "xreal display is not present in Win32 monitor enumeration",
+    "monitorListExecutable":  "build\\platforms\\windows\\Debug\\ar-overlay-windows-dxgi-preview.exe",
+    "ready":  true,
+    "reason":  "ready",
     "presentXrealDevices":  [
                                 {
                                     "Class":  "Monitor",
@@ -84,6 +84,15 @@
                                     "Problem":  0
                                 }
                             ],
+    "presentXrealMonitors":  [
+                                 {
+                                     "Class":  "Monitor",
+                                     "FriendlyName":  "Generic Monitor (XREAL 1S)",
+                                     "InstanceId":  "DISPLAY\\MRG4102\\5\u002623FDB3E6\u00260\u0026UID4356",
+                                     "Status":  "OK",
+                                     "Problem":  0
+                                 }
+                             ],
     "allXrealDevices":  [
                             {
                                 "Class":  "Monitor",
@@ -306,8 +315,34 @@
                                 }
                             ],
     "win32Monitors":  {
-                          "error":  "monitor list executable not found",
-                          "path":  ""
+                          "monitors":  [
+                                           {
+                                               "device":  "\\\\.\\DISPLAY1",
+                                               "label":  "Generic PnP Monitor",
+                                               "primary":  true,
+                                               "x":  0,
+                                               "y":  0,
+                                               "width":  2560,
+                                               "height":  1600
+                                           },
+                                           {
+                                               "device":  "\\\\.\\DISPLAY5",
+                                               "label":  "Generic PnP Monitor",
+                                               "primary":  false,
+                                               "x":  2560,
+                                               "y":  0,
+                                               "width":  1920,
+                                               "height":  1200
+                                           }
+                                       ]
                       },
-    "selectedMonitor":  null
+    "selectedMonitor":  {
+                            "device":  "\\\\.\\DISPLAY5",
+                            "label":  "Generic PnP Monitor",
+                            "primary":  false,
+                            "x":  2560,
+                            "y":  0,
+                            "width":  1920,
+                            "height":  1200
+                        }
 }
