@@ -73,15 +73,6 @@ if (-not $buildProcess.WaitForExit($BuildTimeoutSeconds * 1000)) {
 $buildProcess.Refresh()
 
 Get-Content $buildOut
-$buildExitCode = $buildProcess.ExitCode
-if ($null -eq $buildExitCode) { $buildExitCode = -1 }
-if ($buildExitCode -ne 0) {
-    Get-Content $buildErr
-    Copy-Item -Force -Path $configureOut, $configureErr, $buildOut, $buildErr -Destination $SyncDir
-    throw "DXGI preview build failed with exit code $buildExitCode. See $buildOut and $buildErr."
-}
-Write-Host "Build completed."
-
 $previewCandidates = @(
     "build\platforms\windows\Debug\ar-overlay-windows-dxgi-preview.exe",
     "build\platforms\windows\ar-overlay-windows-dxgi-preview.exe"
@@ -92,6 +83,22 @@ if (-not $preview) {
     $preview = Get-ChildItem -Path "build\platforms\windows" -Recurse -Filter "ar-overlay-windows-dxgi-preview.exe" -ErrorAction SilentlyContinue |
         Select-Object -ExpandProperty FullName -First 1
 }
+
+$buildExitCode = $buildProcess.ExitCode
+if ($null -eq $buildExitCode) {
+    if ($preview) {
+        Write-Host "Build process exit code was unavailable, but DXGI preview binary was produced; treating build as successful."
+        $buildExitCode = 0
+    } else {
+        $buildExitCode = -1
+    }
+}
+if ($buildExitCode -ne 0) {
+    Get-Content $buildErr
+    Copy-Item -Force -Path $configureOut, $configureErr, $buildOut, $buildErr -Destination $SyncDir
+    throw "DXGI preview build failed with exit code $buildExitCode. See $buildOut and $buildErr."
+}
+Write-Host "Build completed."
 if (-not $preview) {
     $exeInventory = Join-Path $OutDir "cmake-built-executables.txt"
     Get-ChildItem -Path "build\platforms\windows" -Recurse -Filter "*.exe" -ErrorAction SilentlyContinue |

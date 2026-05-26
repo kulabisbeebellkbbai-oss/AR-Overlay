@@ -138,6 +138,10 @@ Current preview result:
   applies a 180-second default build timeout, copies partial logs on timeout,
   and supports `-BuildOnly` for build isolation without preflight or display
   presentation.
+- A build-only run then produced the DXGI executable successfully, but
+  PowerShell returned a null `Start-Process` exit code. The runner now treats a
+  missing build exit code as success when `ar-overlay-windows-dxgi-preview.exe`
+  is present in the build tree.
 
 ## Hardware Bring-Up Status
 
