@@ -154,6 +154,16 @@ Current preview result:
   correct, text was visible and centered, motion/background changes were smooth,
   no real noticeable flicker was observed, and no Windows display mode changes
   were needed.
+- After that testing, the user reported that newly connected USB keyboard and
+  mouse devices were not recognized. Restart then hung and required a forced
+  reboot. Windows wrote `C:\Windows\Minidump\052626-16890-01.dmp`, another
+  `DRIVER_POWER_STATE_FAILURE (9f)` / `0x9F_4_nt!PnpBugcheckPowerTimeout`.
+  WinDbg blackbox PnP again identifies
+  `DISPLAY\MRG4102\5&23fdb3e6&0&UID4356`, the XReal 1S monitor path, with
+  `PnpProblemCode 24`. Post-reboot, generic USB keyboard/mouse devices are
+  recognized again, while XReal / `VID_3318` devices remain phantom and the
+  active Win32 displays are `\\.\DISPLAY5` external monitor and `\\.\DISPLAY1`
+  internal panel.
 
 ## Hardware Bring-Up Status
 

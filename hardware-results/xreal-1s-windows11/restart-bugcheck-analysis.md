@@ -20,13 +20,19 @@ desktop monitor enumeration and the user performed a restart.
   - Copied locally to `build\hardware\xreal-1s-windows11\052526-16796-01.dmp`
   - Crash time: 2026-05-25 00:00 local
   - Uptime: 6 days 13:00:22
+- `C:\Windows\Minidump\052626-16890-01.dmp`
+  - Copied locally to `build\hardware\xreal-1s-windows11\052626-16890-01.dmp`
+  - Crash time: 2026-05-26 19:38 local
+  - Uptime: 1 day 3:43:20
+  - User-observed symptom before forced reboot: USB devices, including a USB
+    keyboard and mouse, were connected but not recognized.
 
 The minidump binaries are not tracked in git. Raw debugger transcripts remain
 under ignored `build\hardware\xreal-1s-windows11\`.
 
 ## Shared Bugcheck Signature
 
-Both dumps report the same Windows bugcheck:
+All analyzed dumps report the same Windows bugcheck:
 
 ```text
 DRIVER_POWER_STATE_FAILURE (9f)
@@ -49,7 +55,7 @@ Targeted debugger commands:
 dt nt!_TRIAGE_9F_PNP <arg4>
 ```
 
-Both dumps identify the same PnP device:
+All analyzed dumps identify the same PnP device:
 
 ```text
 PnpEventInformation: 3
@@ -71,6 +77,16 @@ After the 15:55 crash/restart:
 - Non-present XReal entries are all `CM_PROB_PHANTOM`, including the monitor,
   HID, audio, USB composite, NCM, and CDC ECM interfaces.
 
+After the 2026-05-26 19:39 forced reboot:
+
+- Generic USB keyboard and mouse devices are present again and report
+  `CM_PROB_NONE`.
+- The XReal 1S / `VID_3318` devices remain non-present `CM_PROB_PHANTOM`
+  entries.
+- Win32 monitor enumeration reports the active external monitor
+  `\\.\DISPLAY5` at `3840 x 2160` and the internal panel `\\.\DISPLAY1`; the
+  XReal monitor is not active.
+
 The latest post-crash recovery report is tracked as:
 
 ```text
@@ -81,9 +97,12 @@ hardware-results\xreal-1s-windows11\xreal-display-recovery-report.json
 
 The repeated crash is tied to Windows PnP/power handling of the XReal display
 device path, with USB/audio/network companion interfaces present in the device
-history. AR Overlay can trigger or expose the state by exercising preview and
-display enumeration, but the actual crash is in Windows driver power-transition
-handling for the XReal monitor path.
+history. The 2026-05-26 recurrence widened into a temporary host USB recognition
+failure for newly connected keyboard/mouse devices before the forced reboot,
+consistent with a broader PnP/USB stack stall while the same XReal display
+device path held the bugcheck signature. AR Overlay can trigger or expose the
+state by exercising preview and display enumeration, but the actual crash is in
+Windows driver power-transition handling for the XReal monitor path.
 
 Do not repeatedly run preview or topology-changing recovery commands while this
 signature is active. Use diagnose-only reporting first.
