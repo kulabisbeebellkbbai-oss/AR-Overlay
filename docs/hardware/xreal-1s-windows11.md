@@ -247,6 +247,29 @@ shared-scene DXGI renderer for the current static-text fixture.
 Next design path decision: broaden the DXGI renderer to cover the full shared
 scene element set, including z-order and image fixtures, or wire the DXGI
 presentation path to live API/session updates first.
+
+Current path: live API/session updates first. Start the file-backed API bridge
+in one PowerShell window:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-start-dxgi-live-api.ps1
+```
+
+Then run the DXGI preview in another PowerShell window:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File scripts\windows-build-and-xreal-dxgi-preview.ps1
+```
+
+Send a fixture update through the shared API with:
+
+```powershell
+node scripts\send-dxgi-fixture.js --scene=fixtures/scenes/static-text.json
+```
+
+The API bridge writes `build\live\windows-dxgi-scene.json`, and the DXGI
+preview polls that state file while running. This validates live session/API
+updates before broadening the DXGI renderer to every scene element type.
 The runner also prints configure/build phase markers and times out the DXGI
 target build after 180 seconds by default. Use `-BuildOnly` to isolate build
 behavior without running preflight or opening a presentation window, and use

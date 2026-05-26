@@ -13,6 +13,8 @@
     "check:host-emulators": "node scripts/check-host-emulators.js",
     "verify:platform-scaffolds": "node scripts/verify-platform-scaffolds.js",
     "serve:api": "node scripts/serve-api.js",
+    "serve:dxgi-session": "node scripts/serve-dxgi-session.js",
+    "send:dxgi-fixture": "node scripts/send-dxgi-fixture.js",
     "verify": "npm run validate:fixtures && npm test && npm run compare:frames && npm run render:fixtures && npm run emulate && npm run check:host-emulators && npm run verify:platform-scaffolds"
   },
   "engines": {

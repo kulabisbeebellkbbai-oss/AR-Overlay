@@ -23,6 +23,8 @@ Expected files from the Windows host:
   `cmake-configure-dxgi-preview.err.txt`,
   `cmake-build-dxgi-preview.txt`, and `cmake-build-dxgi-preview.err.txt`, when
   collecting DirectX/DXGI build evidence or diagnosing build failures
+- `build\live\windows-dxgi-scene.json`, ignored by git, is the live state file
+  used by the Windows DXGI API bridge during live-update tests
 - `xreal-input-report.json` and `input-manual-result.md`, when collecting
   physical input discovery evidence
 - `ar-overlay-windows-raw-input-capture.txt`,

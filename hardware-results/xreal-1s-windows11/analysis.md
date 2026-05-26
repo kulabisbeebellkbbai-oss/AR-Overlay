@@ -170,3 +170,10 @@ there were no long frames, no `Present` failures, and no noticeable flicker.
 Next step is a design path decision: either broaden the DXGI renderer to cover
 the full shared scene element set, including z-order and image fixtures, or wire
 the DXGI presentation path to live API/session updates first.
+
+Decision taken: wire live API/session updates first. The Windows path now has a
+file-backed API bridge (`scripts\windows-start-dxgi-live-api.ps1`) that writes
+`build\live\windows-dxgi-scene.json`; the DXGI preview accepts `--scene-file`
+and polls that file while rendering. The next hardware validation is to run the
+API bridge and DXGI preview together, send a fixture through
+`scripts\send-dxgi-fixture.js`, and confirm the XReal display updates live.

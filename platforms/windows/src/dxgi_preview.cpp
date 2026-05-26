@@ -11,7 +11,9 @@
 
 #include <algorithm>
 #include <chrono>
+#include <cctype>
 #include <cwchar>
+#include <fstream>
 #include <iomanip>
 #include <iostream>
 #include <iterator>
@@ -44,6 +46,7 @@ static bool requireTarget = false;
 static bool listOnly = false;
 static int durationSeconds = 20;
 static bool running = true;
+static std::wstring sceneFile;
 
 struct FrameStats {
     int frameCount = 0;
@@ -55,6 +58,14 @@ struct FrameStats {
     double avgFrameMs = 0;
     double maxFrameMs = 0;
     HRESULT lastPresentFailure = S_OK;
+};
+
+struct LiveSceneState {
+    std::string primaryText = "AR Overlay Ready";
+    std::string secondaryText = "Shared scene via Windows DXGI";
+    std::string sceneId = "static-text";
+    int revision = 0;
+    FILETIME lastWriteTime{};
 };
 
 std::string hresultHex(HRESULT value) {
@@ -106,6 +117,81 @@ std::string narrow(const std::wstring& value) {
     std::string output(static_cast<std::size_t>(size - 1), '\0');
     WideCharToMultiByte(CP_UTF8, 0, value.c_str(), -1, output.data(), size, nullptr, nullptr);
     return output;
+}
+
+std::wstring widen(const std::string& value) {
+    if (value.empty()) return L"";
+    int size = MultiByteToWideChar(CP_UTF8, 0, value.c_str(), -1, nullptr, 0);
+    std::wstring output(static_cast<std::size_t>(size - 1), L'\0');
+    MultiByteToWideChar(CP_UTF8, 0, value.c_str(), -1, output.data(), size);
+    return output;
+}
+
+std::string unescapeJsonString(const std::string& value) {
+    std::string output;
+    output.reserve(value.size());
+    bool escaping = false;
+    for (char ch : value) {
+        if (escaping) {
+            switch (ch) {
+                case '"': output += '"'; break;
+                case '\\': output += '\\'; break;
+                case '/': output += '/'; break;
+                case 'b': output += '\b'; break;
+                case 'f': output += '\f'; break;
+                case 'n': output += '\n'; break;
+                case 'r': output += '\r'; break;
+                case 't': output += '\t'; break;
+                default: output += ch; break;
+            }
+            escaping = false;
+        } else if (ch == '\\') {
+            escaping = true;
+        } else {
+            output += ch;
+        }
+    }
+    return output;
+}
+
+std::string extractJsonString(const std::string& json, const std::string& key) {
+    const std::string marker = "\"" + key + "\"";
+    std::size_t pos = json.find(marker);
+    if (pos == std::string::npos) return "";
+    pos = json.find(':', pos + marker.size());
+    if (pos == std::string::npos) return "";
+    pos = json.find('"', pos + 1);
+    if (pos == std::string::npos) return "";
+    std::size_t end = pos + 1;
+    bool escaping = false;
+    for (; end < json.size(); ++end) {
+        char ch = json[end];
+        if (escaping) {
+            escaping = false;
+        } else if (ch == '\\') {
+            escaping = true;
+        } else if (ch == '"') {
+            return unescapeJsonString(json.substr(pos + 1, end - pos - 1));
+        }
+    }
+    return "";
+}
+
+int extractJsonInt(const std::string& json, const std::string& key, int fallback) {
+    const std::string marker = "\"" + key + "\"";
+    std::size_t pos = json.find(marker);
+    if (pos == std::string::npos) return fallback;
+    pos = json.find(':', pos + marker.size());
+    if (pos == std::string::npos) return fallback;
+    ++pos;
+    while (pos < json.size() && std::isspace(static_cast<unsigned char>(json[pos]))) ++pos;
+    std::size_t end = pos;
+    while (end < json.size() && (std::isdigit(static_cast<unsigned char>(json[end])) || json[end] == '-')) ++end;
+    try {
+        return std::stoi(json.substr(pos, end - pos));
+    } catch (...) {
+        return fallback;
+    }
 }
 
 std::wstring lower(std::wstring value) {
@@ -228,6 +314,27 @@ void printMonitorList() {
     std::cout << "]}" << std::endl;
 }
 
+bool loadLiveSceneIfChanged(LiveSceneState& state) {
+    if (sceneFile.empty()) return false;
+
+    WIN32_FILE_ATTRIBUTE_DATA attributes{};
+    if (!GetFileAttributesExW(sceneFile.c_str(), GetFileExInfoStandard, &attributes)) return false;
+    if (CompareFileTime(&attributes.ftLastWriteTime, &state.lastWriteTime) == 0) return false;
+
+    std::ifstream input(narrow(sceneFile));
+    if (!input) return false;
+    std::string json((std::istreambuf_iterator<char>(input)), std::istreambuf_iterator<char>());
+    const std::string primary = extractJsonString(json, "primaryText");
+    const std::string secondary = extractJsonString(json, "secondaryText");
+    const std::string sceneId = extractJsonString(json, "sceneId");
+    if (!primary.empty()) state.primaryText = primary;
+    if (!secondary.empty()) state.secondaryText = secondary;
+    if (!sceneId.empty()) state.sceneId = sceneId;
+    state.revision = extractJsonInt(json, "revision", state.revision);
+    state.lastWriteTime = attributes.ftLastWriteTime;
+    return true;
+}
+
 int refreshRateForMonitor(const MonitorInfo& monitor) {
     if (monitor.device.empty()) return 0;
     DEVMODEW mode{};
@@ -309,6 +416,7 @@ HRESULT renderSharedScene(
     ID2D1SolidColorBrush* whiteBrush,
     ID2D1SolidColorBrush* accentBrush,
     ID2D1SolidColorBrush* panelBrush,
+    const LiveSceneState& liveScene,
     int frameCount) {
     const D2D1_SIZE_F size = renderTarget->GetSize();
     const float phase = static_cast<float>((frameCount % 240) / 240.0);
@@ -323,16 +431,17 @@ HRESULT renderSharedScene(
     renderTarget->FillRectangle(panel, panelBrush);
 
     const D2D1_RECT_F title = D2D1::RectF(panelLeft, panelTop + 50.0f, panelLeft + panelWidth, panelTop + 130.0f);
-    const wchar_t* titleText = L"AR Overlay Ready";
-    renderTarget->DrawText(titleText, static_cast<UINT32>(std::wcslen(titleText)), titleFormat, title, whiteBrush);
+    const std::wstring titleText = widen(liveScene.primaryText);
+    renderTarget->DrawText(titleText.c_str(), static_cast<UINT32>(titleText.size()), titleFormat, title, whiteBrush);
 
     const D2D1_RECT_F body = D2D1::RectF(panelLeft, panelTop + 150.0f, panelLeft + panelWidth, panelTop + 215.0f);
-    const wchar_t* bodyText = L"Shared scene via Windows DXGI";
-    renderTarget->DrawText(bodyText, static_cast<UINT32>(std::wcslen(bodyText)), bodyFormat, body, accentBrush);
+    const std::wstring bodyText = widen(liveScene.secondaryText);
+    renderTarget->DrawText(bodyText.c_str(), static_cast<UINT32>(bodyText.size()), bodyFormat, body, accentBrush);
 
     const D2D1_RECT_F footer = D2D1::RectF(panelLeft, panelTop + 215.0f, panelLeft + panelWidth, panelTop + 258.0f);
-    const wchar_t* footerText = L"Host input and API commands remain the shared input path";
-    renderTarget->DrawText(footerText, static_cast<UINT32>(std::wcslen(footerText)), bodyFormat, footer, whiteBrush);
+    const std::string footer = "scene=" + liveScene.sceneId + " revision=" + std::to_string(liveScene.revision);
+    const std::wstring footerText = widen(footer);
+    renderTarget->DrawText(footerText.c_str(), static_cast<UINT32>(footerText.size()), bodyFormat, footer, whiteBrush);
 
     return renderTarget->EndDraw();
 }
@@ -361,6 +470,7 @@ int wmain(int argc, wchar_t** argv) {
         if (arg.rfind(L"--device=", 0) == 0) targetDevice = arg.substr(9);
         if (arg.rfind(L"--display-number=", 0) == 0) targetDevice = L"\\\\.\\DISPLAY" + arg.substr(17);
         if (arg.rfind(L"--duration=", 0) == 0) durationSeconds = std::stoi(arg.substr(11));
+        if (arg.rfind(L"--scene-file=", 0) == 0) sceneFile = arg.substr(13);
         if (arg == L"--allow-fallback") allowFallback = true;
         if (arg == L"--require-target") requireTarget = true;
         if (arg == L"--list") listOnly = true;
@@ -535,6 +645,7 @@ int wmain(int argc, wchar_t** argv) {
         << "\"featureLevel\":\"0x" << std::hex << featureLevel << std::dec << "\","
         << "\"scene\":\"static-text\","
         << "\"renderer\":\"direct2d-directwrite\","
+        << "\"sceneFile\":\"" << jsonEscape(narrow(sceneFile)) << "\","
         << "\"durationSeconds\":" << durationSeconds
         << "}" << std::endl;
 
@@ -544,6 +655,8 @@ int wmain(int argc, wchar_t** argv) {
     const auto stopAt = startedAt + std::chrono::seconds(durationSeconds);
     auto previousFrameAt = startedAt;
     FrameStats stats;
+    LiveSceneState liveScene;
+    loadLiveSceneIfChanged(liveScene);
     MSG msg{};
     while (running && std::chrono::steady_clock::now() < stopAt) {
         while (PeekMessageW(&msg, nullptr, 0, 0, PM_REMOVE)) {
@@ -559,6 +672,7 @@ int wmain(int argc, wchar_t** argv) {
             whiteBrush.Get(),
             accentBrush.Get(),
             panelBrush.Get(),
+            liveScene,
             stats.frameCount);
         if (FAILED(hr)) {
             std::cerr << "renderSharedScene failed: " << hresultHex(hr) << "\n";
@@ -572,6 +686,7 @@ int wmain(int argc, wchar_t** argv) {
         }
 
         const auto now = std::chrono::steady_clock::now();
+        loadLiveSceneIfChanged(liveScene);
         recordFrameInterval(stats, std::chrono::duration<double, std::milli>(now - previousFrameAt).count(), targetFrameMs);
         previousFrameAt = now;
         ++stats.frameCount;
@@ -586,7 +701,8 @@ int wmain(int argc, wchar_t** argv) {
         << "\"platform\":\"windows\","
         << "\"mode\":\"xreal-dxgi-preview\","
         << "\"event\":\"summary\","
-        << "\"scene\":\"static-text\","
+        << "\"scene\":\"" << jsonEscape(liveScene.sceneId) << "\","
+        << "\"liveRevision\":" << liveScene.revision << ","
         << "\"frameCount\":" << stats.frameCount << ","
         << "\"elapsedMs\":" << std::chrono::duration<double, std::milli>(endedAt - startedAt).count()
         << ",\"targetRefreshHz\":" << targetRefreshHz

@@ -4,6 +4,7 @@ param(
     [int]$DisplayNumber = 2,
     [string]$OutDir = "build\hardware\xreal-1s-windows11",
     [string]$SyncDir = "hardware-results\xreal-1s-windows11",
+    [string]$SceneFile = "build\live\windows-dxgi-scene.json",
     [switch]$SkipCleanBuild,
     [int]$BuildTimeoutSeconds = 180,
     [switch]$BuildOnly
@@ -131,6 +132,7 @@ $previewArgs = @(
     "--target=$Target",
     "--display-number=$DisplayNumber",
     "--duration=$DurationSeconds",
+    "--scene-file=$SceneFile",
     "--require-target",
     "--allow-fallback"
 )
@@ -150,6 +152,7 @@ $manual = @"
 - Windows display number: $DisplayNumber
 - Duration seconds: $DurationSeconds
 - Clean build used: $(-not [bool]$SkipCleanBuild)
+- Scene file: $SceneFile
 - DXGI preview output: $previewOut
 - DXGI preview error output: $previewErr
 - DXGI preview exit code: $previewExit
@@ -159,6 +162,7 @@ Manual observations to fill in:
 - DXGI preview visible on XReal display: TODO
 - Full-screen placement/scaling correct: TODO
 - Shared scene text visible and centered: TODO
+- Live API scene updates visible: TODO
 - Motion/background changes smoothly: TODO
 - Flicker/latency/comfort notes: TODO
 - Any Windows display mode changes needed: TODO
