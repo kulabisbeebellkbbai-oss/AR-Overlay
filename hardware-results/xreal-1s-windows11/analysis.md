@@ -142,6 +142,13 @@ Current preview result:
   PowerShell returned a null `Start-Process` exit code. The runner now treats a
   missing build exit code as success when `ar-overlay-windows-dxgi-preview.exe`
   is present in the build tree.
+- DXGI shared-scene evidence from 2026-05-26 confirms the clean-built executable
+  rendered `scene:"static-text"` with `renderer:"direct2d-directwrite"` on
+  `\\.\DISPLAY5`, using hardware D3D11 and `flip-discard`, with exit code `0`.
+  It rendered `2234` frames over `20004.6 ms` at a reported `120 Hz` target,
+  with average frame interval `8.95462 ms`, maximum `17.6934 ms`, `0` frames
+  over `20 ms`, `0` frames over `33 ms`, `168` frames over target plus `2 ms`,
+  and `0` `Present` failures.
 
 ## Hardware Bring-Up Status
 
@@ -153,6 +160,7 @@ XReal 1S physical controls are closed as device-local firmware controls, not
 AR Overlay application inputs. Windows AR Overlay input should use host input
 or API paths. The Windows DirectX/DXGI presentation backend now runs and has
 manual visual confirmation on the validated XReal display target. The next
-hardware validation step is the DXGI shared-scene renderer with presentation
-timing/flicker instrumentation for the minor occasional flicker observed during
-the color-field test.
+hardware validation step is manual visual confirmation of the DXGI shared-scene
+renderer and acceptance or optimization of the measured 120 Hz pacing, because
+the run had no long frames or `Present` failures but did report `168` frames
+over target plus `2 ms`.

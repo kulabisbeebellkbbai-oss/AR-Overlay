@@ -232,6 +232,14 @@ If the build fails or the binary is not found, the runner copies CMake configure
 and build logs into `hardware-results\xreal-1s-windows11\` and, when needed,
 writes `cmake-built-executables.txt` with the executable inventory from the
 Windows build tree.
+
+The 2026-05-26 shared-scene DXGI run used the clean-built executable and
+rendered `scene:"static-text"` with `renderer:"direct2d-directwrite"` on
+`\\.\DISPLAY5`. It reported `2234` frames over `20004.6 ms`, average frame
+interval `8.95462 ms`, maximum `17.6934 ms`, `0` frames over `20 ms`, `0`
+frames over `33 ms`, `168` frames over target plus `2 ms`, and `0` `Present`
+failures. Manual visual confirmation remains to be completed before accepting
+the shared-scene DXGI renderer.
 The runner also prints configure/build phase markers and times out the DXGI
 target build after 180 seconds by default. Use `-BuildOnly` to isolate build
 behavior without running preflight or opening a presentation window, and use
