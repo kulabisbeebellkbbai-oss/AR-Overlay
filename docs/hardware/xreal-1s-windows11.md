@@ -238,8 +238,15 @@ rendered `scene:"static-text"` with `renderer:"direct2d-directwrite"` on
 `\\.\DISPLAY5`. It reported `2234` frames over `20004.6 ms`, average frame
 interval `8.95462 ms`, maximum `17.6934 ms`, `0` frames over `20 ms`, `0`
 frames over `33 ms`, `168` frames over target plus `2 ms`, and `0` `Present`
-failures. Manual visual confirmation remains to be completed before accepting
-the shared-scene DXGI renderer.
+failures. Manual visual confirmation reports the scene was visible on XReal,
+full-screen placement/scaling was correct, text was visible and centered,
+motion/background changes were smooth, no real noticeable flicker was observed,
+and no Windows display mode changes were needed. This accepts the
+shared-scene DXGI renderer for the current static-text fixture.
+
+Next design path decision: broaden the DXGI renderer to cover the full shared
+scene element set, including z-order and image fixtures, or wire the DXGI
+presentation path to live API/session updates first.
 The runner also prints configure/build phase markers and times out the DXGI
 target build after 180 seconds by default. Use `-BuildOnly` to isolate build
 behavior without running preflight or opening a presentation window, and use

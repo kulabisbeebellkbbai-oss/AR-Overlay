@@ -149,6 +149,11 @@ Current preview result:
   with average frame interval `8.95462 ms`, maximum `17.6934 ms`, `0` frames
   over `20 ms`, `0` frames over `33 ms`, `168` frames over target plus `2 ms`,
   and `0` `Present` failures.
+- Manual DXGI shared-scene confirmation from 2026-05-26 reports that the shared
+  scene was visible on the XReal display, full-screen placement/scaling was
+  correct, text was visible and centered, motion/background changes were smooth,
+  no real noticeable flicker was observed, and no Windows display mode changes
+  were needed.
 
 ## Hardware Bring-Up Status
 
@@ -159,8 +164,9 @@ display, presentation timing accepted against the reported 120 Hz target.
 XReal 1S physical controls are closed as device-local firmware controls, not
 AR Overlay application inputs. Windows AR Overlay input should use host input
 or API paths. The Windows DirectX/DXGI presentation backend now runs and has
-manual visual confirmation on the validated XReal display target. The next
-hardware validation step is manual visual confirmation of the DXGI shared-scene
-renderer and acceptance or optimization of the measured 120 Hz pacing, because
-the run had no long frames or `Present` failures but did report `168` frames
-over target plus `2 ms`.
+manual visual confirmation on the validated XReal display target, including the
+shared-scene renderer. The measured 120 Hz pacing is acceptable for this step:
+there were no long frames, no `Present` failures, and no noticeable flicker.
+Next step is a design path decision: either broaden the DXGI renderer to cover
+the full shared scene element set, including z-order and image fixtures, or wire
+the DXGI presentation path to live API/session updates first.
