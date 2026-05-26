@@ -133,6 +133,11 @@ Current preview result:
   build logs into `hardware-results\xreal-1s-windows11\`, recursively searches
   the build tree for the DXGI executable, and writes an executable inventory if
   the binary is still not found.
+- A subsequent run appeared to hang after CMake configure output and before any
+  AR display change. The runner now prints configure/build phase markers,
+  applies a 180-second default build timeout, copies partial logs on timeout,
+  and supports `-BuildOnly` for build isolation without preflight or display
+  presentation.
 
 ## Hardware Bring-Up Status
 

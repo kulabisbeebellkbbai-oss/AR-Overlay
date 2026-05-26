@@ -232,6 +232,10 @@ If the build fails or the binary is not found, the runner copies CMake configure
 and build logs into `hardware-results\xreal-1s-windows11\` and, when needed,
 writes `cmake-built-executables.txt` with the executable inventory from the
 Windows build tree.
+The runner also prints configure/build phase markers and times out the DXGI
+target build after 180 seconds by default. Use `-BuildOnly` to isolate build
+behavior without running preflight or opening a presentation window, and use
+`-BuildTimeoutSeconds <seconds>` if the Windows host is legitimately slower.
 
 The Windows preview, timing, and DXGI scripts run this preflight first:
 

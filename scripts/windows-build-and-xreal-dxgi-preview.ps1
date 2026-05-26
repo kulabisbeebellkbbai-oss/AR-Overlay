@@ -4,7 +4,9 @@ param(
     [int]$DisplayNumber = 2,
     [string]$OutDir = "build\hardware\xreal-1s-windows11",
     [string]$SyncDir = "hardware-results\xreal-1s-windows11",
-    [switch]$SkipCleanBuild
+    [switch]$SkipCleanBuild,
+    [int]$BuildTimeoutSeconds = 180,
+    [switch]$BuildOnly
 )
 
 $ErrorActionPreference = "Stop"
@@ -26,6 +28,7 @@ if (Test-Path $configureErr) { Remove-Item -Force $configureErr }
 if (Test-Path $buildOut) { Remove-Item -Force $buildOut }
 if (Test-Path $buildErr) { Remove-Item -Force $buildErr }
 
+Write-Host "Configuring Windows DXGI preview..."
 $configureProcess = Start-Process -FilePath "cmake" `
     -ArgumentList @("-S", "platforms/windows", "-B", "build/platforms/windows") `
     -Wait `
@@ -39,6 +42,7 @@ if ($configureProcess.ExitCode -ne 0) {
     Copy-Item -Force -Path $configureOut, $configureErr -Destination $SyncDir
     throw "CMake configure failed with exit code $($configureProcess.ExitCode). See $configureOut and $configureErr."
 }
+Write-Host "Configure completed."
 
 if ($SkipCleanBuild) {
     $buildArgs = @("--build", "build/platforms/windows", "--config", "Debug", "--target", "ar-overlay-windows-dxgi-preview")
@@ -46,19 +50,34 @@ if ($SkipCleanBuild) {
     $buildArgs = @("--build", "build/platforms/windows", "--config", "Debug", "--target", "ar-overlay-windows-dxgi-preview", "--clean-first")
 }
 
+Write-Host "Building Windows DXGI preview target..."
 $buildProcess = Start-Process -FilePath "cmake" `
     -ArgumentList $buildArgs `
-    -Wait `
     -PassThru `
     -NoNewWindow `
     -RedirectStandardOutput $buildOut `
     -RedirectStandardError $buildErr
+
+if (-not $buildProcess.WaitForExit($BuildTimeoutSeconds * 1000)) {
+    Write-Host "DXGI preview build timed out after $BuildTimeoutSeconds seconds."
+    try {
+        Stop-Process -Id $buildProcess.Id -Force -ErrorAction SilentlyContinue
+    } catch {
+        Write-Host "Could not stop build process $($buildProcess.Id): $_"
+    }
+    Copy-Item -Force -Path $configureOut, $configureErr, $buildOut, $buildErr -Destination $SyncDir
+    if (Test-Path $buildOut) { Get-Content $buildOut }
+    if (Test-Path $buildErr) { Get-Content $buildErr }
+    throw "DXGI preview build timed out after $BuildTimeoutSeconds seconds. See $buildOut and $buildErr."
+}
+
 Get-Content $buildOut
 if ($buildProcess.ExitCode -ne 0) {
     Get-Content $buildErr
     Copy-Item -Force -Path $configureOut, $configureErr, $buildOut, $buildErr -Destination $SyncDir
     throw "DXGI preview build failed with exit code $($buildProcess.ExitCode). See $buildOut and $buildErr."
 }
+Write-Host "Build completed."
 
 $previewCandidates = @(
     "build\platforms\windows\Debug\ar-overlay-windows-dxgi-preview.exe",
@@ -79,6 +98,11 @@ if (-not $preview) {
     throw "DXGI preview binary not found after successful build. See $exeInventory for executable inventory."
 }
 Write-Host "Using DXGI preview binary: $preview"
+if ($BuildOnly) {
+    Copy-Item -Force -Path $configureOut, $configureErr, $buildOut, $buildErr -Destination $SyncDir
+    Write-Host "BuildOnly requested; copied build evidence to $SyncDir"
+    exit 0
+}
 
 & powershell -ExecutionPolicy Bypass -File scripts\windows-xreal-preflight.ps1 `
     -Target $Target `
