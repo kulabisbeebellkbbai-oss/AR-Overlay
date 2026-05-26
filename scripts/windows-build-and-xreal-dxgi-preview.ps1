@@ -70,12 +70,15 @@ if (-not $buildProcess.WaitForExit($BuildTimeoutSeconds * 1000)) {
     if (Test-Path $buildErr) { Get-Content $buildErr }
     throw "DXGI preview build timed out after $BuildTimeoutSeconds seconds. See $buildOut and $buildErr."
 }
+$buildProcess.Refresh()
 
 Get-Content $buildOut
-if ($buildProcess.ExitCode -ne 0) {
+$buildExitCode = $buildProcess.ExitCode
+if ($null -eq $buildExitCode) { $buildExitCode = -1 }
+if ($buildExitCode -ne 0) {
     Get-Content $buildErr
     Copy-Item -Force -Path $configureOut, $configureErr, $buildOut, $buildErr -Destination $SyncDir
-    throw "DXGI preview build failed with exit code $($buildProcess.ExitCode). See $buildOut and $buildErr."
+    throw "DXGI preview build failed with exit code $buildExitCode. See $buildOut and $buildErr."
 }
 Write-Host "Build completed."
 

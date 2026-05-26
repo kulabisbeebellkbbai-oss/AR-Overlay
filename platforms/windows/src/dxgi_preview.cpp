@@ -246,9 +246,11 @@ HRESULT createSceneRenderer(
     ID2D1SolidColorBrush** whiteBrush,
     ID2D1SolidColorBrush** accentBrush,
     ID2D1SolidColorBrush** panelBrush) {
-    ComPtr<ID2D1Factory> d2dFactory;
-    HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &d2dFactory);
+    ID2D1Factory* rawD2dFactory = nullptr;
+    HRESULT hr = D2D1CreateFactory(D2D1_FACTORY_TYPE_SINGLE_THREADED, &rawD2dFactory);
     if (FAILED(hr)) return hr;
+    ComPtr<ID2D1Factory> d2dFactory;
+    d2dFactory.Attach(rawD2dFactory);
 
     ComPtr<IDXGISurface> surface;
     hr = swapChain->GetBuffer(0, __uuidof(IDXGISurface), reinterpret_cast<void**>(surface.GetAddressOf()));
