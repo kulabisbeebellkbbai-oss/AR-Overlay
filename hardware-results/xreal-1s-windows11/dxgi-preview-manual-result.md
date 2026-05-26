@@ -30,9 +30,9 @@ Programmatic result:
 
 Manual observations to fill in:
 
-- DXGI preview visible on XReal display: TODO
-- Full-screen placement/scaling correct: TODO
-- Shared scene text visible and centered: TODO
-- Motion/background changes smoothly: TODO
-- Flicker/latency/comfort notes: TODO
-- Any Windows display mode changes needed: TODO
+- DXGI preview visible on XReal display: yes
+- Full-screen placement/scaling correct: yes
+- Shared scene text visible and centered: yes
+- Motion/background changes smoothly: yes
+- Flicker/latency/comfort notes: no real noticible flicker
+- Any Windows display mode changes needed: no
