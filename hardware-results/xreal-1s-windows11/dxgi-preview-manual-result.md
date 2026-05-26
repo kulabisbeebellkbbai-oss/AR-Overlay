@@ -1,9 +1,10 @@
 ﻿# XReal 1S DXGI Preview Manual Result
 
-- Date: 2026-05-25T18:22:45.1586359-04:00
+- Date: 2026-05-26T01:52:56.5891635-04:00
 - Target selector: XREAL
 - Windows display number: 2
 - Duration seconds: 20
+- Clean build used: True
 - DXGI preview output: build\hardware\xreal-1s-windows11\ar-overlay-windows-dxgi-preview.txt
 - DXGI preview error output: build\hardware\xreal-1s-windows11\ar-overlay-windows-dxgi-preview.err.txt
 - DXGI preview exit code: 0

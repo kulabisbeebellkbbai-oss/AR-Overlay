@@ -1,5 +1,5 @@
 {
-    "timestamp":  "2026-05-25T18:22:23.8210465-04:00",
+    "timestamp":  "2026-05-26T01:52:35.3177862-04:00",
     "target":  "XREAL",
     "displayNumber":  2,
     "monitorListExecutable":  "build\\platforms\\windows\\Debug\\ar-overlay-windows-dxgi-preview.exe",
@@ -14,72 +14,72 @@
                                     "Problem":  0
                                 },
                                 {
-                                    "Class":  null,
-                                    "FriendlyName":  "CDC ECM",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u00261B9C1F57\u00260\u00260003",
-                                    "Status":  "Error",
-                                    "Problem":  28
-                                },
-                                {
                                     "Class":  "HIDClass",
-                                    "FriendlyName":  "USB Input Device",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u00261B9C1F57\u00260\u00260008",
-                                    "Status":  "OK",
-                                    "Problem":  0
-                                },
-                                {
-                                    "Class":  "AudioEndpoint",
-                                    "FriendlyName":  "Capture Input terminal (XREAL 1S)",
-                                    "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{80F7BED4-13EF-4391-998C-EBB9BA307DD0}",
-                                    "Status":  "OK",
-                                    "Problem":  0
-                                },
-                                {
-                                    "Class":  "HIDClass",
-                                    "FriendlyName":  "HID-compliant consumer control device",
-                                    "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u0026EABBC77\u00260\u00260000",
+                                    "FriendlyName":  "HID-compliant device",
+                                    "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
                                     "Status":  "OK",
                                     "Problem":  0
                                 },
                                 {
                                     "Class":  "HIDClass",
                                     "FriendlyName":  "USB Input Device",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u00261B9C1F57\u00260\u00260000",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
                                     "Status":  "OK",
                                     "Problem":  0
                                 },
                                 {
                                     "Class":  "MEDIA",
                                     "FriendlyName":  "XREAL 1S",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u00261B9C1F57\u00260\u00260005",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
                                     "Status":  "OK",
                                     "Problem":  0
                                 },
                                 {
-                                    "Class":  "AudioEndpoint",
-                                    "FriendlyName":  "Speakers (XREAL 1S)",
-                                    "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{7CB05A60-93D2-455C-AFD1-DB4C5E4EA77E}",
+                                    "Class":  null,
+                                    "FriendlyName":  "CDC ECM",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u002666989DB\u00260\u00260003",
+                                    "Status":  "Error",
+                                    "Problem":  28
+                                },
+                                {
+                                    "Class":  "Net",
+                                    "FriendlyName":  "UsbNcm Host Device #2",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
                                     "Status":  "OK",
                                     "Problem":  0
                                 },
                                 {
                                     "Class":  "HIDClass",
-                                    "FriendlyName":  "HID-compliant device",
-                                    "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u00262B8C986E\u00260\u00260000",
+                                    "FriendlyName":  "USB Input Device",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
+                                    "Status":  "OK",
+                                    "Problem":  0
+                                },
+                                {
+                                    "Class":  "AudioEndpoint",
+                                    "FriendlyName":  "Capture Input terminal (2- XREAL 1S)",
+                                    "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{A37EBA59-772C-4D52-8191-9D54D9B7D9E6}",
+                                    "Status":  "OK",
+                                    "Problem":  0
+                                },
+                                {
+                                    "Class":  "HIDClass",
+                                    "FriendlyName":  "HID-compliant consumer control device",
+                                    "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
+                                    "Status":  "OK",
+                                    "Problem":  0
+                                },
+                                {
+                                    "Class":  "AudioEndpoint",
+                                    "FriendlyName":  "Speakers (2- XREAL 1S)",
+                                    "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
                                     "Status":  "OK",
                                     "Problem":  0
                                 },
                                 {
                                     "Class":  "USB",
                                     "FriendlyName":  "USB Composite Device",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00261",
-                                    "Status":  "OK",
-                                    "Problem":  0
-                                },
-                                {
-                                    "Class":  "Net",
-                                    "FriendlyName":  "UsbNcm Host Device",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u00261B9C1F57\u00260\u00260001",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
                                     "Status":  "OK",
                                     "Problem":  0
                                 }
@@ -105,85 +105,85 @@
                                 "Class":  "HIDClass",
                                 "FriendlyName":  "HID-compliant device",
                                 "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "OK",
+                                "Problem":  0
                             },
                             {
                                 "Class":  "HIDClass",
                                 "FriendlyName":  "USB Input Device",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "OK",
+                                "Problem":  0
                             },
                             {
                                 "Class":  "MEDIA",
                                 "FriendlyName":  "XREAL 1S",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "OK",
+                                "Problem":  0
                             },
                             {
                                 "Class":  null,
                                 "FriendlyName":  "CDC ECM",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u002666989DB\u00260\u00260003",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "Error",
+                                "Problem":  28
                             },
                             {
                                 "Class":  "Net",
                                 "FriendlyName":  "UsbNcm Host Device #2",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "OK",
+                                "Problem":  0
                             },
                             {
                                 "Class":  "HIDClass",
                                 "FriendlyName":  "USB Input Device",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "OK",
+                                "Problem":  0
                             },
                             {
                                 "Class":  null,
                                 "FriendlyName":  "CDC ECM",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u00261B9C1F57\u00260\u00260003",
-                                "Status":  "Error",
-                                "Problem":  28
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "HIDClass",
                                 "FriendlyName":  "USB Input Device",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u00261B9C1F57\u00260\u00260008",
-                                "Status":  "OK",
-                                "Problem":  0
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "AudioEndpoint",
                                 "FriendlyName":  "Capture Input terminal (XREAL 1S)",
                                 "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{80F7BED4-13EF-4391-998C-EBB9BA307DD0}",
-                                "Status":  "OK",
-                                "Problem":  0
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "AudioEndpoint",
                                 "FriendlyName":  "Capture Input terminal (2- XREAL 1S)",
                                 "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{A37EBA59-772C-4D52-8191-9D54D9B7D9E6}",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "OK",
+                                "Problem":  0
                             },
                             {
                                 "Class":  "HIDClass",
                                 "FriendlyName":  "HID-compliant consumer control device",
                                 "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "OK",
+                                "Problem":  0
                             },
                             {
                                 "Class":  "HIDClass",
                                 "FriendlyName":  "HID-compliant consumer control device",
                                 "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u0026EABBC77\u00260\u00260000",
-                                "Status":  "OK",
-                                "Problem":  0
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "HIDClass",
@@ -196,57 +196,57 @@
                                 "Class":  "AudioEndpoint",
                                 "FriendlyName":  "Speakers (2- XREAL 1S)",
                                 "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "OK",
+                                "Problem":  0
                             },
                             {
                                 "Class":  "HIDClass",
                                 "FriendlyName":  "USB Input Device",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u00261B9C1F57\u00260\u00260000",
-                                "Status":  "OK",
-                                "Problem":  0
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "MEDIA",
                                 "FriendlyName":  "XREAL 1S",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u00261B9C1F57\u00260\u00260005",
-                                "Status":  "OK",
-                                "Problem":  0
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "AudioEndpoint",
                                 "FriendlyName":  "Speakers (XREAL 1S)",
                                 "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{7CB05A60-93D2-455C-AFD1-DB4C5E4EA77E}",
-                                "Status":  "OK",
-                                "Problem":  0
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "HIDClass",
                                 "FriendlyName":  "HID-compliant device",
                                 "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u00262B8C986E\u00260\u00260000",
-                                "Status":  "OK",
-                                "Problem":  0
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "USB",
                                 "FriendlyName":  "USB Composite Device",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00261",
-                                "Status":  "OK",
-                                "Problem":  0
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "USB",
                                 "FriendlyName":  "USB Composite Device",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
-                                "Status":  "Unknown",
-                                "Problem":  45
+                                "Status":  "OK",
+                                "Problem":  0
                             },
                             {
                                 "Class":  "Net",
                                 "FriendlyName":  "UsbNcm Host Device",
                                 "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u00261B9C1F57\u00260\u00260001",
-                                "Status":  "OK",
-                                "Problem":  0
+                                "Status":  "Unknown",
+                                "Problem":  45
                             },
                             {
                                 "Class":  "HIDClass",
@@ -258,58 +258,30 @@
                         ],
     "phantomXrealDevices":  [
                                 {
-                                    "Class":  "HIDClass",
-                                    "FriendlyName":  "HID-compliant device",
-                                    "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u002623E4F261\u00260\u00260000",
-                                    "Status":  "Unknown",
-                                    "Problem":  45
-                                },
-                                {
-                                    "Class":  "HIDClass",
-                                    "FriendlyName":  "USB Input Device",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u002666989DB\u00260\u00260008",
-                                    "Status":  "Unknown",
-                                    "Problem":  45
-                                },
-                                {
-                                    "Class":  "MEDIA",
-                                    "FriendlyName":  "XREAL 1S",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u002666989DB\u00260\u00260005",
-                                    "Status":  "Unknown",
-                                    "Problem":  45
-                                },
-                                {
                                     "Class":  null,
                                     "FriendlyName":  "CDC ECM",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u002666989DB\u00260\u00260003",
-                                    "Status":  "Unknown",
-                                    "Problem":  45
-                                },
-                                {
-                                    "Class":  "Net",
-                                    "FriendlyName":  "UsbNcm Host Device #2",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u002666989DB\u00260\u00260001",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_03\\6\u00261B9C1F57\u00260\u00260003",
                                     "Status":  "Unknown",
                                     "Problem":  45
                                 },
                                 {
                                     "Class":  "HIDClass",
                                     "FriendlyName":  "USB Input Device",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u002666989DB\u00260\u00260000",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_08\\6\u00261B9C1F57\u00260\u00260008",
                                     "Status":  "Unknown",
                                     "Problem":  45
                                 },
                                 {
                                     "Class":  "AudioEndpoint",
-                                    "FriendlyName":  "Capture Input terminal (2- XREAL 1S)",
-                                    "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{A37EBA59-772C-4D52-8191-9D54D9B7D9E6}",
+                                    "FriendlyName":  "Capture Input terminal (XREAL 1S)",
+                                    "InstanceId":  "SWD\\MMDEVAPI\\{0.0.1.00000000}.{80F7BED4-13EF-4391-998C-EBB9BA307DD0}",
                                     "Status":  "Unknown",
                                     "Problem":  45
                                 },
                                 {
                                     "Class":  "HIDClass",
                                     "FriendlyName":  "HID-compliant consumer control device",
-                                    "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u00263A012588\u00260\u00260000",
+                                    "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_08\\7\u0026EABBC77\u00260\u00260000",
                                     "Status":  "Unknown",
                                     "Problem":  45
                                 },
@@ -321,16 +293,44 @@
                                     "Problem":  45
                                 },
                                 {
+                                    "Class":  "HIDClass",
+                                    "FriendlyName":  "USB Input Device",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_00\\6\u00261B9C1F57\u00260\u00260000",
+                                    "Status":  "Unknown",
+                                    "Problem":  45
+                                },
+                                {
+                                    "Class":  "MEDIA",
+                                    "FriendlyName":  "XREAL 1S",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_05\\6\u00261B9C1F57\u00260\u00260005",
+                                    "Status":  "Unknown",
+                                    "Problem":  45
+                                },
+                                {
                                     "Class":  "AudioEndpoint",
-                                    "FriendlyName":  "Speakers (2- XREAL 1S)",
-                                    "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{A4EF9DD2-CDC7-4CB9-877D-B75DB79B05A9}",
+                                    "FriendlyName":  "Speakers (XREAL 1S)",
+                                    "InstanceId":  "SWD\\MMDEVAPI\\{0.0.0.00000000}.{7CB05A60-93D2-455C-AFD1-DB4C5E4EA77E}",
+                                    "Status":  "Unknown",
+                                    "Problem":  45
+                                },
+                                {
+                                    "Class":  "HIDClass",
+                                    "FriendlyName":  "HID-compliant device",
+                                    "InstanceId":  "HID\\VID_3318\u0026PID_043E\u0026MI_00\\7\u00262B8C986E\u00260\u00260000",
                                     "Status":  "Unknown",
                                     "Problem":  45
                                 },
                                 {
                                     "Class":  "USB",
                                     "FriendlyName":  "USB Composite Device",
-                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00266",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\\5\u0026C7A9A39\u00260\u00261",
+                                    "Status":  "Unknown",
+                                    "Problem":  45
+                                },
+                                {
+                                    "Class":  "Net",
+                                    "FriendlyName":  "UsbNcm Host Device",
+                                    "InstanceId":  "USB\\VID_3318\u0026PID_043E\u0026MI_01\\6\u00261B9C1F57\u00260\u00260001",
                                     "Status":  "Unknown",
                                     "Problem":  45
                                 },
@@ -346,7 +346,7 @@
                           "monitors":  [
                                            {
                                                "device":  "\\\\.\\DISPLAY1",
-                                               "label":  "Generic PnP Monitor",
+                                               "label":  "",
                                                "primary":  true,
                                                "x":  0,
                                                "y":  0,
@@ -355,7 +355,7 @@
                                            },
                                            {
                                                "device":  "\\\\.\\DISPLAY5",
-                                               "label":  "Generic PnP Monitor",
+                                               "label":  "",
                                                "primary":  false,
                                                "x":  2560,
                                                "y":  0,
@@ -366,7 +366,7 @@
                       },
     "selectedMonitor":  {
                             "device":  "\\\\.\\DISPLAY5",
-                            "label":  "Generic PnP Monitor",
+                            "label":  "",
                             "primary":  false,
                             "x":  2560,
                             "y":  0,

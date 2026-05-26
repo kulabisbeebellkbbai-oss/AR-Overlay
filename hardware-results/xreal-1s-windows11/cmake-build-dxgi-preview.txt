@@ -1,0 +1,8 @@
+MSBuild version 18.5.4+cb4e32d21 for .NET Framework
+
+MSBuild version 18.5.4+cb4e32d21 for .NET Framework
+
+  1>Checking Build System
+  Building Custom Rule C:/Users/chris/Documents/Codex/AR-Overlay/platforms/windows/CMakeLists.txt
+  dxgi_preview.cpp
+  ar-overlay-windows-dxgi-preview.vcxproj -> C:\Users\chris\Documents\Codex\AR-Overlay\build\platforms\windows\Debug\ar-overlay-windows-dxgi-preview.exe
